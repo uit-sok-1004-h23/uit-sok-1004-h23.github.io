@@ -23,4 +23,4 @@
 |10. november |15    | Case 5: Deskriptiv analyse av prisdata fra SSB (KPI)   |ESH | [lenker til case og R kode](lenker_til_case_og_R_kode.md){:target='_blank_'} | 
 |17. november |16   | Gjennomgang av prosjektoppgaven      | ESH       |   |
 |24. november|17  | Individet og samfunnet        | DC         | [Ressursside](ressurser_F17.md){:target='_blank_'}  |
-|9. desember |** Frist **  | Prosjektoppgave       | DC/ESH         |  |
+|9. desember |**Frist**  | Prosjektoppgave       | DC/ESH         |  |
