@@ -8,11 +8,12 @@
 |22. august|F3   | RStudio projects, reproduserbarhet og tidyverse  |ESH     | [Ressursside](ressurser_F3.md){:target='_blank_'}  |
 |25. august|F4    | Plots, Markdown og Git | ESH| [Ressursside](ressurser_F4.md){:target='_blank_'} |
 |31.08|**Frist**| iKomp|  | Leveres i Canvas LENKE|
-|1. september|V1   | Skriveverksted    | DC/ESH       |  |
+|1. september|V1   | Skriveverksted 1: Innføring   | DC/ESH       |  |
 |8. september|F5   | Bruttonasjonalprodukt (BNP)    | DC       | [Ressursside](ressurser_F5.md){:target='_blank_'}  |
 |15. september|F6     | Vekst og økonomiske systemer  | DC | [Ressursside](ressurser_F6.md){:target='_blank_'}   |
 |20. september| S1  | Seminar 1: BNP, vekst, og økonomiske systemer | DC |  |
 |22. september|C1 | Case 1: Bruttonasjonalprodukt - BNP | ESH       | [lenker til case og R kode](lenker_til_case_og_R_kode.md){:target='_blank_'} |
+|27. september|V2   | Skriveverksted 2: Markdown  |ESH |  [lenker til case og R kode](lenker_til_case_og_R_kode.md){:target='_blank_'} |
 |29. september|C2   | Case 2: Årlig bruttonasjonalprodukt 1865-2011  |ESH |  [lenker til case og R kode](lenker_til_case_og_R_kode.md){:target='_blank_'} |
 |6. oktober|F7    | Grunnleggende begreper i samfunnsøkonomi           | DC | [Ressursside](ressurser_F9.md){:target='_blank_'}   
 |3. oktober|**Frist**    | Første mappeinnlevering        | DC/ESH |    |
