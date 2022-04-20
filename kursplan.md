@@ -21,10 +21,10 @@
 |18. oktober| S2  | Seminar 2: Begreper, vekst, produktivitet | DC |  |
 |20. oktober|C3  | Case 3: Analyse av sammenhengen mellom økonomisk aktivitet (BNP), CO2-utslipp og global temperatur  |ESH| [lenker til case og R kode](lenker_til_case_og_R_kode.md){:target='_blank_'}  |
 |27. oktober|C4   | Case 4: Deskriptiv analyse av global handel           | ESH | [lenker til case og R kode](lenker_til_case_og_R_kode.md){:target='_blank_'} |
-|27. oktober|F9 | Lønn vs. Fritid  | DC | [Ressursside](ressurser_F13.md){:target='_blank_'}   | 
+|3. november|F9 | Lønn vs. Fritid  | DC | [Ressursside](ressurser_F13.md){:target='_blank_'}   | 
 |31. oktober|**Frist**    | Andre mappeinnlevering        | DC/ESH |    |
-|3. november |F10  | Arbeidsinnsats og inntekt  | DC         | [Ressursside](ressurser_F14.md){:target='_blank_'}   |
+|10. november |F10  | Arbeidsinnsats og inntekt  | DC         | [Ressursside](ressurser_F14.md){:target='_blank_'}   |
 |8. november| S3  | Seminar 3: Lønn, fritid, og arbeidsinnsats | DC |  |
-|10. november |C5    | Case 5: Deskriptiv analyse av prisdata fra SSB (KPI)   |ESH | [lenker til case og R kode](lenker_til_case_og_R_kode.md){:target='_blank_'} | 
+|14. november |C5    | Case 5: Deskriptiv analyse av prisdata fra SSB (KPI)   |ESH | [lenker til case og R kode](lenker_til_case_og_R_kode.md){:target='_blank_'} | 
 |17. november |F11   | Gjennomgang av prosjektoppgaven      | ESH       |   |
 |9. desember |**Frist**  | Prosjektoppgave       | DC/ESH         |  |
