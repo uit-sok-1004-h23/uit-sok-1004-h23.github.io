@@ -17,7 +17,7 @@ C = casegjennomgang
 |31.08|**Frist**| iKomp|  | Leveres i Canvas LENKE|
 |1. september|V1   | Skriveverksted 1: Innføring   | DC/ESH       |  |
 |8. september|F5   | Bruttonasjonalprodukt (BNP)    | DC       | [Ressursside](ressurssider/F5.md){:target='_blank_'}  |
-|15. september|F6     | Vekst og økonomiske systemer  | DC | [Ressursside](ressurser_F6.md){:target='_blank_'}   |
+|15. september|F6     | Vekst og økonomiske systemer  | DC | [Ressursside](/ressurssider/F6.md){:target='_blank_'}   |
 |20. september| S1  | Seminar 1: BNP, vekst, og økonomiske systemer | DC |  |
 |22. september|C1 | Case 1: Bruttonasjonalprodukt - BNP | ESH       | [lenker til case og R kode](lenker_til_case_og_R_kode.md){:target='_blank_'} |
 |27. september|V2   | Skriveverksted 2: Markdown  |ESH |  [lenker til case og R kode](lenker_til_case_og_R_kode.md){:target='_blank_'} |
