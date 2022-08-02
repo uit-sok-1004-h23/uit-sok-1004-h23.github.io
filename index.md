@@ -43,13 +43,13 @@ Et skriveverksted arrangeres i forbindelse med innleveringen i vitenskapsteori.
 
 
 - [iKomp](https://result.uit.no/ikomp/){:target="blank"}
-  - Online kurs. Arbeidskravet tas digitalt. Kursbevis leveres i [Canvas](https://uit.instructure.com/courses/24034){:target="blank"}. LENKEN OPPDATERES
+  - Online kurs. Arbeidskravet tas digitalt. Kursbevis leveres i [Canvas](https://uit.instructure.com/courses/26950){:target="blank"}.
 - Vitenskapsteori
-  - [Online kurs](https://mediasite.uit.no/Mediasite/Channel/74954bff93cb4035bb5fde4b71fbae825f){:target="blank"}. LENKEN OPPDATERES 
+  - Online kurs{:target="blank"}. LENKEN KOMMER 
 
 ## Kunngjøringer  
 
-Kunngjøringer og beskjeder legges ut i [Canvas](https://uit.instructure.com/courses/24034){:target="blank"}. LENKEN OPPDATERES
+Kunngjøringer og beskjeder legges ut i [Canvas](https://uit.instructure.com/courses/26950){:target="blank"}.
 
 
 ## Innlevering og eksamen  
