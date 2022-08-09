@@ -22,6 +22,7 @@ Kurset tas normalt i første høstsemester, og teller 15 studiepoeng.
 
 - [Derek J. Clark](https://uit.no/ansatte/derek.clark){:target="blank"} (fagansvarlig)
 - [Even Soltvedt Hvinden](https://uit.no/ansatte/even.c.hvinden){:target="blank"} 
+- studentassistenter
    
 
 ## Administrative spørsmål
@@ -54,6 +55,12 @@ Kunngjøringer og beskjeder legges ut i [Canvas](https://uit.instructure.com/cou
 
 ## Innlevering og eksamen  
 
-Kurset har mappeevaluering. Alle oppgaver er obligatorisk; noen er _arbeidskrav_ (uten karakter), mens andre er karaktergivende.  
+Kurset har mappeevaluering. Alle oppgaver er obligatorisk; to er _arbeidskrav_ (uten karakter) som må bestås for å få mappen vurdert. Øvrige oppgaver er en del av mappen; det gis en samlet karakter på mappen ved kursets slutt.
+
+- Arbeidskrav 1 - iKomp
+- Arbeidskrav 2 - Vitenskapsteori
+- Mappeoppgave 1
+- Mappeoppgave 2
+- Prosketoppgaven
 
 Frister, oppgaver og ressurser finnes i [kursplanen](kursplan.md){:target="blank"}.    
