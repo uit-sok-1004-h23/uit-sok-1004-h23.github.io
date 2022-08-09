@@ -10,7 +10,7 @@ C = casegjennomgang
 
 |Dato| Sesjon <img width=80/>   | Tema                                                              | Lærer  | Ressurser <img width=200/>  |
 |--------|----------------|----------------------------------------------------------------------|-----------|--------------------------------------|
-|16. august|F1   | Innledning og kursplan                        | DC/ESH       | [Ressursside](ressurser_F1.md){:target='_blank_'} | 
+|16. august|F1   | Innledning og kursplan                        | DC/ESH       | [Ressursside](/ressurssider/F1.md){:target='_blank_'} | 
 |18. august|F2  | RStudio IDE  | ESH | [Ressursside](ressurser_F2.md){:target='_blank_'} |
 |22. august|F3   | RStudio projects, reproduserbarhet og tidyverse  |ESH     | [Ressursside](ressurser_F3.md){:target='_blank_'}  |
 |25. august|F4    | Plots, Markdown og Git | ESH| [Ressursside](ressurser_F4.md){:target='_blank_'} |
