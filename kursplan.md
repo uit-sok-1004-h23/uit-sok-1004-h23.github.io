@@ -14,10 +14,10 @@ C = casegjennomgang
 |18. august|F2  | RStudio IDE  | ESH | [Ressursside](ressurser_F2.md){:target='_blank_'} |
 |22. august|F3   | RStudio projects, reproduserbarhet og tidyverse  |ESH     | [Ressursside](ressurser_F3.md){:target='_blank_'}  |
 |25. august|F4    | Plots, Markdown og Git | ESH| [Ressursside](ressurser_F4.md){:target='_blank_'} |
-|31. august|**Frist**| iKomp|  | Leveres i [Canvas](https://uit.instructure.com/courses/26950){:target='_blank_'} innen kl 16.00|
+|31. august|**Frist**| iKomp|  | Leveres i [Canvas](https://uit.instructure.com/courses/26950/assignments){:target='_blank_'} innen kl 16.00|
 |1. september|V1   | Skriveverksted 1: Innføring   | DC/ESH       |  |
 |8. september|F5   | Bruttonasjonalprodukt (BNP)    | DC       | [Ressursside](ressurssider/F5.md){:target='_blank_'}  |
-|14. september|**Frist**|Vitenskapsteori|  |Leveres i [Canvas](https://uit.instructure.com/courses/26950){:target='_blank_'} innen kl 16.00|
+|14. september|**Frist**|Vitenskapsteori|  |Leveres i [Canvas](https://uit.instructure.com/courses/26950/assignments){:target='_blank_'} innen kl 16.00|
 |15. september|F6     | Vekst og økonomiske systemer  | DC | [Ressursside](/ressurssider/F6.md){:target='_blank_'}   |
 |20. september| S1  | Seminar 1: BNP, vekst, og økonomiske systemer | DC |[Oppgaver](/seminar/s1.md){:target='_blank_'}  |
 |22. september|C1 | Case 1: Bruttonasjonalprodukt - BNP | ESH       | [lenker til case og R kode](lenker_til_case_og_R_code.md){:target='_blank_'} |
