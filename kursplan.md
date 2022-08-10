@@ -8,7 +8,7 @@ C = casegjennomgang
 
 
 
-|Dato| Sesjon <img width=80/>   | Tema                                                              | Lærer  | Ressurser <img width=200/>  |
+|Dato <img width=100/>| Sesjon <img width=80/>   | Tema                                                              | Lærer  | Ressurser <img width=200/>  |
 |--------|----------------|----------------------------------------------------------------------|-----------|--------------------------------------|
 |16. august|F1   | Innledning og kursplan                        | DC/ESH       | [Ressursside](/ressurssider/F1.md){:target='_blank_'} | 
 |18. august|F2  | RStudio IDE  | ESH | [Ressursside](ressurser_F2.md){:target='_blank_'} |
