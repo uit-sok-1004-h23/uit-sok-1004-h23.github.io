@@ -55,10 +55,15 @@ Kunngjøringer og beskjeder legges ut i [Canvas](https://uit.instructure.com/cou
 
 ## Innlevering og eksamen  
 
-Kurset har mappeevaluering. Alle oppgaver er obligatorisk; to er _arbeidskrav_ (uten karakter) som må bestås for å få mappen vurdert. Øvrige oppgaver er en del av mappen; det gis en samlet karakter på mappen ved kursets slutt.
+Kurset har mappeevaluering. Alle oppgaver er obligatorisk; 7 er _arbeidskrav_ (uten karakter) som må bestås for å få mappen vurdert. Øvrige oppgaver er en del av mappen; det gis en samlet karakter på mappen ved kursets slutt.
 
 - Arbeidskrav 1 - iKomp
 - Arbeidskrav 2 - Vitenskapsteori
+- Arbeidskrav 3 - Case 1
+- Arbeidskrav 4 - Case 2
+- Arbeidskrav 5 - Case 3
+- Arbeidskrav 6 - Case 4
+- Arbeidskrav 7 - Case 5
 - Mappeoppgave 1
 - Mappeoppgave 2
 - Prosketoppgaven
