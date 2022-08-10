@@ -8,9 +8,7 @@
 Kursplanen inneholder informasjon om undervisning og innleveringer.  
 
 - [Kursplan](kursplan.md){:target="blank"}  
-
-
-[Timeplan](https://timeplan.uit.no/emne_timeplan.php?sem=22h&module[]=SOK-1004-1){:target="blank"} på timeplan.uit.no
+- [Timeplan](https://timeplan.uit.no/emne_timeplan.php?sem=22h&module[]=SOK-1004-1){:target="blank"} på timeplan.uit.no
 
 
 ## Kursbeskrivelse 
@@ -44,13 +42,13 @@ Et skriveverksted arrangeres i forbindelse med innleveringen i vitenskapsteori.
 
 
 - [iKomp](https://result.uit.no/ikomp/){:target="blank"}
-  - Online kurs. Arbeidskravet tas digitalt. Kursbevis leveres i [Canvas](https://uit.instructure.com/courses/26950){:target="blank"}.
+  - Online kurs. Arbeidskravet tas digitalt. Kursbevis leveres i [Canvas](https://uit.instructure.com/courses/26950/assignments){:target="blank"}.
 - Vitenskapsteori
   - [Online kurs](https://uit.instructure.com/courses/26950/files/folder/Last%20opp%20medie?){:target="blank"} 
 
 ## Kunngjøringer  
 
-Kunngjøringer og beskjeder legges ut i [Canvas](https://uit.instructure.com/courses/26950){:target="blank"}.
+Kunngjøringer og beskjeder legges ut i [Canvas](https://uit.instructure.com/courses/26950){:target="blank"}. *Husk å merke av i Canvas for å motta kunngjøringer*.
 
 
 ## Innlevering og eksamen  
