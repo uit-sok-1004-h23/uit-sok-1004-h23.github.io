@@ -37,7 +37,7 @@ C = casegjennomgang
 |27. oktober|C4   | Case 4: Deskriptiv analyse av global handel           | ESH | [lenker til case og R kode](lenker_til_case_og_R_code.md){:target='_blank_'} |
 |31. oktober|**Frist**|Arbeidskrav 6 - Case 4|  |Leveres i [Canvas](https://uit.instructure.com/courses/26950/assignments){:target='_blank_'} innen kl 16.00|
 |1. november| S4  | Seminar 4: Gjennomgang case 3 og 4 | TBA |  |
-|3. november|F9 | Lønn vs. Fritid  | DC | [Ressursside](/ressurssider/F9.md){:target='_blank_'}   | 
+|2. november|F9 | Lønn vs. Fritid  | DC | [Ressursside](/ressurssider/F9.md){:target='_blank_'}   | 
 |7. november|**Frist**    | Innlevering mappeoppgave 2        |  |Leveres i [Wiseflow](https://europe.wiseflow.net/login){:target='_blank_'}   |
 |8. november| S5  | Seminar 5: Lønn, fritid, og arbeidsinnsats | DC |[Oppgaver](/seminar/s5.md){:target='_blank_'}  |
 |10. november |F10  | Arbeidsinnsats og inntekt  | DC         | [Ressursside](/ressurssider/F10.md){:target='_blank_'}   |
