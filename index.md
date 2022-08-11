@@ -30,9 +30,8 @@ For henvendelser av administrative art send e-post til: <hhcampus@hjelp.uit.no>.
 
 ## Pensum  
 
-[Leganto](https://bibsys-c.alma.exlibrisgroup.com/leganto/readinglist/lists/8430615560002205?auth=SAML){:target="blank"}
 - [The Economy - CORE](https://www.core-econ.org/the-economy/book/text/0-3-contents.html){:target="blank"}
-- [Learn RStudio IDE: Quick, Effective, and Productive Data Science - Matthew Campbell](https://link.springer.com/content/pdf/10.1007%2F978-1-4842-4511-8.pdf){:target="blank"}
+- [R for Data Science - Hadley Wickham & Garrett Grolemund](https://r4ds.had.co.nz/){:target="blank"}
 
 ## Ex.fac. oppgaver  
 Dette kurset er ex.fac (Examen facultatum) for bachelorstudiet i Samfunnsøkonomi med datavitenskap.  
