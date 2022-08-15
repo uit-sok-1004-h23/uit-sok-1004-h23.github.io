@@ -14,7 +14,7 @@ Kursplanen inneholder informasjon om undervisning og innleveringer.
 ## Kursbeskrivelse 
 
 Kurset tas normalt i første høstsemester, og teller 15 studiepoeng.  
-[Læringsutbyttebeskrivelse](https://uit.no/utdanning/emner/emne?p_document_id=722325){:target="blank"}
+[Læringsutbyttebeskrivelse](https://uit.no/utdanning/emner/emne/766159/sok-1004){:target="blank"}
 
 ## Faglærerinfo  
 
