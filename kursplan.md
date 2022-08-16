@@ -11,9 +11,9 @@ C = casegjennomgang
 |Dato <img width=100/>| Sesjon <img width=80/>   | Tema                                                              | Lærer  | Ressurser <img width=200/>  |
 |--------|----------------|----------------------------------------------------------------------|-----------|--------------------------------------|
 |16. august|F1   | Innledning og kursplan                        | DC/ESH       | [Ressursside](/ressurssider/F1.md){:target='_blank_'} | 
-|18. august|F2  | RStudio  | ESH | [Ressursside](/ressurssider/F2.md){:target='_blank_'} |
+|18. august|F2  | RStudio intro  | ESH | [Ressursside](/ressurssider/F2.md){:target='_blank_'} |
 |22. august|F3   | tidyverse, ggplot2  |ESH     | [Ressursside](/ressurssider/F3.md){:target='_blank_'}  |
-|25. august|F4    | reproduserbarhet, git og markdown | ESH| [Ressursside](/ressurssider/F3.md){:target='_blank_'} |
+|25. august|F4    | reproduserbarhet, git og quarto | ESH| [Ressursside](/ressurssider/F3.md){:target='_blank_'} |
 |31. august|**Frist**| Arbreidskrav 1 - iKomp|  | Leveres i [Canvas](https://uit.instructure.com/courses/26950/assignments){:target='_blank_'} innen kl 16.00|
 |1. september|V1   | Skriveverksted 1: Innføring   | DC/ESH       |  |
 |8. september|F5   | Bruttonasjonalprodukt (BNP)    | DC       | [Ressursside](ressurssider/F5.md){:target='_blank_'}  |
