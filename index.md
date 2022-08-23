@@ -20,7 +20,7 @@ Kurset tas normalt i første høstsemester, og teller 15 studiepoeng.
 
 - [Derek J. Clark](https://uit.no/ansatte/derek.clark){:target="blank"} (fagansvarlig)
 - [Even Soltvedt Hvinden](https://uit.no/ansatte/even.c.hvinden){:target="blank"} 
-- studentassistenter
+- [Ida Maria Hansen Berglund](ida.m.bergland@uit.no) (studentassistent)
    
 
 ## Administrative spørsmål
