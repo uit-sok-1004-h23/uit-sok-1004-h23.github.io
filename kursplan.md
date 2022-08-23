@@ -26,7 +26,7 @@ C = casegjennomgang
 |27. september|V2   | Skriveverksted 2: Markdown  |ESH |  |
 |29. september|C2   | Case 2: Årlig bruttonasjonalprodukt 1865-2011  |ESH |  [lenker til case og R kode](lenker_til_case_og_R_code.md){:target='_blank_'} |
 |3. oktober|**Frist**|Arbeidskrav 4 - Case 2|  |Leveres i [Canvas](https://uit.instructure.com/courses/26950/assignments){:target='_blank_'} innen kl 16.00|
-|4. oktober| S2  | Seminar 2: Gjennomgang case 1 og 2 | TBA |  |
+|4. oktober| S2  | Seminar 2: Gjennomgang case 1 og 2 | Ida |  |
 |6. oktober|F7    | Grunnleggende begreper i samfunnsøkonomi           | DC | [Ressursside](/ressurssider/F7.md){:target='_blank_'}   |
 |10. oktober|**Frist**    | Innlevering mappeoppgave 1        | | Leveres i [Wiseflow](https://europe.wiseflow.net/login){:target='_blank_'}    |
 |13. oktober|F8   | Økonomisk vekst, befolkningsvekst og produktivitet | DC | [Ressursside](/ressurssider/F8.md){:target='_blank_'}   |
@@ -36,13 +36,13 @@ C = casegjennomgang
 |24. oktober|**Frist**|Arbeidskrav 5 - Case 3|  |Leveres i [Canvas](https://uit.instructure.com/courses/26950/assignments){:target='_blank_'} innen kl 16.00|
 |27. oktober|C4   | Case 4: Deskriptiv analyse av global handel           | ESH | [lenker til case og R kode](lenker_til_case_og_R_code.md){:target='_blank_'} |
 |31. oktober|**Frist**|Arbeidskrav 6 - Case 4|  |Leveres i [Canvas](https://uit.instructure.com/courses/26950/assignments){:target='_blank_'} innen kl 16.00|
-|1. november| S4  | Seminar 4: Gjennomgang case 3 og 4 | TBA |  |
+|1. november| S4  | Seminar 4: Gjennomgang case 3 og 4 | Ida |  |
 |2. november|F9 | Lønn vs. Fritid  | DC | [Ressursside](/ressurssider/F9.md){:target='_blank_'}   | 
 |7. november|**Frist**    | Innlevering mappeoppgave 2        |  |Leveres i [Wiseflow](https://europe.wiseflow.net/login){:target='_blank_'}   |
 |8. november| S5  | Seminar 5: Lønn, fritid, og arbeidsinnsats | DC |[Oppgaver](/seminar/s5.md){:target='_blank_'}  |
 |10. november |F10  | Arbeidsinnsats og inntekt  | DC         | [Ressursside](/ressurssider/F10.md){:target='_blank_'}   |
 |17. november |C5    | Case 5: Deskriptiv analyse av prisdata fra SSB (KPI)   |ESH | [lenker til case og R kode](lenker_til_case_og_R_code.md){:target='_blank_'} |
 |21. november|**Frist**|Arbeidskrav 7 - Case 5|  |Leveres i [Canvas](https://uit.instructure.com/courses/26950/assignments){:target='_blank_'} innen kl 16.00|
-|22. november| S6  | Seminar 6: Gjennomgang case 5 | TBA |  |
+|22. november| S6  | Seminar 6: Gjennomgang case 5 | Ida |  |
 |24. november |F11 - *utdeling*  | Utdeling og gjennomgang av prosjektoppgaven      | DC/ESH       |   |
 |9. desember |**Frist**  | Prosjektoppgave       | DC/ESH         | Leveres i [Wiseflow](https://europe.wiseflow.net/login){:target='_blank_'} |
