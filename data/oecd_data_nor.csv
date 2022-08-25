@@ -1,0 +1,217 @@
+﻿MEASURE,Measure,AGE,Age group,Year,Unit,Value
+GINI,"Gini (disposable income, post taxes and transfers)",TOT,Total population,2008,0-1 scale,0.25
+GINI,"Gini (disposable income, post taxes and transfers)",TOT,Total population,2009,0-1 scale,0.245
+GINI,"Gini (disposable income, post taxes and transfers)",TOT,Total population,2010,0-1 scale,0.249
+GINI,"Gini (disposable income, post taxes and transfers)",TOT,Total population,2011,0-1 scale,0.25
+GINI,"Gini (disposable income, post taxes and transfers)",TOT,Total population,2012,0-1 scale,0.253
+GINI,"Gini (disposable income, post taxes and transfers)",TOT,Total population,2013,0-1 scale,0.252
+GINI,"Gini (disposable income, post taxes and transfers)",TOT,Total population,2014,0-1 scale,0.257
+GINI,"Gini (disposable income, post taxes and transfers)",TOT,Total population,2015,0-1 scale,0.272
+GINI,"Gini (disposable income, post taxes and transfers)",TOT,Total population,2016,0-1 scale,0.262
+GINI,"Gini (disposable income, post taxes and transfers)",TOT,Total population,2017,0-1 scale,0.262
+GINI,"Gini (disposable income, post taxes and transfers)",TOT,Total population,2018,0-1 scale,0.262
+GINI,"Gini (disposable income, post taxes and transfers)",TOT,Total population,2019,0-1 scale,0.261
+GINIB,"Gini (market income, before taxes and transfers)",TOT,Total population,2008,0-1 scale,0.401
+GINIB,"Gini (market income, before taxes and transfers)",TOT,Total population,2009,0-1 scale,0.401
+GINIB,"Gini (market income, before taxes and transfers)",TOT,Total population,2010,0-1 scale,0.409
+GINIB,"Gini (market income, before taxes and transfers)",TOT,Total population,2011,0-1 scale,0.409
+GINIB,"Gini (market income, before taxes and transfers)",TOT,Total population,2012,0-1 scale,0.41
+GINIB,"Gini (market income, before taxes and transfers)",TOT,Total population,2013,0-1 scale,0.412
+GINIB,"Gini (market income, before taxes and transfers)",TOT,Total population,2014,0-1 scale,0.416
+GINIB,"Gini (market income, before taxes and transfers)",TOT,Total population,2015,0-1 scale,0.432
+GINIB,"Gini (market income, before taxes and transfers)",TOT,Total population,2016,0-1 scale,0.428
+GINIB,"Gini (market income, before taxes and transfers)",TOT,Total population,2017,0-1 scale,0.429
+GINIB,"Gini (market income, before taxes and transfers)",TOT,Total population,2018,0-1 scale,0.429
+GINIB,"Gini (market income, before taxes and transfers)",TOT,Total population,2019,0-1 scale,0.427
+GINIG,"Gini (gross income, before taxes)",TOT,Total population,2008,0-1 scale,0.292
+GINIG,"Gini (gross income, before taxes)",TOT,Total population,2009,0-1 scale,0.288
+GINIG,"Gini (gross income, before taxes)",TOT,Total population,2010,0-1 scale,0.292
+GINIG,"Gini (gross income, before taxes)",TOT,Total population,2011,0-1 scale,0.294
+GINIG,"Gini (gross income, before taxes)",TOT,Total population,2012,0-1 scale,0.297
+GINIG,"Gini (gross income, before taxes)",TOT,Total population,2013,0-1 scale,0.296
+GINIG,"Gini (gross income, before taxes)",TOT,Total population,2014,0-1 scale,0.3
+GINIG,"Gini (gross income, before taxes)",TOT,Total population,2015,0-1 scale,0.312
+GINIG,"Gini (gross income, before taxes)",TOT,Total population,2016,0-1 scale,0.303
+GINIG,"Gini (gross income, before taxes)",TOT,Total population,2017,0-1 scale,0.303
+GINIG,"Gini (gross income, before taxes)",TOT,Total population,2018,0-1 scale,0.304
+GINIG,"Gini (gross income, before taxes)",TOT,Total population,2019,0-1 scale,0.303
+P90P10,P90/P10 disposable income decile ratio,TOT,Total population,2008,Interdecile ratio P90/P10,3
+P90P10,P90/P10 disposable income decile ratio,TOT,Total population,2009,Interdecile ratio P90/P10,2.9
+P90P10,P90/P10 disposable income decile ratio,TOT,Total population,2010,Interdecile ratio P90/P10,2.9
+P90P10,P90/P10 disposable income decile ratio,TOT,Total population,2011,Interdecile ratio P90/P10,3
+P90P10,P90/P10 disposable income decile ratio,TOT,Total population,2012,Interdecile ratio P90/P10,3
+P90P10,P90/P10 disposable income decile ratio,TOT,Total population,2013,Interdecile ratio P90/P10,3
+P90P10,P90/P10 disposable income decile ratio,TOT,Total population,2014,Interdecile ratio P90/P10,3.1
+P90P10,P90/P10 disposable income decile ratio,TOT,Total population,2015,Interdecile ratio P90/P10,3.1
+P90P10,P90/P10 disposable income decile ratio,TOT,Total population,2016,Interdecile ratio P90/P10,3.1
+P90P10,P90/P10 disposable income decile ratio,TOT,Total population,2017,Interdecile ratio P90/P10,3.1
+P90P10,P90/P10 disposable income decile ratio,TOT,Total population,2018,Interdecile ratio P90/P10,3.1
+P90P10,P90/P10 disposable income decile ratio,TOT,Total population,2019,Interdecile ratio P90/P10,3.1
+S80S20,S80/S20 disposable income quintile share,TOT,Total population,2008,Ratio,3.7
+S80S20,S80/S20 disposable income quintile share,TOT,Total population,2009,Ratio,3.6
+S80S20,S80/S20 disposable income quintile share,TOT,Total population,2010,Ratio,3.7
+S80S20,S80/S20 disposable income quintile share,TOT,Total population,2011,Ratio,3.7
+S80S20,S80/S20 disposable income quintile share,TOT,Total population,2012,Ratio,3.8
+S80S20,S80/S20 disposable income quintile share,TOT,Total population,2013,Ratio,3.8
+S80S20,S80/S20 disposable income quintile share,TOT,Total population,2014,Ratio,3.9
+S80S20,S80/S20 disposable income quintile share,TOT,Total population,2015,Ratio,4.1
+S80S20,S80/S20 disposable income quintile share,TOT,Total population,2016,Ratio,3.9
+S80S20,S80/S20 disposable income quintile share,TOT,Total population,2017,Ratio,4
+S80S20,S80/S20 disposable income quintile share,TOT,Total population,2018,Ratio,4
+S80S20,S80/S20 disposable income quintile share,TOT,Total population,2019,Ratio,4
+IND,Total number of individuals,TOT,Total population,2008,Persons,4748000
+IND,Total number of individuals,TOT,Total population,2009,Persons,4809000
+IND,Total number of individuals,TOT,Total population,2010,Persons,4869000
+IND,Total number of individuals,TOT,Total population,2011,Persons,4933000
+IND,Total number of individuals,TOT,Total population,2012,Persons,4991000
+IND,Total number of individuals,TOT,Total population,2013,Persons,5046000
+IND,Total number of individuals,TOT,Total population,2014,Persons,5102000
+IND,Total number of individuals,TOT,Total population,2015,Persons,5155000
+IND,Total number of individuals,TOT,Total population,2016,Persons,5201574
+IND,Total number of individuals,TOT,Total population,2017,Persons,5243255
+IND,Total number of individuals,TOT,Total population,2018,Persons,5280700
+IND,Total number of individuals,TOT,Total population,2019,Persons,5323500
+GINI,"Gini (disposable income, post taxes and transfers)",WA,Working age population: 18-65,2008,0-1 scale,0.256
+GINI,"Gini (disposable income, post taxes and transfers)",WA,Working age population: 18-65,2009,0-1 scale,0.253
+GINI,"Gini (disposable income, post taxes and transfers)",WA,Working age population: 18-65,2010,0-1 scale,0.257
+GINI,"Gini (disposable income, post taxes and transfers)",WA,Working age population: 18-65,2011,0-1 scale,0.26
+GINI,"Gini (disposable income, post taxes and transfers)",WA,Working age population: 18-65,2012,0-1 scale,0.265
+GINI,"Gini (disposable income, post taxes and transfers)",WA,Working age population: 18-65,2013,0-1 scale,0.262
+GINI,"Gini (disposable income, post taxes and transfers)",WA,Working age population: 18-65,2014,0-1 scale,0.268
+GINI,"Gini (disposable income, post taxes and transfers)",WA,Working age population: 18-65,2015,0-1 scale,0.283
+GINI,"Gini (disposable income, post taxes and transfers)",WA,Working age population: 18-65,2016,0-1 scale,0.272
+GINI,"Gini (disposable income, post taxes and transfers)",WA,Working age population: 18-65,2017,0-1 scale,0.273
+GINI,"Gini (disposable income, post taxes and transfers)",WA,Working age population: 18-65,2018,0-1 scale,0.273
+GINI,"Gini (disposable income, post taxes and transfers)",WA,Working age population: 18-65,2019,0-1 scale,0.273
+GINIB,"Gini (market income, before taxes and transfers)",WA,Working age population: 18-65,2008,0-1 scale,0.367
+GINIB,"Gini (market income, before taxes and transfers)",WA,Working age population: 18-65,2009,0-1 scale,0.367
+GINIB,"Gini (market income, before taxes and transfers)",WA,Working age population: 18-65,2010,0-1 scale,0.375
+GINIB,"Gini (market income, before taxes and transfers)",WA,Working age population: 18-65,2011,0-1 scale,0.377
+GINIB,"Gini (market income, before taxes and transfers)",WA,Working age population: 18-65,2012,0-1 scale,0.378
+GINIB,"Gini (market income, before taxes and transfers)",WA,Working age population: 18-65,2013,0-1 scale,0.377
+GINIB,"Gini (market income, before taxes and transfers)",WA,Working age population: 18-65,2014,0-1 scale,0.38
+GINIB,"Gini (market income, before taxes and transfers)",WA,Working age population: 18-65,2015,0-1 scale,0.395
+GINIB,"Gini (market income, before taxes and transfers)",WA,Working age population: 18-65,2016,0-1 scale,0.388
+GINIB,"Gini (market income, before taxes and transfers)",WA,Working age population: 18-65,2017,0-1 scale,0.389
+GINIB,"Gini (market income, before taxes and transfers)",WA,Working age population: 18-65,2018,0-1 scale,0.387
+GINIB,"Gini (market income, before taxes and transfers)",WA,Working age population: 18-65,2019,0-1 scale,0.385
+GINIG,"Gini (gross income, before taxes)",WA,Working age population: 18-65,2008,0-1 scale,0.295
+GINIG,"Gini (gross income, before taxes)",WA,Working age population: 18-65,2009,0-1 scale,0.292
+GINIG,"Gini (gross income, before taxes)",WA,Working age population: 18-65,2010,0-1 scale,0.297
+GINIG,"Gini (gross income, before taxes)",WA,Working age population: 18-65,2011,0-1 scale,0.301
+GINIG,"Gini (gross income, before taxes)",WA,Working age population: 18-65,2012,0-1 scale,0.305
+GINIG,"Gini (gross income, before taxes)",WA,Working age population: 18-65,2013,0-1 scale,0.302
+GINIG,"Gini (gross income, before taxes)",WA,Working age population: 18-65,2014,0-1 scale,0.306
+GINIG,"Gini (gross income, before taxes)",WA,Working age population: 18-65,2015,0-1 scale,0.318
+GINIG,"Gini (gross income, before taxes)",WA,Working age population: 18-65,2016,0-1 scale,0.309
+GINIG,"Gini (gross income, before taxes)",WA,Working age population: 18-65,2017,0-1 scale,0.31
+GINIG,"Gini (gross income, before taxes)",WA,Working age population: 18-65,2018,0-1 scale,0.31
+GINIG,"Gini (gross income, before taxes)",WA,Working age population: 18-65,2019,0-1 scale,0.31
+P90P10,P90/P10 disposable income decile ratio,WA,Working age population: 18-65,2008,Interdecile ratio P90/P10,3.1
+P90P10,P90/P10 disposable income decile ratio,WA,Working age population: 18-65,2009,Interdecile ratio P90/P10,3.1
+P90P10,P90/P10 disposable income decile ratio,WA,Working age population: 18-65,2010,Interdecile ratio P90/P10,3.2
+P90P10,P90/P10 disposable income decile ratio,WA,Working age population: 18-65,2011,Interdecile ratio P90/P10,3.3
+P90P10,P90/P10 disposable income decile ratio,WA,Working age population: 18-65,2012,Interdecile ratio P90/P10,3.4
+P90P10,P90/P10 disposable income decile ratio,WA,Working age population: 18-65,2013,Interdecile ratio P90/P10,3.3
+P90P10,P90/P10 disposable income decile ratio,WA,Working age population: 18-65,2014,Interdecile ratio P90/P10,3.3
+P90P10,P90/P10 disposable income decile ratio,WA,Working age population: 18-65,2015,Interdecile ratio P90/P10,3.4
+P90P10,P90/P10 disposable income decile ratio,WA,Working age population: 18-65,2016,Interdecile ratio P90/P10,3.3
+P90P10,P90/P10 disposable income decile ratio,WA,Working age population: 18-65,2017,Interdecile ratio P90/P10,3.4
+P90P10,P90/P10 disposable income decile ratio,WA,Working age population: 18-65,2018,Interdecile ratio P90/P10,3.4
+P90P10,P90/P10 disposable income decile ratio,WA,Working age population: 18-65,2019,Interdecile ratio P90/P10,3.4
+S80S20,S80/S20 disposable income quintile share,WA,Working age population: 18-65,2008,Ratio,4
+S80S20,S80/S20 disposable income quintile share,WA,Working age population: 18-65,2009,Ratio,3.9
+S80S20,S80/S20 disposable income quintile share,WA,Working age population: 18-65,2010,Ratio,4
+S80S20,S80/S20 disposable income quintile share,WA,Working age population: 18-65,2011,Ratio,4.1
+S80S20,S80/S20 disposable income quintile share,WA,Working age population: 18-65,2012,Ratio,4.3
+S80S20,S80/S20 disposable income quintile share,WA,Working age population: 18-65,2013,Ratio,4.1
+S80S20,S80/S20 disposable income quintile share,WA,Working age population: 18-65,2014,Ratio,4.2
+S80S20,S80/S20 disposable income quintile share,WA,Working age population: 18-65,2015,Ratio,4.5
+S80S20,S80/S20 disposable income quintile share,WA,Working age population: 18-65,2016,Ratio,4.3
+S80S20,S80/S20 disposable income quintile share,WA,Working age population: 18-65,2017,Ratio,4.4
+S80S20,S80/S20 disposable income quintile share,WA,Working age population: 18-65,2018,Ratio,4.4
+S80S20,S80/S20 disposable income quintile share,WA,Working age population: 18-65,2019,Ratio,4.4
+IND,Total number of individuals,WA,Working age population: 18-65,2008,Persons,3028000
+IND,Total number of individuals,WA,Working age population: 18-65,2009,Persons,3070000
+IND,Total number of individuals,WA,Working age population: 18-65,2010,Persons,3106000
+IND,Total number of individuals,WA,Working age population: 18-65,2011,Persons,3146000
+IND,Total number of individuals,WA,Working age population: 18-65,2012,Persons,3175000
+IND,Total number of individuals,WA,Working age population: 18-65,2013,Persons,3198000
+IND,Total number of individuals,WA,Working age population: 18-65,2014,Persons,3230000
+IND,Total number of individuals,WA,Working age population: 18-65,2015,Persons,3258000
+IND,Total number of individuals,WA,Working age population: 18-65,2016,Persons,3279373
+IND,Total number of individuals,WA,Working age population: 18-65,2017,Persons,3301495
+IND,Total number of individuals,WA,Working age population: 18-65,2018,Persons,3321000
+IND,Total number of individuals,WA,Working age population: 18-65,2019,Persons,3343100
+GINI,"Gini (disposable income, post taxes and transfers)",OLD,Retirement age population: above 65,2008,0-1 scale,0.222
+GINI,"Gini (disposable income, post taxes and transfers)",OLD,Retirement age population: above 65,2009,0-1 scale,0.211
+GINI,"Gini (disposable income, post taxes and transfers)",OLD,Retirement age population: above 65,2010,0-1 scale,0.214
+GINI,"Gini (disposable income, post taxes and transfers)",OLD,Retirement age population: above 65,2011,0-1 scale,0.213
+GINI,"Gini (disposable income, post taxes and transfers)",OLD,Retirement age population: above 65,2012,0-1 scale,0.216
+GINI,"Gini (disposable income, post taxes and transfers)",OLD,Retirement age population: above 65,2013,0-1 scale,0.218
+GINI,"Gini (disposable income, post taxes and transfers)",OLD,Retirement age population: above 65,2014,0-1 scale,0.222
+GINI,"Gini (disposable income, post taxes and transfers)",OLD,Retirement age population: above 65,2015,0-1 scale,0.237
+GINI,"Gini (disposable income, post taxes and transfers)",OLD,Retirement age population: above 65,2016,0-1 scale,0.227
+GINI,"Gini (disposable income, post taxes and transfers)",OLD,Retirement age population: above 65,2017,0-1 scale,0.225
+GINI,"Gini (disposable income, post taxes and transfers)",OLD,Retirement age population: above 65,2018,0-1 scale,0.226
+GINI,"Gini (disposable income, post taxes and transfers)",OLD,Retirement age population: above 65,2019,0-1 scale,0.224
+GINIB,"Gini (market income, before taxes and transfers)",OLD,Retirement age population: above 65,2008,0-1 scale,0.583
+GINIB,"Gini (market income, before taxes and transfers)",OLD,Retirement age population: above 65,2009,0-1 scale,0.592
+GINIB,"Gini (market income, before taxes and transfers)",OLD,Retirement age population: above 65,2010,0-1 scale,0.597
+GINIB,"Gini (market income, before taxes and transfers)",OLD,Retirement age population: above 65,2011,0-1 scale,0.591
+GINIB,"Gini (market income, before taxes and transfers)",OLD,Retirement age population: above 65,2012,0-1 scale,0.588
+GINIB,"Gini (market income, before taxes and transfers)",OLD,Retirement age population: above 65,2013,0-1 scale,0.591
+GINIB,"Gini (market income, before taxes and transfers)",OLD,Retirement age population: above 65,2014,0-1 scale,0.591
+GINIB,"Gini (market income, before taxes and transfers)",OLD,Retirement age population: above 65,2015,0-1 scale,0.618
+GINIB,"Gini (market income, before taxes and transfers)",OLD,Retirement age population: above 65,2016,0-1 scale,0.615
+GINIB,"Gini (market income, before taxes and transfers)",OLD,Retirement age population: above 65,2017,0-1 scale,0.614
+GINIB,"Gini (market income, before taxes and transfers)",OLD,Retirement age population: above 65,2018,0-1 scale,0.613
+GINIB,"Gini (market income, before taxes and transfers)",OLD,Retirement age population: above 65,2019,0-1 scale,0.609
+GINIG,"Gini (gross income, before taxes)",OLD,Retirement age population: above 65,2008,0-1 scale,0.269
+GINIG,"Gini (gross income, before taxes)",OLD,Retirement age population: above 65,2009,0-1 scale,0.26
+GINIG,"Gini (gross income, before taxes)",OLD,Retirement age population: above 65,2010,0-1 scale,0.264
+GINIG,"Gini (gross income, before taxes)",OLD,Retirement age population: above 65,2011,0-1 scale,0.268
+GINIG,"Gini (gross income, before taxes)",OLD,Retirement age population: above 65,2012,0-1 scale,0.271
+GINIG,"Gini (gross income, before taxes)",OLD,Retirement age population: above 65,2013,0-1 scale,0.272
+GINIG,"Gini (gross income, before taxes)",OLD,Retirement age population: above 65,2014,0-1 scale,0.273
+GINIG,"Gini (gross income, before taxes)",OLD,Retirement age population: above 65,2015,0-1 scale,0.288
+GINIG,"Gini (gross income, before taxes)",OLD,Retirement age population: above 65,2016,0-1 scale,0.278
+GINIG,"Gini (gross income, before taxes)",OLD,Retirement age population: above 65,2017,0-1 scale,0.275
+GINIG,"Gini (gross income, before taxes)",OLD,Retirement age population: above 65,2018,0-1 scale,0.276
+GINIG,"Gini (gross income, before taxes)",OLD,Retirement age population: above 65,2019,0-1 scale,0.274
+P90P10,P90/P10 disposable income decile ratio,OLD,Retirement age population: above 65,2008,Interdecile ratio P90/P10,2.5
+P90P10,P90/P10 disposable income decile ratio,OLD,Retirement age population: above 65,2009,Interdecile ratio P90/P10,2.5
+P90P10,P90/P10 disposable income decile ratio,OLD,Retirement age population: above 65,2010,Interdecile ratio P90/P10,2.5
+P90P10,P90/P10 disposable income decile ratio,OLD,Retirement age population: above 65,2011,Interdecile ratio P90/P10,2.5
+P90P10,P90/P10 disposable income decile ratio,OLD,Retirement age population: above 65,2012,Interdecile ratio P90/P10,2.5
+P90P10,P90/P10 disposable income decile ratio,OLD,Retirement age population: above 65,2013,Interdecile ratio P90/P10,2.5
+P90P10,P90/P10 disposable income decile ratio,OLD,Retirement age population: above 65,2014,Interdecile ratio P90/P10,2.6
+P90P10,P90/P10 disposable income decile ratio,OLD,Retirement age population: above 65,2015,Interdecile ratio P90/P10,2.6
+P90P10,P90/P10 disposable income decile ratio,OLD,Retirement age population: above 65,2016,Interdecile ratio P90/P10,2.6
+P90P10,P90/P10 disposable income decile ratio,OLD,Retirement age population: above 65,2017,Interdecile ratio P90/P10,2.6
+P90P10,P90/P10 disposable income decile ratio,OLD,Retirement age population: above 65,2018,Interdecile ratio P90/P10,2.6
+P90P10,P90/P10 disposable income decile ratio,OLD,Retirement age population: above 65,2019,Interdecile ratio P90/P10,2.5
+S80S20,S80/S20 disposable income quintile share,OLD,Retirement age population: above 65,2008,Ratio,3
+S80S20,S80/S20 disposable income quintile share,OLD,Retirement age population: above 65,2009,Ratio,2.8
+S80S20,S80/S20 disposable income quintile share,OLD,Retirement age population: above 65,2010,Ratio,2.8
+S80S20,S80/S20 disposable income quintile share,OLD,Retirement age population: above 65,2011,Ratio,2.9
+S80S20,S80/S20 disposable income quintile share,OLD,Retirement age population: above 65,2012,Ratio,2.9
+S80S20,S80/S20 disposable income quintile share,OLD,Retirement age population: above 65,2013,Ratio,2.9
+S80S20,S80/S20 disposable income quintile share,OLD,Retirement age population: above 65,2014,Ratio,3
+S80S20,S80/S20 disposable income quintile share,OLD,Retirement age population: above 65,2015,Ratio,3.2
+S80S20,S80/S20 disposable income quintile share,OLD,Retirement age population: above 65,2016,Ratio,3.1
+S80S20,S80/S20 disposable income quintile share,OLD,Retirement age population: above 65,2017,Ratio,3
+S80S20,S80/S20 disposable income quintile share,OLD,Retirement age population: above 65,2018,Ratio,3
+S80S20,S80/S20 disposable income quintile share,OLD,Retirement age population: above 65,2019,Ratio,3
+IND,Total number of individuals,OLD,Retirement age population: above 65,2008,Persons,620000
+IND,Total number of individuals,OLD,Retirement age population: above 65,2009,Persons,633000
+IND,Total number of individuals,OLD,Retirement age population: above 65,2010,Persons,652000
+IND,Total number of individuals,OLD,Retirement age population: above 65,2011,Persons,672000
+IND,Total number of individuals,OLD,Retirement age population: above 65,2012,Persons,697000
+IND,Total number of individuals,OLD,Retirement age population: above 65,2013,Persons,724000
+IND,Total number of individuals,OLD,Retirement age population: above 65,2014,Persons,749000
+IND,Total number of individuals,OLD,Retirement age population: above 65,2015,Persons,772000
+IND,Total number of individuals,OLD,Retirement age population: above 65,2016,Persons,793984
+IND,Total number of individuals,OLD,Retirement age population: above 65,2017,Persons,815107
+IND,Total number of individuals,OLD,Retirement age population: above 65,2018,Persons,839200
+IND,Total number of individuals,OLD,Retirement age population: above 65,2019,Persons,863900
