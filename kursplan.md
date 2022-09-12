@@ -18,9 +18,9 @@ C = casegjennomgang
 |1. september|V1   | Skriveverksted 1: Innføring   | DC/ESH       |[Oppgave vitenskapsteori](/oppgaver/vitenskapsteori oppgave.pdf){:target='_blank_'} <br> [Notater](/forelesninger/skriveverk_lysbilder.pdf){:target='_blank_'}  |
 |8. september|F5   | Bruttonasjonalprodukt (BNP)    | DC       | [Ressursside](ressurssider/F5.md){:target='_blank_'}  |
 |14. september|**Frist**|Arbeidskrav 2 - Vitenskapsteori|  |Leveres i [Canvas](https://uit.instructure.com/courses/26950/assignments){:target='_blank_'} innen kl 16.00|
-|15. september|F6     | Vekst og økonomiske systemer  | DC | [Ressursside](/ressurssider/F6.md){:target='_blank_'}   |
-|20. september| S1  | Seminar 1: BNP, vekst, og økonomiske systemer | DC |[Oppgaver](/seminar/s1.md){:target='_blank_'}  |
-|22. september|C1 | Case 1: Bruttonasjonalprodukt - BNP | ESH       | [lenke til case](case.md){:target='_blank_'} |
+|15. september|C1 | Case 1: Bruttonasjonalprodukt - BNP | ESH       | [lenke til case](case.md){:target='_blank_'} |
+|20. september| F6     | Vekst og økonomiske systemer  | DC | [Ressursside](/ressurssider/F6.md){:target='_blank_'}   | 
+|22. september|S1| Seminar 1: BNP, vekst, og økonomiske systemer | DC |[Oppgaver](/seminar/s1.md){:target='_blank_'}  |
 |23. september|*utdeling*| Mappeoppgave 1|  | Oppgaven kommer her kl 09.00|
 |26. september|**Frist**|Arbeidskrav 3 - Case 1|  |Leveres i [Canvas](https://uit.instructure.com/courses/26950/assignments){:target='_blank_'} innen kl 16.00|
 |27. september|V2   | Skriveverksted 2: Markdown  |ESH |  |
