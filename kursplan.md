@@ -21,7 +21,7 @@ C = casegjennomgang
 |15. september|C1 | Case 1: Bruttonasjonalprodukt - BNP | ESH       | [lenke til case](case.md){:target='_blank_'} |
 |20. september| F6     | Vekst og økonomiske systemer  | DC | [Ressursside](/ressurssider/F6.md){:target='_blank_'}   | 
 |22. september|S1| Seminar 1: BNP, vekst, og økonomiske systemer | DC |[Oppgaver](/seminar/s1.md){:target='_blank_'}  |
-|23. september|*utdeling*| Mappeoppgave 1|  | Oppgaven kommer her kl 09.00|
+|23. september|*utdeling*| Mappeoppgave 1|  | [Oppgave](/eksamen/mappe_1_h22_endelig.html){:target='_blank_'}|
 |26. september|**Frist**|Arbeidskrav 3 - Case 1|  |Leveres i [Canvas](https://uit.instructure.com/courses/26950/assignments){:target='_blank_'} innen kl 16.00|
 |27. september|V2   | Skriveverksted 2: Praktisk trening  |ESH |  |
 |29. september|C2   | Case 2: BNP og CO2-utslipp  |ESH |  lenke til case](case.md){:target='_blank_'} |
