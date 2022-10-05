@@ -1,0 +1,238 @@
+---
+title: "Case 1"
+author: "Even S. Hvinden"
+format: pdf
+echo: true
+output: true
+editor: visual
+---
+
+Denne oppgaven er tilpasset fra [Case 1](https://uit-sok-1004-h21.github.io/case_1_bnp.html), skrevet av Øystein Myrland for kurset SOK-1004, høsten 2021. Eventuelle feil og mangler er mine egne. Rett spørsmål og kommentarer til [even.c.hvinden\@uit.no](mailto:even.c.hvinden@uit.no).
+
+## Instruksjoner
+
+Denne oppgaven skal løses interaktivt i RStudio ved å legge inn egen kode og kommentarer. Det ferdige dokumentet lagres med kandidatnummeret som navn `[kandidatnummer]_SOK1004_C1_H22.qmd` og lastes opp på deres GitHub-side. Hvis du har kandidatnummer 43, så vil filen hete `43_SOK1004_C1_H22.qmd`. Dere leverer lenken til GitHub-repositoriet i Canvas.
+
+## Bakgrunn
+
+Vi skal analysere utviklingen i bruttonasjonalprodukt (BNP) i Norge. Vi bruker data Statistisk Sentralbyrå (SSB), tabell "09842: BNP og andre hovedstørrelser (kr per innbygger), etter statistikkvariabel og år". Tabellen inneholder årlige data på BNP per innbygger, fra 1970 til 2021.
+
+## I. API, visualisering
+
+SSB gir oss tilgang til sine data via en [API](https://www.ssb.no/omssb/tjenester-og-verktoy/api) (*Application Programming Interface*), programvare som lar to applikasjoner kommunisere med hverandre. SSB tilbyr en API med [ferdige datasett](https://data.ssb.no/api/v0/dataset/). Her er det om lag 250 kontinuerlig oppdaterte datasett med en fast URL over de mest brukte tabellene i Statistikkbanken. Disse er dermed enkelt tilgjengelig, og vi skal se nærmere på noen av dem senere.
+
+For å få tilgang til tabellen med bruttonasjonalprodukt må vi benytte tjenesten [PxWebApi](https://www.ssb.no/omssb/tjenester-og-verktoy/api/px-api). Her finner du en [API konsoll](https://data.ssb.no/api/v0/no/console/) med en søkefunksjon. Prøv å søk på "`bnp`" og merk forslaget: tabell 09842. Søk på denne, og noter URL-en. Den vil vi bruke etterpå.
+
+Til å laste ned dataene skal vi bruke en R-pakke, [PxWebApiData](https://cran.r-project.org/web/packages/PxWebApiData/index.html), som SSB har laget. I første omgang skal vi bruke funksjonen `ApiData()`. Syntaksen er ikke den samme som i `tidyverse`, og har noen litt uvante egenskaper, herunder utstrakt lagring i tegnformat.
+
+**Tips:** Det er typisk instruktivt å se på [eksempel på bruk](https://cran.r-project.org/web/packages/PxWebApiData/vignettes/Introduction.html). Da har man et utgangspunkt for hvordan syntaksen bruker.
+
+Jeg vil nå vise dere trinnvis hvordan å laste ned dataene. Formålet er å gi dere en idé på hvordan man kan lære seg å bruke en ny pakke eller funksjon. Vi begynner med å laste inn nødvendige pakker:
+
+```{r}
+rm(list=ls())
+library(tidyverse)
+library(PxWebApiData)
+```
+
+**NB!** Du må installere `PxWebApiData` først. Kjør kommandoen `install.packages("PxWebApiData")` i konsollen. Det må kun gjøres én gang.
+
+Vi bruker funksjonen `ApiData()` til å hente tabell 09842. Som notert ovenfor fant vi URL-en ved hjelp av søkefunksjonen til SSB. Først prøver vi å laste ned dataene direkte, uten ytterligere tilvalg, og tar en titt på hva vi får.
+
+```{r}
+lenke <- "https://data.ssb.no/api/v0/no/table/03013"
+
+df <- lenke %>%
+  ApiData()
+
+df %>%
+  print()
+```
+
+**Merk følgende:** `df` inneholder to datasett i formatet `data.frame`. Datasettene heter `"09842: BNP og andre hovedstørrelser (kr per innbygger), etter statistikkvariabel og år"` og `dataset`. Datasettene inneholder 9 verdier av 3 variable. Variabelen `value` er identisk. Variablene `år` og `Tid` inneholder de identiske verdiene `"1970"`, `"2020"` og `"2020"`. Merk at disse er i tegnformat `<chr>` (derav anførselstegnene) og ikke en numerisk verdi, for eksempel `<dbl>`. Variabelen `statistikkvariabel` og `ContentsCode` inneholder henholdsvis verdiene `BNP`, `KonsumHIO` `MEMOBNP` og `Bruttonasjonalprodukt, Konsum i husholdninger og ideelle organisasjoner` og `MEMO: Bruttonasjonalprodukt. Faste 2015-priser`.
+
+Vi har altså ikke fått hele tabell 09842, men verdiene for tre statistikkvariabler over tre tidsperioder, lagret i med forskjellige variabelnavn og verdier.
+
+Det vi trenger er **metadata**: Informasjon som beskriver innholdet i dataene, slik at vi kan filtrere API-spørringen. Kjør følgende kode.
+
+```{r}
+metadata <- lenke %>%
+  ApiData(returnMetaData = TRUE)
+```
+
+Åpner vi listen `metadata` fra minnet så kan vi se nærmere på den i øvre venstre vindu i Rstudio. Her ser vi to lister kalt `[[1]]` og `[[2]]`. Listene beskriver variablene vi kan filtrere på. Liste `[[1]]` har fire variable: `code`, `text`, `values`, og `valueTexts`. Alle variablene er `<chr>`. Liste `[[2]]` har de samme foregående fire variablene samt en variabel `time`.
+
+-   `code` er kommandoen vi skal bruke i funksjonen `ApiData()` for å filtrere på den variabelen. Den tar verdiene `ContentsCode` og `Tid`. Legg merke til at utviklerne i SSB har blandet norsk og engelsk.
+
+-   `text` er en unik tekstverdi tilknyttet verdien på `code` som forklarer hva vi ser på. Den tar verdien `statistikkvariabel` og `år`. Vi kan altså filtrere på statistikkvariabel og år.
+
+-   `values` viser hvilke verdier av statistikkvariabel og år vi kan velge, med henholdsvis 6 og 52 forskjellige verdier. Du vil kjenne igjen tre av hver fra den første spørringen ovenfor.
+
+-   `valueTexts` gir en unik tekstverdi tilknyttet verdien på `values` som forklarer oss hva vi ser på. For `Tid` og `år` er de identiske, men for `ContentsCode` og `statistikkvariabel` får vi en mer fullstendig forklaring.
+
+-   `time` er en logisk variabel, og tar derfor to verdier: `TRUE` og `FALSE`. I dette tilfellet indikerer den at variabelen `Tid` måler tid, hvilket gjør at funksjonene i pakken vil behandle `Tid` på en annen måte enn en statistikkvariabel.
+
+Vi har nå informasjonen vi trenger til å laste ned BNP-tall mellom 1970 og 2021. Jeg velger å ta BNP med både løpende og faste priser.
+
+```{r}
+df <- lenke %>% 
+  ApiData(Tid = paste(1970:2021), ContentsCode = c("BNP","MEMOBNP"))
+```
+
+På venstre side av likhetstegnet bruker vi `code` fra metadata. På høyre side velger vi verdier fra `values`. Merk at jeg bruker funksjonen `paste()` for å konvertere numeriske verdier, for eksempel `<dbl>` til tegn `<chr>`.
+
+La oss rydde i data. Det er tre ting å ta tak i:
+
+1.  `df` lagrer informasjonen i to tabeller med samme informasjon, som vist over. Det er unødvendig.
+
+2.  Årstallene er lagret som tegn, `<chr>`. Disse skulle heller være heltall, `<int>`.
+
+3.  Formatet `data.frame` er underlegent `tibble`.
+
+### Oppgave Ia: Rydd i data
+
+Skriv kode som lagrer dataene som én tibble med anstendige variabelnavn og årstall som heltall. Fremover bruker jeg "var", "tid", og "verdi" for "statistikkvariabel", "Tid", og "value".
+
+```{r}
+# Oppgave Ia løses her #
+
+df <- df$dataset %>% 
+  
+  as_tibble() %>%
+  
+  rename(var = ContentsCode, tid = Tid, verdi = value) %>%
+  
+  mutate(tid = as.integer(tid)) 
+```
+
+### Oppgave Ib: Lag en figur
+
+Følgende kode skaper en enkel figur.
+
+```{r}
+df %>%
+  filter(var == "BNP") %>%
+  ggplot(aes(x=tid,y=verdi)) +
+  geom_line()
+```
+
+Lag en pen figur som viser BNP i tusener av kroner per person, i både løpende og faste priser, mellom 2000 og 2021. Skriv en tydelig forklaring og tolkning av figuren. Hvordan har inntektene utviklet seg? Forklar forskjellen mellom BNP i løpende og faste priser. Til hvilke formål er BNP målt i faste priser relevant, og når er det riktig å se BNP i løpende priser?
+
+```{r}
+df %>%
+  mutate(verdi = verdi/1000) %>%
+  filter(tid >= 2000) %>%
+  
+  ggplot(aes(x=tid,y=verdi, color = var)) +
+  
+  geom_line() +
+  
+  labs(x = "År", 
+       y = "BNP per person", 
+       title = "BNP per person i Norge, 2000-2021.", 
+       subtitle = "Tusener av kroner. Løpende og faste priser.") +
+  
+  scale_color_discrete(name = " ", 
+                       labels = c("BNP, løpende priser", "BNP, faste priser")) +
+  
+  theme(legend.position = "bottom",
+        panel.grid.major = element_line(color = "grey", size = 0.1),
+        panel.border = element_rect(color = "grey", fill=NA, size=0.2))  +
+  
+  theme_bw()
+```
+
+Figuren viser nivået på BNP per person, i tusener av kroner, fra 1978 til 2021. Den røde linjen viser BNP målt med løpende priser, og kalles også nominell BNP. Endringen i nominell BNP er gitt ved både verdiskapning og prisene. Den blå linjen viser BNP med faste 2015-priser, og kalles reell BNP. Endringen i reell BNP måler kun endringen i verdiskapning. Per definisjon er nominelt og reelt BNP like i 2015. Vi ser at reelt BNP har holdt seg stabil rundt 600 kroner per person siden 2005, mens nominelt BNP har vokst kraftig.
+
+Nominell BNP er relevant i sammenligning med nominelle størrelser, for eksempel samlet gjeld som andel av BNP. Reell BNP viser den faktiske utviklingen i kjøpekraft og er den relevante størrelsen for diskusjoner om velferd.
+
+## II. Transformasjon, visualisering
+
+Våre data er en tidsserie, hvilket betyr at rekkefølgen i observasjonene er ordnet etter tid. Vi skal nå regne prosentvis, årlig endring. La $x_t$ være BNP i år $t$. For eksempel vil $x_{1970}$ være $23616$.
+
+Den årlige endringen i BNP fra år $t-1$ til $t$ er gitt ved $x_{t}-x_{t-1}$. I samfunnsøkonomi er det vanlig å betegne dette som $\Delta x_{t} := x_{t}-x_{t-1}$. Tegnet $\Delta$ er den greske bokstaven delta og betegner differanse. For eksempel vil $\Delta x_{1971}=26363-23616=2747$ kroner.
+
+I mange tilfeller er vi interesserte i relativ vekst: Hvor mye økte BNP, relativt til hva den var i utgangspunkt? Den mest brukte enheten er hundredeler eller prosentvis endring, gitt ved $100 \times \Delta x_{t}/x_{t-1}$. For eksempel var den prosentvise endringen i BNP i 1971 $100 \times \Delta x_{1971}/x_{1970}=100\times(2747/23616)\approx11.6$, hvor $\approx$ betegner "omtrent lik" da jeg viser svaret med kun én desimal. Tilsvarende kan man skrive at $\Delta x_{1971}/x_{1970}=2747/23616\approx0.116=11.6\%$, hvor tegnet $\%$ betegner at beløpet oppgis i hundredeler eller prosent.
+
+## Oppgave IIa: Omorganisere datasett med `pivot_wider()`
+
+Vi skal lage to variable `dBNP` og `dMEMOBNP` som viser relativ endring i `BNP` og `MEMOBNP`. Til dette formålet skal vi bruke kommandoene `pivot_wide()` og `pivot_long()` til å omorganisere dataene. Jeg anbefaler dere først å lese [kapittel 12.3](https://r4ds.had.co.nz/tidy-data.html#pivoting) i pensum. Betrakt følgende kode.
+
+```{r}
+df_wide <- df %>%
+  pivot_wider(names_from = var, values_from = verdi) 
+```
+
+Beskriv konkret hva koden gjorde. Sammenlign `df` og `df_wide`.
+
+Koden omorganiserte datasettet. I utgangspunktet er `BNP` og `MEMOBNP` verdier av variabelen `var`. Verdien av variablene var lagret i variabelen `verdi`. Kommandoen `pivot_wider` lager to nye variable med variabelnavn fra `var` og verdier fra `verdi`. Vi ser derfor at `df_wide` har 52 observasjoner av tre variable (`tid`, `BNP`, og `MEMOBNP`) mens `df` har 104 observasjoner av tre variable (`tid`, `var`, og `verdi`).
+
+## Oppgave IIb: Beregn vekst
+
+Til å beregne endring er funksjonen `lag()` meget nyttig. I denne konteksten er begrepet *lag* et engelsk verb som beskriver foregående observasjon. Bruker vi funksjoenen `lag()` på en variabel (kolonne) så returnerer den en ny kolonne hvor verdien er lik foregående observasjon. Betrakt følgende kode:
+
+```{r}
+df_wide <- df_wide %>%
+  mutate(LBNP = lag(BNP,n=1L)) %>%
+  mutate(LMEMOBNP = lag(MEMOBNP,n=1L))
+df_wide
+```
+
+Hvis vi bruker den matematiske notasjonen diskutert tidligere så har nå kolonner med $x_{t}$ (`BNP`, `MEMOBNP`) og $x_{t-1}$ (`LBNP`, `LMEMOBNP`). Bruk funksjonen `mutate()` til å lage en ny variabel med relativ endring i `BNP` og `MEMOBNP` i `df_wide`. Jeg vil lagre de som `DBNP` og `DMEMOBNP`.
+
+```{r}
+df_wide <- df_wide %>%
+  mutate(DBNP = (BNP-LBNP)/LBNP) %>%
+  mutate(DMEMOBNP = (MEMOBNP-LMEMOBNP)/LMEMOBNP)
+df_wide
+```
+
+## Oppgave IIc: Omorganisere datasett med `pivot_longer()`
+
+Bruk nå funksjonen `pivot_longer()` til å transformere `df_wide` til det opprinnelige formatet, altså med variablene `var` og `verdi`. Kall den transformerte tabellen for `df_long`.
+
+**NB!** Husk å bruk anførselstegn (`"[variabelnavn]"`) når du definerer nye variable i `pivot_longer()`.
+
+```{r}
+vars <- df_wide %>%
+  names()
+
+vars <- vars[2:7]
+
+df_long <- df_wide %>%
+  pivot_longer(!tid, names_to = "var", values_to = "verdi")
+```
+
+## Oppgave IId: Figur med vekst
+
+Lag en pen figur med prosentvis vekst i nominelt og reelt BNP per person fra 1970 til 2021. Finnes det observasjoner med negativ vekst i reell BNP? Hva skyldes dette?
+
+**Merknad:** Det er en del støy i data. Prøv å kombinere `geom_point()` og `geom_smooth()` for å få et bedre inntrykk av den langsiktige utviklingen.
+
+```{r}
+df_long %>%
+  mutate(verdi = verdi*100) %>%
+
+  filter(var == c("DBNP","DMEMOBNP")) %>%
+  
+  ggplot(aes(x=tid,y=verdi, color = var)) +
+  
+  geom_point() +
+  
+  geom_smooth(method="loess",se=TRUE) +
+  
+  labs(x = "År", 
+       y = "BNP per person", 
+       title = "BNP per person i Norge, 1970-2021.", 
+       subtitle = "Årsvekst, prosent. Løpende og faste priser.") +
+  
+  scale_color_discrete(name = " ", 
+                       labels = c("BNP, løpende priser", "BNP, faste priser")) +
+  
+  theme(legend.position = "bottom",
+        panel.grid.major = element_line(color = "grey", size = 0.1),
+        panel.grid.minor = element_line(color = "grey", size = 0.2),
+        panel.border = element_rect(color = "grey", fill=NA, size=0.3)) +
+
+ theme_bw()
+```
