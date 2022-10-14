@@ -1,0 +1,99 @@
+---
+title: "Case 4"
+author: "Even S. Hvinden"
+format: html
+editor: visual
+---
+
+# Instruksjoner
+
+Denne oppgaven skal løses interaktivt i RStudio ved å legge inn egen kode og kommentarer. Det ferdige dokumentet lagres med kandidatnummeret som navn `[kandidatnummer]_SOK1004_C4_H22.qmd` og lastes opp på deres GitHub-side. Hvis du har kandidatnummer 43, så vil filen hete `43_SOK1004_C4_H22.qmd`. Påse at koden kjører og at dere kan eksportere besvarelsen til pdf. Lever så lenken til GitHub-repositoriumet i Canvas.
+
+# Bakgrunn, læringsmål
+
+Innovasjon er en kilde til økonomisk vekst. I denne oppgaven skal vi se undersøke hva som kjennetegner bedriftene som bruker ressurser på forskning og utvikling (FoU). Dere vil undersøke FoU-kostnader i bedriftene fordelt på næring, antall ansatte, og utgiftskategori. Gjennom arbeidet vil dere repetere på innhold fra tidligere oppgaver og øve på å presentere fordelinger av data med flere nivå av kategoriske egenskaper.
+
+# Last inn pakker
+
+```{r}
+# output | false
+rm(list=ls()) 
+library(tidyverse)
+library(rjstat)
+library(gdata)
+library(httr)
+```
+
+# Oppgave I: Introduksjon til histogram
+
+Et histogram eller frekvensfordeling er en figur som viser hvor ofte forskjellige verdier oppstår i et datasett. Frekvensfordelinger spiller en grunnleggende rolle i statistisk teori og modeller. Det er avgjørende å forstå de godt. En kort innføring følger.
+
+La oss se på et eksempel. I datasettet `mtcars` viser variabelen `cyl` antall sylindere i motorene til kjøretøyene i utvalget.
+
+```{r}
+data(mtcars)
+mtcars %>%
+  ggplot(aes(cyl)) +
+  geom_histogram() +
+  theme_minimal()
+```
+
+Verdiene av variabelen er er gitt ved den horisontale aksen, antall observasjoner på den vertikale aksen. Vi ser at det er 11, 7, og 14 biler med henholdsvis 4, 6, og 8 sylindere.
+
+La oss betrakte et eksempel til. Variabelen `mpg` i `mtcars` måler gjennomsnittlig drivstoffforbruk i uanstendige engelske enheter. Variabelen er målt med ett desimal i presisjon.
+
+```{r}
+data(mtcars)
+mtcars %>%
+  ggplot(aes(mpg)) +
+  geom_histogram(binwidth=0.1) +
+  theme_minimal()
+```
+
+Datasettet inneholder mange unike verdier, hvilket gir utslag i et flatt histogram, noe som er lite informativt. Løsningen da er å gruppere verdier som ligger i nærheten av hverandre. Kommandoen Kommandoen `binwidth` i `geom_histogram()` bestemmer bredden av intervallene som blir slått sammen. Kan du forklare hvorfor alle unike verdier blir telt ved å å bruke `binwidth = 0.1?`
+
+Eksperimenter med forskjellige verdier for `binwidth` og forklar hva som kjennetegner en god verdi.
+
+```{r}
+# løs oppgave I her
+data(mtcars)
+mtcars %>%
+  ggplot(aes(mpg)) +
+  geom_histogram(binwidth=2) +
+  theme_minimal()
+```
+
+# Oppgave II: Last ned og rydd i data
+
+Vi skal nå undersøkene dataene i [Tabell 07967: Kostnader til egenutført FoU-aktivitet i næringslivet, etter næring (SN2007) og sysselsettingsgruppe (mill. kr) 2007 - 2020 SSB](https://www.ssb.no/statbank/table/07967). Dere skal laster de ned ved hjelp av API. Se [brukerveiledningen](https://www.ssb.no/api/pxwebapi/_/attachment/inline/019c05e0-35ad-4757-87a0-ba7fbf4a68e2:46a164479bc10a67eee4b472cd891f001ca19da5/Api_brukerveiledning.pdf) her.
+
+Bruk en JSON-spørring til å laste ned alle statistikkvariable for alle år, næringer, og sysselsettingsgrupper med 10-19, 20-49, 50-99, 100-199, 200 - 499, og 500 eller flere ansatte. Lagre FoU-kostnader i milliarder kroner. Sørg for at alle variabler har riktig format, og gi de gjerne enklere navn og verdier der det passer.
+
+**Hint.** Bruk lenken til SSB for å hente riktig JSON-spørring og tilpass koden fra case 3.
+
+```{r}
+# besvar oppgave II her
+
+```
+
+# Oppgave III: Undersøk fordelingen
+
+Vi begrenser analysen til bedrifter med minst 20 ansatte og tall fra 2015 - 2020. Lag en figur som illustrerer fordelingen av totale FoU-kostnader fordelt på type næring (industri, tjenesteyting, andre) og antall ansatte i bedriften (20-49, 50-99, 100-199, 200-499, 500 og over). Tidsdimensjonen er ikke vesentlig, så bruk gjerne histogram.
+
+**Merknad.** Utfordringen med denne oppgaven er at fordelingene er betinget på verdien av to variable. Kommandoen `facet_grid()` kan være nyttig til å slå sammen flere figurer på en ryddig måte.
+
+```{r}
+# besvar oppgave III her
+
+```
+
+# Oppgave IV: Undersøk fordelingen igjen
+
+Kan du modifisere koden fra oppgave II til å i tillegg illustrere fordelingen av FoU-bruken på lønn, innleie av personale, investering, og andre kostnader?
+
+**Merknad.** Kommandoen `fill = [statistikkvariabel]` kan brukes i et histogram.
+
+```{r}
+# besvar oppgave III her
+
+```
