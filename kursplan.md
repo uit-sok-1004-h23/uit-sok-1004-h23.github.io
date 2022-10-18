@@ -30,7 +30,7 @@ C = casegjennomgang
 |6. oktober|F7    | Grunnleggende begreper i samfunnsøkonomi           | DC | [Ressursside](/ressurssider/F7.md){:target='_blank_'}   |
 |10. oktober|**Frist**    | Innlevering mappeoppgave 1        | | Leveres i [Wiseflow](https://europe.wiseflow.net/login){:target='_blank_'} innen kl 15.00   |
 |13. oktober|F8   | Økonomisk vekst, befolkningsvekst og produktivitet | DC | [Ressursside](/ressurssider/F8.md){:target='_blank_'}   |
-|18. oktober| S3  | Seminar 3: Begreper, vekst, produktivitet | DC |[Oppgaver](/seminar/s3.md){:target='_blank_'}  |
+|18. oktober| S3  | Seminar 3: Begreper, vekst, produktivitet | DC |[Oppgaver](/seminar/s3.md){:target='_blank_'} <br> [Løsning oppgave 1](/seminar/seminar 3 oppgave 1 løsning.pdf){:target='_blank_'}   |
 |20. oktober|C3  | Case 3 |ESH| [lenke til case](case.md)  |
 |24. oktober|**Frist**|Arbeidskrav 5 - Case 3|  |Leveres i [Canvas](https://uit.instructure.com/courses/26950/assignments){:target='_blank_'} innen kl 16.00|
 |26. oktober|*utdeling*| Mappeoppgave 2|  | Oppgaven kommer her kl 09.00|
