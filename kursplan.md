@@ -43,7 +43,7 @@ C = casegjennomgang
 |10. november| S5  | Seminar 5: Lønn, fritid, og arbeidsinnsats | DC |[Oppgaver](/seminar/s5.md){:target='_blank_'}  |
 |16. november|**Frist**    | Innlevering mappeoppgave 2        |  |Leveres i [Wiseflow](https://europe.wiseflow.net/login)  |
 |17. november |C5    | Case 5 |ESH | [lenke til case](case.md) |
+|18. november |*utdeling*  | Utdeling av prosjektoppgaven      |        | Kommer her kl 09.00  |
 |21. november|**Frist**|Arbeidskrav 7 - Case 5|  |Leveres i [Canvas](https://uit.instructure.com/courses/26950/assignments){:target='_blank_'} innen kl 16.00|
 |22. november| S6  | Seminar 6: Gjennomgang case 5 | Ida |  |
-|24. november |F11 - *utdeling*  | Utdeling og gjennomgang av prosjektoppgaven      | DC/ESH       |   |
 |9. desember |**Frist**  | Prosjektoppgave       | DC/ESH         | Leveres i [Wiseflow](https://europe.wiseflow.net/login){:target='_blank_'} |
