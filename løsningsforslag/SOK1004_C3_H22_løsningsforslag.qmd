@@ -1,0 +1,573 @@
+---
+title: "Case 3: Løsningsforslag"
+author: "Even S. Hvinden"
+format: html
+editor: visual
+---
+
+## Instruksjoner
+
+Denne oppgaven skal løses interaktivt i RStudio ved å legge inn egen kode og kommentarer. Det ferdige dokumentet lagres med kandidatnummeret som navn `[kandidatnummer]_SOK1004_C3_H22.qmd` og lastes opp på deres GitHub-side. Hvis du har kandidatnummer 43, så vil filen hete `43_SOK1004_C3_H22.qmd`. Påse at koden kjører og at dere kan eksportere besvarelsen til pdf. Lever så lenken til GitHub-repositoriumet i Canvas.
+
+## Bakgrunn
+
+Hvor mye har økte kraftpriser bidratt til prisveksten i år? I denne oppgaven skal vi benytte prisdata fra SSB til å besvare dette spørsmålet. Jeg anbefaler dere å lese [Konsumprisindeksen - en levekostnadsindeks](https://www.ssb.no/priser-og-prisindekser/artikler-og-publikasjoner/_attachment/203142?_ts=1495b28c170) av Randi Johannesen, Økonomiske analyser 5/2014.
+
+## Oppgave I: Tolk vekstbidraget
+
+For å forstå øvelsen skal vi først se nærmere på hvordan en prisindeks bygges opp. La $P_{t}$ være verdien til konsumprisindeksen i tid $t$, gitt av et vektet gjennomsnitt av $n\geq1$ priser eller prisindekser
+
+$$
+P_{t}=\sum_{i=1}^{n}v_{i,t}p_{i,t} \hspace{1cm} (1)
+$$
+
+hvor vektene summerer til én i hver periode \$t\$, $\sum_{i=1}^{n}v_{i,t}=1$. Vi vil se på månedlig KPI på undergruppenivå, hvor $n=93$ og $t$ løper fra januar 1979 til august 2022.
+
+Vi betegner endringen over tolv måneder i KPI ved $P_{t}-P_{t-12} := \Delta P_{t}$, eller
+
+$$
+\Delta P_{t}=\sum_{i=1}^{n} v_{i,t} p_{i,t}-\sum_{i=1}^{n} v_{i,t-12} p_{i,t-12}=\sum_{i=1}^{n} \Delta (v_{i,t} p_{i,t}).\hspace{1cm}(2)
+$$
+
+Merk at både vektene og prisene kan endre seg fra $t-12$ til $t$. I praksis vil vektene endre seg lite. For å forenkle fremstillingen vil vi anta at $v_{i,t}=v_{i,t-12}$. I tillegg så deler vi uttrykket på $P_{t-12}$, og ganger med $100$. Da har vi
+
+$$
+100\times\frac{\Delta P_{t}}{P_{t}}=100\times\frac{\sum_{i=1}^{n} v_{i,t-12}\Delta p_{i,t}}{P_{t-12}}. \hspace{1cm} (3)
+$$
+
+På venstre side av likhetstegnet har vi prosentvis tolvmåneders endring i konsumprisindeksen, eller inflasjon. På høyre side har vi en sum med $n$ argumenter. Vi fokuserer nå på et vilkårlig element $i$,
+
+$$
+100 \times \frac{v_{i,t-12} \times \Delta p_{i,t}}{P_{t-12}}. \hspace{1cm} (4)
+$$
+
+Tolk ligning $(4)$. Gi en konkret forklaring på hva tallet representerer.
+
+*Løsningsforslag: Ligning (4) viser bidraget fra vare* $i$ *til endringen i konsumpriser. Bidraget øker i størrelsen på endringen* $\Delta p_{i,t}$ *og vekten* $v_{i,t-12}$ *tillagt vare* $i$.
+
+# Oppgave II: Rydd i data
+
+Vi begynner med å rydde og laste inn pakker.
+
+```{r}
+rm(list=ls()) 
+library(tidyverse)
+library(lubridate)
+library(rjstat)
+library(janitor)
+library(gdata)
+library(httr) 
+```
+
+Vi bruker dataene fra [Tabell 0313: Konsumprisindeksen fra SSB](https://www.ssb.no/priser-og-prisindekser/konsumpriser/statistikk/konsumprisindeksen). Jeg laster ned ved hjelp av API. Se [brukerveiledningen](https://www.ssb.no/api/pxwebapi/_/attachment/inline/019c05e0-35ad-4757-87a0-ba7fbf4a68e2:46a164479bc10a67eee4b472cd891f001ca19da5/Api_brukerveiledning.pdf) her.
+
+```{r}
+url <- "https://data.ssb.no/api/v0/no/table/03013/"
+
+query <- '{
+  "query": [
+    {
+      "code": "Konsumgrp",
+      "selection": {
+        "filter": "vs:CoiCop2016niva4",
+        "values": [
+          "01.1.1",
+          "01.1.2",
+          "01.1.3",
+          "01.1.4",
+          "01.1.5",
+          "01.1.6",
+          "01.1.7",
+          "01.1.8",
+          "01.1.9",
+          "01.2.1",
+          "01.2.2",
+          "02.1.1",
+          "02.1.2",
+          "02.1.3",
+          "02.2.0",
+          "03.1.1",
+          "03.1.2",
+          "03.1.3",
+          "03.1.4",
+          "03.2.1",
+          "03.2.2",
+          "04.1.1",
+          "04.1.2",
+          "04.2.1",
+          "04.2.2",
+          "04.3.1",
+          "04.3.2",
+          "04.4.0",
+          "04.5.1",
+          "04.5.3",
+          "04.5.4",
+          "04.5.5",
+          "05.1.1",
+          "05.1.2",
+          "05.2.0",
+          "05.3.1",
+          "05.3.2",
+          "05.3.3",
+          "05.4.0",
+          "05.5.1",
+          "05.5.2",
+          "05.6.1",
+          "05.6.2",
+          "06.1.1",
+          "06.1.2",
+          "06.1.3",
+          "06.2.1",
+          "06.2.2",
+          "06.2.3",
+          "07.1.1",
+          "07.1.2",
+          "07.1.3",
+          "07.2.1",
+          "07.2.2",
+          "07.2.3",
+          "07.2.4",
+          "07.3.1",
+          "07.3.2",
+          "07.3.3",
+          "07.3.4",
+          "08.1.0",
+          "08.2.0",
+          "08.3.0",
+          "09.1.1",
+          "09.1.2",
+          "09.1.3",
+          "09.1.4",
+          "09.1.5",
+          "09.2.1",
+          "09.2.2",
+          "09.3.1",
+          "09.3.2",
+          "09.3.3",
+          "09.3.4",
+          "09.4.1",
+          "09.4.2",
+          "09.5.1",
+          "09.5.2",
+          "09.5.4",
+          "09.6.0",
+          "11.1.1",
+          "11.1.2",
+          "11.2.0",
+          "12.1.1",
+          "12.1.2",
+          "12.1.3",
+          "12.3.1",
+          "12.3.2",
+          "12.4.0",
+          "12.5.2",
+          "12.5.4",
+          "12.6.2",
+          "12.7.0"
+        ]
+      }
+    },
+    {
+      "code": "ContentsCode",
+      "selection": {
+        "filter": "item",
+        "values": [
+          "KpiIndMnd",
+          "KpiVektMnd"
+        ]
+      }
+    }
+  ],
+  "response": {
+    "format": "json-stat2"
+  }
+}'
+
+hent_indeks.tmp <- url %>%
+  POST(body = query, encode = "json")
+
+df <-  hent_indeks.tmp %>%
+  content("text") %>%
+  fromJSONstat() %>%
+  as_tibble()
+```
+
+Følgende kode benytter kommandoen `ymd` fra `lubridate` til å lage en anstendig tidsserie.
+
+```{r}
+df <- df %>%
+separate(måned, 
+         into=c("year", "month"), 
+         sep="M") %>% 
+mutate(dato = ymd(paste(year, month, "1")))
+```
+
+Nå er det deres tur til å rydde. Slett variablene `year` og `month`. Gi variablene formålstjenlige navn. Påse at variablene har riktig format. Fjern data fra før år 2011, slik at vi kan beregne vekst tolvmåneders endring fra 2012. Løs oppgaven slik at du ekstraherer navnene på variablene og verdiene ved hjelp av kode.
+
+**Hint.** Bruk `as.Date()` for å filtrere på datoer.
+
+```{r}
+# løs oppgave II her
+
+# slett year og month
+df <- df %>%
+  select(-c(year, month))
+
+# lagrer variabelnavn
+df_navn <- df %>%
+  names() 
+
+# gir nye, enklere navn
+df <- df %>%
+  rename(gruppe = df_navn[1],
+         var = df_navn[2],
+         verdi = df_navn[3]) 
+
+# sorterer kolonnene
+df <- df %>%
+  select(dato,gruppe,var,verdi) 
+  
+df <- df %>%
+  filter(dato >= as.Date("2011-01-01"))
+
+# lagrer verdier i variabelen statvar
+var_navn <- df$var %>%
+  unique()
+```
+
+# Oppgave III: Beregn et vektet gjennomsnitt
+
+Vi skal nå beregne KPI som et vektet gjennomsnitt av konsumgruppene og sammenlign med totalindeksen.
+
+## Oppgave IIIa: Endre verdi på vektene
+
+Del vektene i `df` på 1000, og sjekk at de summerer seg til om lag `1` for hver måned. Hvor store avvik får du?
+
+```{r}
+# løsningsforslag
+
+# deler på 1000, erstatter NA med 0
+df_vekter <- df %>% 
+  filter(var %in% last(var_navn)) %>%
+  mutate(verdi = verdi/1000) %>%
+  mutate(verdi = replace(verdi,is.na(verdi),0))
+
+# limer de nye vektene tilbake inn i df 
+df <- df %>%
+  filter(var %in% first(var_navn)) %>%
+  rbind(df_vekter)
+
+# sjekker at vektene summerer seg til om lag 1
+sjekk <- df %>%
+  filter(var %in% last(var_navn)) %>%
+  group_by(dato) %>%
+  summarise(sum=sum(verdi)) 
+
+max <- max(sjekk$sum)
+min <- min(sjekk$sum)
+maxdiff <- max(c(abs(1-max),abs(1-min)))
+  
+print(paste("Den største summen er", max, "den minste er", min,".", "Den største differensen mellom 1 og den beregnede summen er", maxdiff,"."))
+
+# NB! Merk at df lagres på nytt med nye vekter. Vektene vil bli delt på 1000 hver gang kodesnutten kjøres. Det er en typisk fallgruve. 
+```
+
+## Oppgave IIIb: Beregn prisindeksen fra gruppene med vekter
+
+Beregn en totalindeks hvor dere bruker vektene og verdiene på prisindeks i formel $(1)$ fra oppgave I. Hvordan kan du vite om beregningen er riktig?
+
+```{r}
+df_vekter <- df_vekter %>%  
+  select(dato,gruppe,verdi)%>%
+  arrange(dato,gruppe)
+
+df_indeks <- df %>%
+  filter(var %in% first(var_navn)) %>%
+  select(dato,gruppe,verdi) %>%
+  mutate(verdi = replace(verdi,is.na(verdi),0))%>%
+  arrange(dato,gruppe)
+
+df_total <- df_indeks %>%
+  select(dato,gruppe) %>%
+  mutate(verdi = df_indeks$verdi*df_vekter$verdi) %>%
+  group_by(dato) %>%
+  summarize(verdi = sum(verdi)) %>%
+  mutate(gruppe = "KPI")
+
+rebaser <- 100/df_total$verdi[df_total$dato == as.Date("2015-01-01")]
+
+df_total <- df_total %>%
+  mutate(verdi = verdi*rebaser)
+
+df_total %>%
+  ggplot(aes(x=dato,y=verdi)) +
+  geom_line() +
+  theme_minimal()
+```
+
+```{r}
+url <- "https://data.ssb.no/api/v0/no/table/03013/"
+
+query <- '{
+  "query": [
+    {
+      "code": "Konsumgrp",
+      "selection": {
+        "filter": "vs:CoiCop2016niva1",
+        "values": [
+          "TOTAL"
+        ]
+      }
+    },
+    {
+      "code": "ContentsCode",
+      "selection": {
+        "filter": "item",
+        "values": [
+          "KpiIndMnd"
+        ]
+      }
+    },
+    {
+      "code": "Tid",
+      "selection": {
+        "filter": "item",
+        "values": [
+          "2011M01",
+          "2011M02",
+          "2011M03",
+          "2011M04",
+          "2011M05",
+          "2011M06",
+          "2011M07",
+          "2011M08",
+          "2011M09",
+          "2011M10",
+          "2011M11",
+          "2011M12",
+          "2012M01",
+          "2012M02",
+          "2012M03",
+          "2012M04",
+          "2012M05",
+          "2012M06",
+          "2012M07",
+          "2012M08",
+          "2012M09",
+          "2012M10",
+          "2012M11",
+          "2012M12",
+          "2013M01",
+          "2013M02",
+          "2013M03",
+          "2013M04",
+          "2013M05",
+          "2013M06",
+          "2013M07",
+          "2013M08",
+          "2013M09",
+          "2013M10",
+          "2013M11",
+          "2013M12",
+          "2014M01",
+          "2014M02",
+          "2014M03",
+          "2014M04",
+          "2014M05",
+          "2014M06",
+          "2014M07",
+          "2014M08",
+          "2014M09",
+          "2014M10",
+          "2014M11",
+          "2014M12",
+          "2015M01",
+          "2015M02",
+          "2015M03",
+          "2015M04",
+          "2015M05",
+          "2015M06",
+          "2015M07",
+          "2015M08",
+          "2015M09",
+          "2015M10",
+          "2015M11",
+          "2015M12",
+          "2016M01",
+          "2016M02",
+          "2016M03",
+          "2016M04",
+          "2016M05",
+          "2016M06",
+          "2016M07",
+          "2016M08",
+          "2016M09",
+          "2016M10",
+          "2016M11",
+          "2016M12",
+          "2017M01",
+          "2017M02",
+          "2017M03",
+          "2017M04",
+          "2017M05",
+          "2017M06",
+          "2017M07",
+          "2017M08",
+          "2017M09",
+          "2017M10",
+          "2017M11",
+          "2017M12",
+          "2018M01",
+          "2018M02",
+          "2018M03",
+          "2018M04",
+          "2018M05",
+          "2018M06",
+          "2018M07",
+          "2018M08",
+          "2018M09",
+          "2018M10",
+          "2018M11",
+          "2018M12",
+          "2019M01",
+          "2019M02",
+          "2019M03",
+          "2019M04",
+          "2019M05",
+          "2019M06",
+          "2019M07",
+          "2019M08",
+          "2019M09",
+          "2019M10",
+          "2019M11",
+          "2019M12",
+          "2020M01",
+          "2020M02",
+          "2020M03",
+          "2020M04",
+          "2020M05",
+          "2020M06",
+          "2020M07",
+          "2020M08",
+          "2020M09",
+          "2020M10",
+          "2020M11",
+          "2020M12",
+          "2021M01",
+          "2021M02",
+          "2021M03",
+          "2021M04",
+          "2021M05",
+          "2021M06",
+          "2021M07",
+          "2021M08",
+          "2021M09",
+          "2021M10",
+          "2021M11",
+          "2021M12",
+          "2022M01",
+          "2022M02",
+          "2022M03",
+          "2022M04",
+          "2022M05",
+          "2022M06",
+          "2022M07",
+          "2022M08",
+          "2022M09"
+        ]
+      }
+    }
+  ],
+  "response": {
+    "format": "json-stat2"
+  }
+}'
+
+hent_indeks.tmp <- url %>%
+  POST(body = query, encode = "json")
+
+df_ssb <-  hent_indeks.tmp %>%
+  content("text") %>%
+  fromJSONstat() %>%
+  as_tibble()
+
+df_ssb <- df_ssb %>%
+separate(måned, 
+         into=c("year", "month"), 
+         sep="M") %>% 
+mutate(dato = ymd(paste(year, month, "1")))
+
+df_ssb <- df_ssb %>%
+  select(-c(year, month))
+
+df_ssb_navn <- df_ssb %>%
+  names() 
+
+df_ssb <- df_ssb %>%
+  rename(gruppe = df_ssb_navn[1],
+         var = df_ssb_navn[2],
+         verdi = df_ssb_navn[3]) 
+
+df_ssb <- df_ssb %>%
+  select(dato,gruppe,verdi)
+
+df_ssb <- df_ssb %>% 
+  rbind(df_total)
+
+df_ssb %>%
+  ggplot(aes(x=dato,y=verdi,color = gruppe)) +
+  geom_line() +
+  theme_minimal()
+```
+
+*Løsningsforslag: Dette er pussige resultater. Seriene er like i 2020. De har en vedvarende nivåforskjell på andre datoer. Jeg kan ikke se en kodefeil. For å kontrollere gjorde jeg øvelsen på nytt med identisk kode, men mer aggregerte undergrupper. Se* `SOK1004_C3_løsningsforslag_gruppenivå.qmd`*. Der ble resultatene svært gode, og indeksene er identiske opp til andre desimal.*
+
+# Oppgave IV: Beregn kraftprisens bidrag til vekst
+
+Lag en figur som illustrerer vekstbidraget til konsumgruppen "Elektrisitet, inkludert nettleie." Gi figuren en anstendig tolkning.
+
+```{r}
+df_indeks <- df_indeks %>% 
+  arrange(gruppe,dato)
+
+df_vekter <- df_vekter %>% 
+  arrange(gruppe,dato)
+
+df_bidrag <- df_indeks %>%
+  mutate(verdi = (100*(verdi - dplyr::lag(verdi,12))*dplyr::lag(df_vekter$verdi,12)/dplyr::lag(df_total$verdi,12)))
+
+gruppe_navn <- df_indeks$gruppe %>% 
+  unique()
+
+df_dtotal <- df_total %>%
+  mutate(verdi = 100*(verdi - dplyr::lag(verdi,12))/dplyr::lag(verdi,12)) %>%
+  filter(dato >= as.Date("2012-01-01")) 
+
+df_plot <- df_bidrag %>%
+  filter(dato >= as.Date("2012-01-01")) %>%
+  filter(gruppe == gruppe_navn[22]) %>%
+  rbind(df_dtotal)
+```
+
+```{r}
+df_plot %>%
+  
+  ggplot(aes(x=dato,y=verdi,color=gruppe)) +
+  
+  geom_line(size = 1.5) +
+  
+  geom_hline(yintercept=0) + 
+  
+  labs(title = "Kraftprisens bidrag til KPI", subtitle = "Tolvmåneders vekst. Prosent. KPI og bidrag fra elektrisitet, inkludert nettleie. 
+Januar 2012 - august 2022.", x = "År", y = "Tolvmåneders endring, prosent", color = "") +
+  
+  theme_minimal() +
+  
+  theme(legend.position="bottom") 
+```
+
+# Oppgave V
+
+I oppgave IV beregnet vi den direkte effekten av kraftpriser på konsumprisindeksen, gjennom husholdningenes eget forbruk. Diskuter hvorvidt høye kraftpriser indirekte kan bidra til konsumprisvekst.
+
+*Løsningsforslag: Kraftprisene kan bidra indirekte til konsumprisvekst gjennom å øke produksjonskostnadene til andre varer, i den grad produsentene da er nødt til å øke prisene for å dekke kostnadene.*
