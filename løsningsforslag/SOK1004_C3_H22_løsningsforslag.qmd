@@ -294,7 +294,7 @@ df_total <- df_indeks %>%
   summarize(verdi = sum(verdi)) %>%
   mutate(gruppe = "KPI")
 
-rebaser <- 100/df_total$verdi[df_total$dato == as.Date("2015-01-01")]
+rebaser <- 100/df_total$verdi[df_total$dato == as.Date("2015-06-01")]
 
 df_total <- df_total %>%
   mutate(verdi = verdi*rebaser)
@@ -520,7 +520,7 @@ df_ssb %>%
   theme_minimal()
 ```
 
-*Løsningsforslag: Dette er pussige resultater. Seriene er like i 2020. De har en vedvarende nivåforskjell på andre datoer. Jeg kan ikke se en kodefeil. For å kontrollere gjorde jeg øvelsen på nytt med identisk kode, men mer aggregerte undergrupper. Se* `SOK1004_C3_løsningsforslag_gruppenivå.qmd`*. Der ble resultatene svært gode, og indeksene er identiske opp til andre desimal.*
+*Løsningsforslag: Dette er pussige resultater. De har en vedvarende nivåforskjell på andre datoer. Jeg kan ikke se en kodefeil. For å kontrollere gjorde jeg øvelsen på nytt med identisk kode, men mer aggregerte undergrupper. Se* `SOK1004_C3_løsningsforslag_gruppenivå.qmd`*. Der ble resultatene svært gode, og indeksene er identiske opp til andre desimal.*
 
 # Oppgave IV: Beregn kraftprisens bidrag til vekst
 
