@@ -40,7 +40,7 @@ library(PxWebApiData)
 Vi bruker funksjonen `ApiData()` til å hente tabell 09842. Som notert ovenfor fant vi URL-en ved hjelp av søkefunksjonen til SSB. Først prøver vi å laste ned dataene direkte, uten ytterligere tilvalg, og tar en titt på hva vi får.
 
 ```{r}
-lenke <- "https://data.ssb.no/api/v0/no/table/03013"
+lenke <- "https://data.ssb.no/api/v0/no/table/09842"
 
 df <- lenke %>%
   ApiData()
