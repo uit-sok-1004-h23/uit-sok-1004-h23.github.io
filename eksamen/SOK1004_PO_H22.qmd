@@ -1,0 +1,321 @@
+---
+title: "Prosjektoppgave: Vekst og ulikhet i Norge, 1875-2017"
+format: html
+editor: visual
+---
+
+Spørsmål om oppgaven sendes til Even S. Hvinden ved [even.c.hvinden\@uit.no](mailto:even.c.hvinden@uit.no). Jeg retter en stor takk til Derek J. Clark for nyttige kommentarer og Jørgen Modalsli for å ha delt data på inntektsfordeling.
+
+# Instruksjoner
+
+Prosjektoppgaven skal leveres som `.pdf` i WiseFlow. Det ferdige dokumentet lagres som `[kandidatnummer]_SOK1004_PO_H22.pdf`. Hvis du har kandidatnummer 43, så vil filen hete `43_SOK1004_PO_H22.pdf`. Det er ingen begrensning på hvilken programvare dere benytter til å lage besvarelsen. Men figurer og utregninger skal gjøres i RStudio og dokumenteres ved hjelp av en en `.qmd`-fil som kompileres som en `.pdf` og inkluderes som vedlegg i besvarelsen.
+
+Merk at prosjektoppgaven består av fire oppgaver. Vekttallene er oppgitt i prosent.
+
+**NB!** Besvarelser som ikke oppfyller disse kravene vil ikke bli vurdert.
+
+# Last inn pakker og data
+
+```{r}
+#| output: false
+
+rm(list=ls()) 
+library(tidyverse)
+library(ggthemes)
+library(openxlsx)
+library(ggpubr)
+
+url <- "https://modals.li/downloads/gini_series_norway.xlsx"
+
+df_gini <- url %>%  
+  read.xlsx(sheet=1) %>% 
+  as_tibble()
+
+df_gini_navn <- df_gini %>% 
+  names()
+
+df_gini<- df_gini %>%
+  pivot_longer(!year,
+               names_to = "var", 
+               values_to = "verdi")
+
+url <- "https://github.com/uit-sok-1004-h22/uit-sok-1004-h22.github.io/blob/main/rkode/inntektsandeler.xlsx?raw=true"
+  
+df_andeler <- url %>%  
+  read.xlsx() %>% 
+  as_tibble()  
+
+df_andeler_navn <- df_gini %>% 
+  names()
+
+df_andeler <- df_andeler %>%
+  pivot_longer(!year,
+               names_to = "var", 
+               values_to = "verdi")
+
+df_andeler <- df_andeler %>% 
+  filter(year>=1875)
+```
+
+# Bakgrunn
+
+Brutto nasjonalprodukt (BNP) per person er et mål på gjennomsnittlig, årlig inntekt. Vi kan observere en robust sammenheng mellom nivået på BNP per person og selvrapportert velferd på tvers av land, se for eksempel [her](https://ourworldindata.org/grapher/gdp-vs-happiness). Men vi observerer også at det er betydelig variasjon i selvrapportert velferd for gitte nivåer av gjennomsnittlig inntekt. Hvorfor er det slik? Én grunn kan være forskjeller i fordelingen av inntekt. I land med høy ulikhet kan et flertall av innbyggere ha lavere inntekt enn det gjennomsnittlig inntekt tilsier.
+
+I prosjektoppgaven skal vi undersøke forløpet på nivået og fordelingen av inntekter i Norge mellom 1875 og 2017. Når opplevde medianhusholdningen sin største inntektsvekst? Hvordan fordeles inntektsbortfall under kriser? Med utgangspunkt i dataene skal vi drøfte rollen til institusjoner og produktivitetsvekst i å forklare utviklingen av inntekter.
+
+Vi vil bruke data fra artikkelen [Estimating long-run income inequality from mixed tabular data: Empirical evidence from Norway, 1875-2017](https://www.sciencedirect.com/science/article/pii/S0047272720300608) av Jørgen Modalsli, Rolf Aaberge, og Anthony B. Atkinson, publisert i *Journal of Public Economics* i 2021. Heretter vil jeg omtale artikkelen som MAA (Modalsli, Aaberge og Atkinson).
+
+# Bedømmelse
+
+Formålet med oppgave er å utfordre dere til å gi en deskriptiv analyse av sammensatte økonomiske data gjennom visualisering og økonomisk teori. En god besvarelse er kjennetegnet av følgende trekk.
+
+1.  Egenskapene til data visualiseres i gode figurer. En god figur har presist definerte enheter, fornuftig skalering, og illustrerer tydelig relevante trekk ved dataene. Figurer bør ikke overbelastes med innhold og kan gjerne være vakre.
+
+2.  Besvarelsen svarer konkret på oppgaven med et konsist og presist språk. Årsakssammenhenger tar utgangspunkt i pensum.
+
+3.  Koden som lagde figurene er korrekt og godt dokumentert.
+
+# Oppgave I - 10%
+
+Betrakt følgende figur, en versjon av Figur 3 i MAA.
+
+```{r}
+df_gini %>%
+  filter(year >= 1875) %>%
+  filter(var %in% df_gini_navn[4]) %>%
+  ggplot(aes(x=year,y=verdi)) +
+  geom_line() +
+  geom_smooth() +
+  ylim(0.25,0.75) +
+  theme_fivethirtyeight() +
+  labs(title = "Gini-koeffisienter for inntektsfordelingen i Norge",
+       subtitle = "1875–2017. Gjennomsnitt av øvre og nedre grense.",
+       y="Gini-koeffisient",
+       x="År")
+```
+
+**Spørsmål:** Hvordan har fordelingen av inntekt utviklet seg i Norge siden 1875?
+
+**Merknad:** Anta at estimatet av Gini-koeffisienten i figuren er sann. Det er ikke nødvendig å diskutere metoden MAA har brukt til å estimere inntektsfordelingen eller den statistiske usikkerheten rundt estimatet.
+
+*Sensorveiledning: Ulikheten er høy frem til 1940. Den avtar sterkt, og forblir lav frem til 1990, etter hvis den vokser igjen.*
+
+# Oppgave II - 10%
+
+Norges Bank publiserer en serie med anslag på BNP tilbake til 1830, se [her](https://www.norges-bank.no/en/topics/Statistics/Historical-monetary-statistics/). Vi vil benytte BNP som et mål på inntekt. Du finner et Excel-ark med BNP per person, i faste priser, [på GitHub](https://github.com/uit-sok-1004-h22/uit-sok-1004-h22.github.io/blob/e36b270c865e077f797e9426e32b47740f2f3847/rkode/bnp.xlsx).
+
+Skriv `R`-kode som lager en figur som viser BNP per person, i faste 2005-priser, fra 1875 til 2017. Hvordan har gjennomsnittlige inntekter utviklet seg i Norge siden 1875? Er det noen perioder som har mer variasjon i inntektsendring enn de andre?
+
+**Merknad:** Merk at GitHub-lenken ikke er til selve Excel-filen, så koden må tilpasses. For å tyde veksten i inntekter kan det være hensiktsmessig å log-transformere dataene, slik at helningen viser relativ endring.
+
+```{r}
+#| output: false
+
+url <- "https://github.com/uit-sok-1004-h22/uit-sok-1004-h22.github.io/blob/e36b270c865e077f797e9426e32b47740f2f3847/rkode/bnp.xlsx?raw=true"
+
+df_bnp <- url %>%  
+  read.xlsx(sheet=1) %>% 
+  as_tibble()
+
+navn_BNP <- df_bnp %>% 
+  names()
+
+df_bnp <- df_bnp %>% 
+  rename(BNP = navn_BNP[2],
+         year = navn_BNP[1])
+
+df_bnp <- df_bnp %>% 
+  mutate(DLBNP = 100*(log(BNP)-lag(log(BNP))))
+
+df_bnp <- df_bnp %>% 
+  filter(year >= 1875)
+```
+
+```{r}
+df_bnp %>%
+filter(year >= 1875) %>%
+mutate(BNP = log(BNP)) %>% 
+ggplot(aes(x=year,y=BNP)) +
+geom_line() +
+geom_smooth() +
+theme_bw() +
+labs(title = "BNP per person",
+     subtitle = "Log faste-2005 kroner. 1875-2017. Kilde: Norges Bank",
+     y="BNP per person",
+     x="År")
+```
+
+```{r}
+df_bnp %>%
+filter(year >= 1875) %>%
+ggplot(aes(x=year,y=DLBNP)) +
+geom_line() +
+geom_smooth() +
+theme_bw() +
+labs(title = "BNP per person",
+     subtitle = "Årlig endring. Log faste-2005 kroner. 1875-2017. Kilde: Norges Bank",
+     y="BNP per person",
+     x="År")
+```
+
+*Sensorveiledning: Mellom 1875 og 1980 er veksten i gjennomsnittlige inntekter stabil på om lag 2% hvert år. Mellomz 1918 og 1945 er det til dels store, årlige endringer i inntekt. Fra 1980 avtar veksten igjen, trolig på grunn av avtagende vekst i olje- og gassvirksomhet.*
+
+# Oppgave III - 40%
+
+I `df_andeler` er det lagret inntektsandeler fordelt på desil og år. Merk at dette er tallene bak Figur A9 i vedleggene til MAA, tilgjengelig [her](https://ars.els-cdn.com/content/image/1-s2.0-S0047272720300608-mmc1.pdf). For eksempel viser `share_10_20` hvor stor andel av den totale inntekten som gikk til intervallet mellom 10- og 20ende persentil.
+
+Kombiner BNP-tallene fra oppgave II med inntektsandelen til å beregne gjennomsnittlig inntekt per person, fordelt på desil og år. Lag to til fire figurer som illustrerer utviklingen i inntekt for de forskjellige gruppene.
+
+**Merknad 1.** Det mangler verdier i `df_andeler`, blant annet året 1956. Det må håndteres når dere skal beregne inntekter fordelt på desil.
+
+**Merknad 2.** Husk å skalere inntektene når dere har beregnet andeler. La $a_{x-y,t}$ være inntektsandelen til intervallet mellom $x$ og $y$ i år $t$. For eksempel så vil $a_{50-60,2005}$ være gitt ved `share_50_60` når `year` er lik `2005`, lagret i `df_andeler`. BNP per person i år $t$ er gitt ved $\text{bnp}_{t}$ og er lagret i `df_bnp`. Da vil gjennomsnittlig inntekt i intervallet være gitt ved $$a_{x-y,t}\times\frac{100}{x-y}\times \text{bnp}_{t}.$$
+
+**Merknad 3.** Figurene du lager i denne oppgaven skal brukes i besvarelsen til oppgave IV. Det kan være en idé å arbeide med de om hverandre.
+
+*Sensorveiledning. Løsningsforslag på kode og figurer følger under.*
+
+```{r}
+#| output: false
+
+# ny tabell hvor vi skal beregne inntekter
+df <- df_andeler 
+
+# lagrer en liste med årene hvor vi har observasjoner med inntektsandeler
+years_list <- df$year %>% 
+  unique()
+
+# wide-format er enklere
+df <- df %>% 
+  pivot_wider(names_from = var, values_from = verdi) 
+
+# ny tabell med bnp-tall for årene hvor vi har observasjoner
+df_temp <- df_bnp %>% 
+  filter(year %in% years_list)
+
+# anstendige navn
+df <- df %>%
+  rename("0-10" = "share_0_10",
+         "10-20" = "share_10_20",
+         "20-30" = "share_20_30",
+         "30-40" = "share_30_40",
+         "40-50" = "share_40_50",
+         "50-60" = "share_50_60",
+         "60-70" = "share_60_70",
+         "70-80" = "share_70_80",
+         "80-90" = "share_80_90",
+         "90-100" = "share_90_100",
+         "90-99" = "share_90_99",
+         "99-100" = "share_99_100")
+
+# lagrer navn
+df_navn <- df %>% 
+  names()
+
+df <- df %>% 
+  mutate(`0-10`=10*`0-10`*df_temp$BNP,
+         `10-20`  = (100/10)*`10-20`*df_temp$BNP,
+         `20-30`  = (100/10)*`20-30`*df_temp$BNP,
+         `30-40`  = (100/10)*`30-40`*df_temp$BNP,
+         `40-50`  = (100/10)*`40-50`*df_temp$BNP,
+         `50-60`  = (100/10)*`50-60`*df_temp$BNP,
+         `60-70`  = (100/10)*`60-70`*df_temp$BNP,
+         `70-80`  = (100/10)*`70-80`*df_temp$BNP,
+         `80-90`  = (100/10)*`80-90`*df_temp$BNP,
+         `90-100` = (100/10)*`90-100`*df_temp$BNP,
+         `90-99`  = (100/9)*`90-99`*df_temp$BNP,
+         `99-100` = (100/1)*`99-100`*df_temp$BNP,)
+
+df <- df %>%
+  pivot_longer(!year,
+               names_to = "var", 
+               values_to = "verdi")
+
+andeler <- df$var %>% 
+  unique()
+```
+
+```{r}
+df %>% 
+  filter(year >= 1890) %>% 
+  mutate(verdi=log(verdi)) %>% 
+  filter(var %in% andeler[1:10]) %>% 
+  
+  ggplot(aes(x=year,
+             y=verdi,
+             color=var)) +
+  
+  geom_line(size=1.25) +
+  
+  labs(title = "Log BNP per person", 
+       subtitle = "Faste 2005-kroner. Fordelt på inntektsdesiler. 1890 - 2017",
+       y = "Log BNP per person",
+       x = "År",
+       color =  "Desil",
+       caption = "Kilder: Modalsli, Aaberge og Atkinson (2021), Norges Bank") +
+  theme_minimal()
+```
+
+```{r}
+df %>% 
+  filter(year %in% c(1900:1950)) %>% 
+  filter(var %in% andeler[1:10]) %>% 
+  mutate(verdi=verdi/(10^5)) %>%
+  ggplot(aes(x=year,y=verdi,color=var)) +
+  geom_line(size=1.25) +
+  labs(title = "BNP per person",
+       subtitle = "Hundretusener faste 2005-kroner. Fordelt på inntektsdesiler. 1900-1950",
+       y = "BNP per person",
+       x = "År",
+       color = "Desil",
+       caption = "Kilder: Modalsli, Aaberge og Atkinson (2021), Norges Bank") +
+  theme_minimal()
+```
+
+```{r}
+df %>% 
+  filter(year %in% c(1950:2017)) %>% 
+  filter(var %in% andeler[1:10]) %>% 
+  mutate(verdi=verdi/(10^5)) %>%
+  ggplot(aes(x=year,y=verdi,color=var)) +
+  geom_line(size=1.25) +
+  labs(title = "BNP per person, fordelt på inntektsdesiler",
+       subtitle = "Hundretusener faste 2005-kroner. Fordelt på inntektsdesiler. 1950-2017",
+       y = "BNP per person",
+       x = "År",
+       caption = "Kilder: Modalsli, Aaberge og Atkinson (2021), Norges Bank",
+       color = "Desil") +
+  theme_minimal()
+```
+
+```{r}
+df %>% 
+  mutate(verdi=verdi/(10^6)) %>%
+  filter(year %in% c(1875:2017)) %>% 
+  filter(var %in% andeler[11:12]) %>% 
+  ggplot(aes(x=year,y=verdi,color=var)) +
+  geom_line(size=1.25) +
+  labs(title = "BNP per person",
+       subtitle = "Millioner faste 2005-kroner. Øverste desil, fordelt. 1890 - 2017.",
+       y = "BNP per person",
+       x = "År",
+       caption = "Kilder: Modalsli, Aaberge og Atkinson (2021), Norges Bank", color = "Desilfordeling") +
+  theme_minimal()
+```
+
+# Oppgave IV - 40%
+
+Gi en grundig beskrivelse av forløpet til nivået og fordelingen av inntekten. Bruk figurene fra oppgave III til å illustrere. Forsøk å identifisere to - fire overordnede og grunnleggende årsaker til endringer i nivået og fordelingen av inntekter. Husk å henvise til kilder.
+
+For å strukturere besvarelsen kan det være lurt å skille observasjonene i perioder med fallende eller økende ulikhet og stabil eller ustabil vekst i inntekter, se figurene i henholdsvis oppgave I og II.
+
+For å hjelpe dere på vei, still dere følgende spørsmål om perioden mellom 1875 og 2017i Norge. Skjedde det noen institusjonelle endringer? Var det noen globale hendelser som kunne ha påvirket utviklingen i BNP? Har næringsgrunnlagset endret seg?
+
+Lengden på besvarelsen skal utgjøre 1000 - 2000 ord.
+
+*Sensorveiledning: Egenskapene til en god besvarelse er beskrevet i seksjonen "Bedømmelse" over. En naturlig strukturering vil identifisere tre perioder:*
+
+*i) Mellom 1875 og 1945 er det høy inntektsulikhet. Det er lav- eller ingen lønnsvekst for inntekter opp til medianen. Endringene i inntekt er også svært volatile. En sterk student bør få med én- eller to historiske utviklingstrekk som potensielle årsaker for observasjonene, for eksempel "jobbetiden" i første verdenskrig og "de harde tyveårene" med paripolitikk.*
+
+*ii) Mellom 1945 og 1990 faller ulikheten, og vekstratene i inntekter er påfallende like på tvers av desiler. For å forklare denne utviklingen bør en sterk student nevne sosialdemokratiske institusjoner.*
+
+*iii) Fra 1990 øker inntektene særlig for den øverste prosenten i inntektsfordelingen. Dette er mer krevende å forklare. En sterk student vil kanskje identifisere høye inntekter blant innovatører og grunnleggere i særlig lønnsomme industrier som en faktor.*
