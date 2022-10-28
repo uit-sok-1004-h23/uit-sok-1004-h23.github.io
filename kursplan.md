@@ -34,7 +34,7 @@ C = casegjennomgang
 |20. oktober|C3  | Case 3 |ESH| [lenke til case](case.md)  |
 |24. oktober|**Frist**|Arbeidskrav 5 - Case 3|  |Leveres i [Canvas](https://uit.instructure.com/courses/26950/assignments){:target='_blank_'} innen kl 16.00|
 |25. oktober| S3 (oppgave 2 og 3)  | Seminar 3: Begreper, vekst, produktivitet | DC |[Oppgaver](/seminar/s3.md){:target='_blank_'} <br> [Løsninger](/seminar/seminar 3 løsninger.pdf){:target='_blank_'} <br> [R-kode mm oppgave 2](/seminar/produksjon med ggplot.html){:target='_blank_'}     |
-|26. oktober|*utdeling*| Mappeoppgave 2|  | [Oppgave](/eksamen/mappe_2_h22_final.html){:target='_blank_'} <br> [Presentasjon konsumentteori](en forsmak på konsumentteori.html){:target='_blank_'}|
+|26. oktober|*utdeling*| Mappeoppgave 2|  | [Oppgave](/eksamen/mappe_2_h22_final.html){:target='_blank_'} |
 |27. oktober|C4   | Case 4          | ESH | [lenke til case](case.md) |
 |31. oktober|**Frist**|Arbeidskrav 6 - Case 4|  |Leveres i [Canvas](https://uit.instructure.com/courses/26950/assignments){:target='_blank_'} innen kl 16.00|
 |1. november| S4  | Seminar 4: Gjennomgang case 3 og 4 | Ida |  |
