@@ -40,7 +40,7 @@ C = casegjennomgang
 |1. november| S4  | Seminar 4: Gjennomgang case 3 og 4 | Ida |  |
 |2. november|F9 | Lønn vs. Fritid  | DC | [Ressursside](/ressurssider/F9.md){:target='_blank_'}   | 
 |8. november |F10  | Arbeidsinnsats og inntekt  | DC         | [Ressursside](/ressurssider/F10.md){:target='_blank_'}   |
-|10. november| S5  | Seminar 5: Lønn, fritid, og arbeidsinnsats | DC |[Oppgaver](/seminar/s5.md){:target='_blank_'}  |
+|10. november| S5  | Seminar 5: Lønn, fritid, og arbeidsinnsats | DC |[Oppgaver](/seminar/s5.md){:target='_blank_'}<br> [Løsning oppgave 1 qmd](/seminar/seminar_5_oppg_1_løs.qmd)<br> [Løsning oppgave 1 html](/seminar/seminar_5_oppg_1_løs.html){:target='_blank_'} <br> [Løsning oppgave 2](/seminar/seminar_5_opg_2_løs.pdf){:target='_blank_'}  |
 |16. november|**Frist**    | Innlevering mappeoppgave 2        |  |Leveres i [Wiseflow](https://europe.wiseflow.net/login)  |
 |17. november |C5    | Case 5 |ESH | [lenke til case](case.md) |
 |18. november |*utdeling*  | Utdeling av prosjektoppgaven      |        | Kommer her kl 09.00  |
