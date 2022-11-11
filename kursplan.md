@@ -31,18 +31,18 @@ C = casegjennomgang
 |10. oktober|**Frist**    | Innlevering mappeoppgave 1        | | Leveres i [Wiseflow](https://europe.wiseflow.net/login){:target='_blank_'} innen kl 15.00   |
 |13. oktober|F8   | Økonomisk vekst, befolkningsvekst og produktivitet | DC | [Ressursside](/ressurssider/F8.md){:target='_blank_'}   |
 |18. oktober| S3  | Seminar 3: Begreper, vekst, produktivitet | DC |[Oppgaver](/seminar/s3.md){:target='_blank_'} <br> [Løsning oppgave 1](/seminar/seminar 3 oppgave 1 løsning.pdf){:target='_blank_'}   |
-|20. oktober|C3  | Case 3 |ESH| [lenke til case](case.md)  |
+|20. oktober|C3  | Case 3: Kraftpriser og prisvekst |ESH| [lenke til case](case.md)  |
 |24. oktober|**Frist**|Arbeidskrav 5 - Case 3|  |Leveres i [Canvas](https://uit.instructure.com/courses/26950/assignments){:target='_blank_'} innen kl 16.00|
 |25. oktober| S3 (oppgave 2 og 3)  | Seminar 3: Begreper, vekst, produktivitet | DC |[Oppgaver](/seminar/s3.md){:target='_blank_'} <br> [Løsninger](/seminar/seminar 3 løsninger.pdf){:target='_blank_'} <br> [R-kode mm oppgave 2](/seminar/produksjon med ggplot.html){:target='_blank_'}     |
 |26. oktober|*utdeling*| Mappeoppgave 2|  | [Oppgave](/eksamen/mappe_2_h22_final.html){:target='_blank_'} |
-|27. oktober|C4   | Case 4          | ESH | [lenke til case](case.md) |
+|27. oktober|C4   | Case 4: FoU i norske bedrifter          | ESH | [lenke til case](case.md) |
 |31. oktober|**Frist**|Arbeidskrav 6 - Case 4|  |Leveres i [Canvas](https://uit.instructure.com/courses/26950/assignments){:target='_blank_'} innen kl 16.00|
 |1. november| S4  | Seminar 4: Gjennomgang case 3 og 4 | Ida |  |
 |2. november|F9 | Lønn vs. Fritid  | DC | [Ressursside](/ressurssider/F9.md){:target='_blank_'}   | 
 |8. november |F10  | Arbeidsinnsats og inntekt  | DC         | [Ressursside](/ressurssider/F10.md){:target='_blank_'}   |
 |10. november| S5  | Seminar 5: Lønn, fritid, og arbeidsinnsats | DC |[Oppgaver](/seminar/s5.md){:target='_blank_'}<br> [Løsning oppgave 1 qmd](/seminar/seminar_5_oppg_1_løs.qmd)<br> [Løsning oppgave 1 html](/seminar/seminar_5_oppg_1_løs.html){:target='_blank_'} <br> [Løsning oppgave 2](/seminar/seminar_5_opg_2_ løs.pdf){:target='_blank_'}  |
 |16. november|**Frist**    | Innlevering mappeoppgave 2        |  |Leveres i [Wiseflow](https://europe.wiseflow.net/login)  |
-|17. november |C5    | Case 5 |ESH | [lenke til case](case.md) |
+|17. november |C5    | Case 5: Produktivitet |ESH | [lenke til case](case.md) |
 |18. november |*utdeling*  | Utdeling av prosjektoppgaven      |        | Kommer her kl 09.00  |
 |21. november|**Frist**|Arbeidskrav 7 - Case 5|  |Leveres i [Canvas](https://uit.instructure.com/courses/26950/assignments){:target='_blank_'} innen kl 16.00|
 |22. november| S6  | Seminar 6: Gjennomgang case 5 | Ida |  |
