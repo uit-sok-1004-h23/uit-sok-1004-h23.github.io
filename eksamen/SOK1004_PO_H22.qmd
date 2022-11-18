@@ -1,0 +1,281 @@
+---
+title: "Prosjektoppgave: De harde 1920-årene"
+format: pdf
+editor: visual
+echo: false
+warning: false
+---
+
+**Even Hvinden**
+
+Oppklarende spørsmål kan rettes til [even.c.hvinden\@uit.no](mailto:even.c.hvinden@uit.no). Jeg retter en stor takk til Jørgen Modalsli for å ha delt data på inntektsfordeling.
+
+# Instruksjoner
+
+Prosjektoppgaven skal leveres som `.pdf` i WiseFlow. Det ferdige dokumentet lagres som `[kandidatnummer]_SOK1004_PO_H22.pdf`. Hvis du har kandidatnummer 43, så vil filen hete `43_SOK1004_PO_H22.pdf`. Det er ingen begrensning på hvilken programvare dere benytter til å lage besvarelsen. Men figurer og utregninger skal gjøres i RStudio og dokumenteres ved hjelp av en en `.qmd`-fil som kompileres som en `.pdf` og inkluderes som vedlegg i besvarelsen.
+
+Merk at prosjektoppgaven består av tre oppgaver. Vekttallene er oppgitt i prosent.
+
+Prosjektoppgaven kan besvares alene eller i grupper på opptil tre personer. Det er ikke lov å samarbeide på tvers av grupper, og hvert gruppemedlem må levere besvarelsen i WiseFlow. Grupper anbefales å undertegne en [samarbeidsavtale](https://github.com/uit-sok-1004-h22/uit-sok-1004-h22.github.io/blob/main/eksamen/Samarbeidsavtale%20for%20gruppearbeid%20SOK1004.pdf).
+
+**NB!** Besvarelser som ikke oppfyller disse kravene vil ikke bli vurdert.
+
+# Last inn pakker og data
+
+```{r, output: false}
+
+rm(list=ls()) 
+library(tidyverse)
+library(ggthemes)
+library(openxlsx)
+library(ggpubr)
+
+url <- "https://modals.li/downloads/gini_series_norway.xlsx"
+
+df_gini <- url %>%  
+  read.xlsx(sheet=1) %>% 
+  as_tibble()
+
+df_gini_navn <- df_gini %>% 
+  names()
+
+df_gini<- df_gini %>%
+  pivot_longer(!year,
+               names_to = "var", 
+               values_to = "verdi")
+
+url <- "https://github.com/uit-sok-1004-h22/uit-sok-1004-h22.github.io/blob/main/rkode/inntektsandeler.xlsx?raw=true"
+  
+df_andeler <- url %>%  
+  read.xlsx() %>% 
+  as_tibble()  
+
+df_andeler_navn <- df_gini %>% 
+  names()
+
+df_andeler <- df_andeler %>%
+  pivot_longer(!year,
+               names_to = "var", 
+               values_to = "verdi")
+
+df_andeler <- df_andeler %>% 
+  filter(year>=1875)
+
+url <- "https://github.com/uit-sok-1004-h22/uit-sok-1004-h22.github.io/blob/e36b270c865e077f797e9426e32b47740f2f3847/rkode/bnp.xlsx?raw=true"
+
+df_bnp <- url %>%  
+  read.xlsx(sheet=1) %>% 
+  as_tibble()
+
+navn_BNP <- df_bnp %>% 
+  names()
+
+df_bnp <- df_bnp %>% 
+  rename(BNP = navn_BNP[2],
+         year = navn_BNP[1])
+
+df_bnp <- df_bnp %>% 
+  mutate(DLBNP = 100*(log(BNP)-lag(log(BNP))))
+
+df_bnp <- df_bnp %>% 
+  filter(year >= 1875)
+```
+
+# Bakgrunn
+
+I norsk økonomisk historie blir årene 1920 - 1930 beskrevet som harde. Les avsnittene om arbeidsløshet og inflasjon, paripolitikken, streiker og arbeidskonflikter i [artikkelen om mellomkrigstiden](https://snl.no/Norges_historie_fra_1905_til_1939) i Store norske leksikon. Se også [deres artikkel om paripolitikk](https://snl.no/paripolitikk).
+
+I denne prosjektoppgaven skal vi analysere utviklingen i norsk økonomi gjennom historiske data fra Norges Bank og Statistisk sentralbyrå. Vi vil også bruke data fra artikkelen [Estimating long-run income inequality from mixed tabular data: Empirical evidence from Norway, 1875-2017](https://www.sciencedirect.com/science/article/pii/S0047272720300608) av Jørgen Modalsli, Rolf Aaberge, og Anthony B. Atkinson, publisert i *Journal of Public Economics* i 2021.
+
+# Bedømmelse
+
+Formålet med oppgave er å utfordre dere til å gi en deskriptiv analyse av sammensatte økonomiske data gjennom visualisering og grunnleggende økonomisk teori. En god besvarelse er kjennetegnet av følgende trekk.
+
+1.  Egenskapene til data visualiseres i gode figurer. En god figur har presist definerte enheter, fornuftig skalering, og illustrerer tydelig relevante trekk ved dataene. Bedømmelsen vil vektlegge en tydelig beskrivelse av figurene. Figurer bør ikke overbelastes med innhold og kan gjerne være vakre.
+
+2.  Besvarelsen svarer konkret på oppgaven med et konsist og presist språk. Påstander om årsakssammenhenger underbygges med argumenter og kildehenvisninger.
+
+3.  Koden som lagde figurene er korrekt og godt dokumentert.
+
+# Oppgave I - 20%
+
+Betrakt følgende figurer.
+
+```{r}
+df_gini %>%
+  filter(year >= 1875) %>%
+  filter(var %in% df_gini_navn[4]) %>%
+  ggplot(aes(x=year,y=verdi)) +
+  geom_line() +
+  geom_smooth() +
+  ylim(0.25,0.75) +
+  theme_bw() +
+  labs(title = "Gini-koeffisienter for inntektsfordelingen i Norge",
+       subtitle = "1875–2017. Gjennomsnitt av øvre og nedre grense.",
+       y="Gini-koeffisient",
+       x="År",
+       caption = "Kilde: Modalsli, Aaberge og Atkinson (2021)")
+```
+
+```{r}
+df_bnp %>%
+filter(year >= 1875) %>%
+mutate(BNP = log(BNP)) %>% 
+ggplot(aes(x=year,y=BNP)) +
+geom_line() +
+geom_smooth() +
+theme_bw() +
+labs(title = "BNP per person",
+     subtitle = "Log faste-2005 kroner. 1875-2017.",
+     y="BNP per person",
+     x="År",
+     caption = "Kilde: Norges Bank")
+```
+
+```{r}
+df_bnp %>%
+filter(year >= 1875) %>%
+ggplot(aes(x=year,y=DLBNP)) +
+geom_line() +
+geom_smooth() +
+theme_bw() +
+labs(title = "BNP per person",
+     subtitle = "Årlig endring. Log faste-2005 kroner. 1875-2017",
+     y="BNP per person",
+     x="År",
+     caption = "Kilde: Norges Bank")
+```
+
+**Spørsmål:** Beskriv hvordan ulikheten og veksten i inntekter utviklet seg i 1920-årene sammenlignet med øvrige perioder.
+
+**Hint.** Det kan være nyttig å endre koden for å se nærmere på bestemte tidsintervaller.
+
+**Merknad:** Anta at estimatet av BNP og Gini-koeffisienten i figuren er sann. Det er ikke nødvendig å diskutere metoden Norges Bank og Modalsli, Aaberge og Atkinson (2021) har brukt til å estimere BNP og Gini-koeffisienten eller den statistiske usikkerheten rundt estimatet.
+
+# Oppgave II - 20%
+
+I `df_andeler` er det lagret inntektsandeler fordelt på desil og år. Merk at dette er tallene bak Figur A9 i vedleggene til MAA, tilgjengelig [her](https://ars.els-cdn.com/content/image/1-s2.0-S0047272720300608-mmc1.pdf). For eksempel viser `share_10_20` hvor stor andel av den totale inntekten som gikk til intervallet mellom tiende- og tyvende persentil. I følgende figur kombinerer jeg BNP-tallene fra oppgave I med inntektsandelen til å beregne gjennomsnittlig inntekt per person, fordelt på desil og år.
+
+Betrakt følgende figurer.
+
+**Merknad.** Inntektene må skaleres når vi beregner andeler. La $a_{x-y,t}$ være inntektsandelen til intervallet mellom $x$ og $y$ i år $t$. BNP per person i år $t$ er gitt ved $\text{bnp}_{t}$ og er lagret i `df_bnp`. For eksempel så vil $a_{50-60,2005}$ og $bnp_{2005}$ være gitt ved `df_andeler$share_50_60` og `df_bnp$BNP` når `year` er lik `2005`. Da vil gjennomsnittlig inntekt i intervallet være gitt ved $$a_{x-y,t}\times\frac{100}{x-y}\times \text{bnp}_{t}.$$
+
+```{r}
+#| output: false
+
+# ny tabell hvor vi skal beregne inntekter
+df <- df_andeler 
+
+# lagrer en liste med årene hvor vi har observasjoner med inntektsandeler
+years_list <- df$year %>% 
+  unique()
+
+# wide-format er enklere
+df <- df %>% 
+  pivot_wider(names_from = var, values_from = verdi) 
+
+# ny tabell med bnp-tall for årene hvor vi har observasjoner
+df_temp <- df_bnp %>% 
+  filter(year %in% years_list)
+
+# anstendige navn
+df <- df %>%
+  rename("0-10" = "share_0_10",
+         "10-20" = "share_10_20",
+         "20-30" = "share_20_30",
+         "30-40" = "share_30_40",
+         "40-50" = "share_40_50",
+         "50-60" = "share_50_60",
+         "60-70" = "share_60_70",
+         "70-80" = "share_70_80",
+         "80-90" = "share_80_90",
+         "90-100" = "share_90_100",
+         "90-99" = "share_90_99",
+         "99-100" = "share_99_100")
+
+# lagrer navn
+df_navn <- df %>% 
+  names()
+
+df <- df %>% 
+  mutate(`0-10`=10*`0-10`*df_temp$BNP,
+         `10-20`  = (100/10)*`10-20`*df_temp$BNP,
+         `20-30`  = (100/10)*`20-30`*df_temp$BNP,
+         `30-40`  = (100/10)*`30-40`*df_temp$BNP,
+         `40-50`  = (100/10)*`40-50`*df_temp$BNP,
+         `50-60`  = (100/10)*`50-60`*df_temp$BNP,
+         `60-70`  = (100/10)*`60-70`*df_temp$BNP,
+         `70-80`  = (100/10)*`70-80`*df_temp$BNP,
+         `80-90`  = (100/10)*`80-90`*df_temp$BNP,
+         `90-100` = (100/10)*`90-100`*df_temp$BNP,
+         `90-99`  = (100/9)*`90-99`*df_temp$BNP,
+         `99-100` = (100/1)*`99-100`*df_temp$BNP,)
+
+df <- df %>%
+  pivot_longer(!year,
+               names_to = "var", 
+               values_to = "verdi")
+
+andeler <- df$var %>% 
+  unique()
+```
+
+```{r}
+df %>% 
+  filter(year %in% c(1900:1930)) %>% 
+  filter(var %in% andeler[1:10]) %>% 
+  mutate(verdi=verdi/(10^5)) %>%
+  ggplot(aes(x=year,y=verdi,color=var)) +
+  geom_line(size=1.25) +
+  labs(title = "BNP per person",
+       subtitle = "Hundretusener faste 2005-kroner. Fordelt på inntektsdesiler. 1900-1950",
+       y = "BNP per person",
+       x = "År",
+       color = "Desil",
+       caption = "Kilder: Modalsli, Aaberge og Atkinson (2021), Norges Bank") +
+theme_bw() 
+
+```
+
+```{r}
+df %>% 
+  filter(year %in% c(1900:1930)) %>% 
+  mutate(verdi=log(verdi)) %>% 
+  filter(var %in% andeler[1:10]) %>% 
+  
+  ggplot(aes(x=year,
+             y=verdi,
+             color=var)) +
+  
+  geom_line(size=1.25) +
+  
+  labs(title = "Log BNP per person", 
+       subtitle = "Faste 2005-kroner. Fordelt på inntektsdesiler. 1900 - 1930",
+       y = "Log BNP per person",
+       x = "År",
+       color =  "Desil",
+       caption = "Kilder: Modalsli, Aaberge og Atkinson (2021), Norges Bank") +
+theme_bw() 
+```
+
+**Spørsmål:** Beskriv hvordan endringen i reelle inntekter fordelte seg på inntektsdesiler mellom 1920 og 1930.
+
+# Oppgave III - 60%
+
+Dere skal nå presentere og beskrive utviklingen i to ytterligere økonomiske forhold som kjennetegnet de harde 1920-årene. Jeg anbefaler å bruke følgende kilder til å finne data:
+
+-   [Historisk statistikk fra Norges Bank](https://www.norges-bank.no/en/topics/Statistics/Historical-monetary-statistics/)
+
+-   [Historisk statistikk fra SSB](https://www.ssb.no/a/histstat/)
+
+Her følger fire eksempler på tema dere kan, men ikke nødvendigvis må velge. Lenkene leder til definisjonen i SNL, og dataene finnes i de ovennevnte kildene.
+
+-   [Realrente](https://snl.no/realrente)
+
+-   [Utlån (kreditt) fra banker](https://snl.no/utlån)
+
+-   [Arbeidsledighet](https://snl.no/arbeidsledighet)
+
+-   [Arbeidskonflikter og streik](https://snl.no/streik)
+
+I besvarelsen skal dere forklare hvorfor dataene er relevante og gi en grundig beskrivelse av deres utvikling. Lengden på besvarelsen skal være på 750 - 1500 ord.
