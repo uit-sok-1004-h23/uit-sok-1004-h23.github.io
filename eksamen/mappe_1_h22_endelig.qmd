@@ -1,0 +1,245 @@
+---
+title: "SOK-1004, høst 2022, Mappeoppgave 1"
+author: Derek J. Clark
+format:
+  html:
+    code-fold: true
+    self-contained: true
+editor: visual
+---
+
+# 1. Bakgrunn
+
+I denne oppgaven skal du undersøke ulikhet i inntektsfordelingen i Norge ved å bruke to datasett. Det første er hentet fra [OECD](https://stats.oecd.org/index.aspx?r=994307#), og viser utviklingen i forskjellige mål på inntektsulikhet i Norge i perioden 2008-2019. Dere skal bruke dette datasettet til å gi en beskrivelse av utviklingen av ulikhet i Norge over tid og mellom grupper.
+
+Det andre datasettet er innhentet av Espen Sirnes og inneholder tall på formue, skatt og inntekt for Troms fylkeskommune i 2015. Dere skal bruke dette datasettet til å gjennomføre en casestudie av ulikhet i Tromsø kommune i 2015.
+
+# 2. Instruksjoner og oppgaver
+
+Mappeoppgaven kan besvares individuelt eller i grupper på inntil 3. Grupper anbefales å undertegne en [samarbeidsavtale](https://github.com/uit-sok-1004-h22/uit-sok-1004-h22.github.io/blob/main/eksamen/Samarbeidsavtale%20for%20gruppearbeid%20SOK1004.pdf).
+
+Dere skal levere en pdf fil som inneholder tekst, figurer og kode. Bruk gjerne [Quarto](https://quarto.org/) i RStudio som plattform. Bruk følgende YAML kode øverst i dokumentet
+
+\-\--
+
+title: "SOK-1004, høst 2022, Mappeoppgave 1"
+
+author: "\[ditt kandidatnummer\]"
+
+format: pdf
+
+echo: true
+
+output: true
+
+editor: visual
+
+\-\--
+
+Dokumentet skal besvare spørsmålene nedenfor.
+
+# Oppgave 1. Årsaker og konsekvenser av ulikhet
+
+En ressurs til oppgave 1 her kan være kapittel 6 ["Økende ulikhet"](https://github.com/uit-sok-1004-h22/uit-sok-1004-h22.github.io/blob/main/artikler/nho_perspektivmeldingen_6_okende-ulikhet.pdf) i "Verden og oss, Næringslivets perspektivmelding 2018", NHO.
+
+## Oppgave 1a
+
+Hva menes med inntektsulikhet i et land?
+
+## Oppgave 1b
+
+Hva er mulige grunner for at inntekten er fordelt ulikt i samfunnet?
+
+## Oppgave 1c
+
+Hvilke konsekvenser kan ulikhet i inntektsfordelingen føre til?
+
+# Oppgave 2. Måling av ulikhet
+
+I datasettet fra OECD finner man 5 mål på inntektsulikhet: tre ulike Gini-koeffisienter, P90P10 og S80S20.
+
+## Oppgave 2a
+
+Forklar hvordan Gini-koeffisientene beregnes og hvordan de bør tolkes. Hva måler P90P10 og S80S20?
+
+## Oppgave 2b
+
+Diskuter svakheter og styrker med disse målene på ulikhet. I hvilke situasjoner er hvert mål mest relevant?
+
+En ressurs her kan være ["Slik måler SSB ulikhet"](https://www.ssb.no/inntekt-og-forbruk/inntekt-og-formue/statistikk/inntekts-og-formuesstatistikk-for-husholdninger/artikler/slik-maler-ssb-ulikhet), Statistisk sentralbyrå (2019).
+
+## Oppgave 3. Inntektsulikhet i Norge 2008-2019
+
+Her skal det brukes et datasett fra OECD som gir ulike mål på ulikhet (Variabel: MEASURE eller Measure), for årene 2008-2019 (Year), for hele befolkningen (AGE=TOT), gruppa som er utgjør arbeidsstyrken (AGE=WA), samt de som er pensjonert (AGE=OLD). Datasettet inneholder også antall personer i hver av disse gruppene. Kolonne "Value" angir alle verdiene, og "Unit" forteller hvordan disse er målt.
+
+Slett minne, last inn tidyverse.
+
+```{r}
+#| label: slett minne, last pakken
+#| output: false
+
+rm(list=ls())
+library(tidyverse)
+
+
+```
+
+Last inn så datasettet, som jeg her kaller `oecd_n`.
+
+```{r}
+#| label: last inn datasett
+#| output: false
+
+url <- "https://raw.githubusercontent.com/uit-sok-1004-h22/uit-sok-1004-h22.github.io/main/data/oecd_data_nor.csv"
+
+oecd_n <- url %>% 
+  read_csv()
+
+```
+
+## Oppgave 3a
+
+Bruk datasettet til å lage en figur med tre paneler ved siden av hverandre. Jeg anbefaler å bruke funksjonen [facets](https://r4ds.had.co.nz/data-visualisation.html#facets), se eksempelet under. I hver figur skal du tegne et spredningsplott (*scatterplot*) ved hjelp av `ggplot` og `geom_point()`, med årstall på den horisontale `x`-aksen, og verdien på Gini på den vertikale `y`-aksen. Tegn inn alle tre definisjoner av Gini som du har i datasettet.
+
+I det første panelet i figuren velger du hele befolkningen, i det andre panelet tar du arbeidere, og i det tredje pensjonister. Gi hele figuren og hvert panel passende titler, og husk benevning av aksene, samt legende til figuren (plasser den gjerne under figuren).
+
+For å hjelpe kan dere tilpasse denne koden som viser befolkningstall fra OECD datasettet:
+
+```{r}
+#| label: eksempel med befolkning
+
+
+
+oecd_n %>% # data
+  filter(MEASURE =="IND") %>% # velg ut de observasjonene vi vil ha
+  ggplot(aes(x = Year, y=Value, color=MEASURE))+ # definer aksene
+  geom_point()+ # plott som punkt
+  scale_x_continuous(breaks=c(2008, 2010, 2012, 2014, 2016, 2018))+ # unngår at årstall blir gjort om til desimal
+  labs (title = " Befolkningstall for Norge, 2008-2019", y = "Antall", x= "År")+ # tittel på figuren og benevning av aksene
+  facet_wrap(~ factor (AGE, (levels=c("TOT", "WA", "OLD"))), # lag tre paneler etter alder i fornuftig rekkefølge med passende titler 
+                       labeller = as_labeller(
+                         c("TOT" = "Alle", 
+                           "WA" = "Arbeidere", 
+                           "OLD" = "Pensjonert")))+ # tilpass tittel på panelene
+  theme(legend.position = "bottom") # flytt legende for at størrelsen på plottene blir bra
+
+```
+
+Gi en nøyaktig beskrivelse av figuren med de tre Gini-målene. Bruk figuren til å svare på følgende spørsmål:
+
+-   Hva viser Gini-målene om utviklingen av ulikhet i Norge?
+
+-   Hvordan forklarer man eventuelle forskjeller mellom de tre Gini-koeffisientene?
+
+-   Er det forskjeller i ulikhet mellom arbeidere og pensjonister?
+
+-   Hvilken rolle spiller samfunnets institusjoner, for eksempel skatte- og pensjonssystemet, for utjevning av ulikhet mellom arbeidere og pensjonister?
+
+## Oppgave 3b
+
+Lag en ny figur hvor du bruker de andre ulikhetsmålene (P90P10 og S80S20) til å undersøke ulikhet mellom arbeidere og pensjonister i tidsperioden 2008-2019. Her kan du for eksempel tegne et spredningsplott for hver gruppe. Bruk figuren som grunnlag for å beskrive inntektsulikhet. Er svarene dine det samme som i 3a? Hvorfor/hvorfor ikke?
+
+# Oppgave 4. Casestudie: Tromsø kommune 2015
+
+Her skal vi se på skattetall for Troms fylke fra 2015.
+
+```{r}
+#| label: last inn data fra Troms
+url <- "https://raw.githubusercontent.com/uit-sok-1004-h22/uit-sok-1004-h22.github.io/main/data/skatt_troms_2015.RDS"
+
+skatt_troms_2015 <- url %>%
+  url() %>%
+  gzcon() %>% 
+  readRDS()
+
+```
+
+Vi skal kun bruke Tromsø kommune, så vi lager en ny dataframe med observasjoner fra Tromsø (kommune 1902):
+
+```{r}
+#| label: data tromso
+
+tromso <-  filter(skatt_troms_2015, kommnr == "1902")
+
+```
+
+Lag en ny variabel ved hjelp av `mutate()` som viser inntekt fratrukket skatt. Noen av disse verdiene er negative, og disse kan du sette lik 0, for eksempel ved `data[data < 0] <- 0` dersom dataframe heter "data").
+
+## Oppgave 4a
+
+Tegn et spredningsplott med fødselsår på x-aksen og inntekt (før og etter skatt) på y-aksen. Hvordan kan vi tolke dette bildet i forhold til inntektsulikhet i Tromsø kommune, og hvilken rolle spiller skattesystemet her?
+
+## Oppgave 4b
+
+Vi skal nå tegne en figur hvor vi deler befolkningen i stigende rekkefølge etter inntekt (før skatt), og hvor vi tar gjennomsnittsinntekten til hver persentil i kommunen. Kjør følgende kode for å få dette til:
+
+```{r}
+#| label: persentil plott fr skatt
+
+df <- tromso %>%
+  select(inntekt) %>% 
+  quantile(probs = seq(0,1, .01), na.rm=TRUE)
+
+
+df <- as_tibble(df)
+
+df <- df %>% 
+  add_column(Persentil=c(0:100))
+
+df <- df %>% 
+  rename(inntekt_fr_skatt=value)
+
+
+df %>% 
+  ggplot(aes(x=Persentil,y=inntekt_fr_skatt/1000)) +
+  geom_col()+
+  labs (title = "Inntektsfordeling i Tromsø 2015 (fr skatt)",
+        y = "Inntekt (1000kr)", x= "Persentil")+
+  theme_minimal()
+  
+
+```
+
+Hvilket bilde får du av inntektsulikhet i Tromsø kommune? Lag en tilsvarende figur for inntekt etter skatt og kommentér og forklar eventuelle forskjeller.
+
+## Oppgave 4c
+
+Vi skal nå tegne en Lorenz-kurve og beregne en Gini-koeffisient for Tromsø kommune. Først må du `install.packages("gglorenz")` , og laste pakken inn: `library(gglorenz)` . Hvordan pakken fungere kan du finne her: [gglorenz](https://cran.r-project.org/web/packages/gglorenz/gglorenz.pdf). Her er et eksempel hvor jeg har brukt Harstad kommune som grunnlag (kommunenr 1903):
+
+```{r}
+#| label: eksempel med Harstad
+
+library(gglorenz)
+
+# lag data for Harstad
+
+harstad <-filter(skatt_troms_2015, kommnr == "1903")
+
+#
+
+ggplot(harstad, aes(inntekt))+
+  stat_lorenz()+ # tegner Lorenz
+  annotate_ineq(harstad$inntekt)+ # beregner Gini
+  labs (x="andel av befolkningen", y= "andel av inntekt", title = "Lorenz-kurve, Harstad kommune 2015")+
+  theme_minimal()
+```
+
+Tegn to Lorenz-kurver for Tromsø kommune (før og etter skatt), samt tilhørende Gini-koeffisienter. Sammenlikn med de relevante Gini-koeffisientene for hele Norge fra 2015 fra OECD datasettet. Er inntektsfordelingen i Tromsø mer eller mindre lik sammenliknet med landet som helhet? Gi mulige forklaringer.
+
+# 3. Bedømmelse
+
+Formålet med oppgaven er å gi dere trening i å
+
+-   skrive godt og tydelig
+
+-   anvende data og lage figurer
+
+-   nytte grunnleggende samfunnsøkonomiske begrep og teori
+
+En god besvarelse svarer konkret på oppgavene, gir tydelige definisjoner av faglige begrep, og forklarer utfyllende innholdet i figurene som dere lager. R-koden bør være godt dokumentert og oversiktlig.
+
+# 4. Tilbakemelding underveis
+
+Dere vil få anledning til å levere oppgaven til Derek én gang og få tilbakemelding. Utkast sendes per e-post ([derek.clark\@uit.no](mailto:derek.clark@uit.no)) innen mandag 3. oktober klokken 16.00. Besvarelser som sendes etter fristen blir ikke kommentert.
+
+Lykke til!
