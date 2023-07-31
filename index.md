@@ -33,17 +33,13 @@ For henvendelser av administrative art send e-post til: <hhcampus@hjelp.uit.no>.
 - [The Economy - CORE](https://www.core-econ.org/the-economy/book/text/0-3-contents.html){:target="blank"}
 - [R for Data Science - Hadley Wickham & Garrett Grolemund](https://r4ds.had.co.nz/){:target="blank"}
 
-## Ex.fac. oppgaver  
-Dette kurset er ex.fac (Examen facultatum) for bachelorstudiet i Samfunnsøkonomi med datavitenskap.  
-Ex. fac består av to deler: (i) kurs i informasjonskompetanse (iKomp), (ii) vitenskapsteori.  
-Begge finnes som opptak, og blir ikke gjennomgått i klasserommet. **Hver del må bestås med godkjent arbeidskrav.**     
-Et skriveverksted arrangeres i forbindelse med innleveringen i vitenskapsteori.
+## Obligatorisk online kurs i informasjonskompetanse  
+Alle studenter på bachelorstudiet i Samfunnsøkonomi med datavitenskap må bestå et online kurs i informasjonskompetanse (iKomp).     
 
+iKomp blir ikke gjennomgått i klasserommet. Dette er arbeidskrav 1 og tas digitalt. Se [kursplanen](kursplan.md){:target="blank"}    
 
 - [iKomp](https://result.uit.no/ikomp/){:target="blank"}
-  - Online kurs. Arbeidskravet tas digitalt. Kursbevis leveres i [Canvas](https://uit.instructure.com/courses/31410/assignments){:target="blank"}.
-- Vitenskapsteori
-  - [Online kurs](https://uit.instructure.com/courses/26950/files/folder/Last%20opp%20medie?){:target="blank"} 
+  
 
 ## Kunngjøringer  
 
@@ -52,15 +48,14 @@ Kunngjøringer og beskjeder legges ut i [Canvas](https://uit.instructure.com/cou
 
 ## Innlevering og eksamen  
 
-Kurset har mappeevaluering. Alle oppgaver er obligatorisk; 7 er _arbeidskrav_ (uten karakter) som må bestås for å få mappen vurdert. Øvrige oppgaver er en del av mappen; det gis en samlet karakter på mappen ved kursets slutt.
+Kurset har mappeevaluering. Alle oppgaver er obligatorisk; 6 er _arbeidskrav_ (uten karakter) som må bestås for å få mappen vurdert. Øvrige oppgaver er en del av mappen; det gis en samlet karakter på mappen ved kursets slutt.
 
 - Arbeidskrav 1 - iKomp
-- Arbeidskrav 2 - Vitenskapsteori
-- Arbeidskrav 3 - Case 1
-- Arbeidskrav 4 - Case 2
-- Arbeidskrav 5 - Case 3
-- Arbeidskrav 6 - Case 4
-- Arbeidskrav 7 - Case 5
+- Arbeidskrav 2 - Case 1
+- Arbeidskrav 3 - Case 2
+- Arbeidskrav 4 - Case 3
+- Arbeidskrav 5 - Case 4
+- Arbeidskrav 6 - Case 5
 - Skriftlig mappeoppgave
 - Prosketoppgaven
 
