@@ -25,7 +25,7 @@ DG Daniel Groth
 |20. september|**Frist**|Arbeidskrav 2 - Case 1|  |Leveres i [Canvas](https://uit.instructure.com/courses/31410/assignments){:target='_blank_'} innen kl 16.00|
 |25. september| F6     | Vekst og økonomiske systemer  | DC | [Ressursside](/ressurssider/F6.md){:target='_blank_'}   | 
 |25. september|*utdeling*| Mappeoppgave |  | [Oppgave kommer her](){:target='_blank_'}|
-|27. september|V2   | Skriveverksted 2: Quarto  |DC | [Filer]() |
+|27. september|V2   | Skriveverksted 2: Quarto  |DC | [Filer](skriveverksted_2.md) |
 |29. september|C2   | Case 2: BNP og CO2-utslipp  |CA |  [lenke til case](case.md) |
 |3. oktober|S1| Seminar 1: BNP, vekst, og økonomiske systemer | DC |[Oppgaver](/seminar/s1.md){:target='_blank_'} |
 |4. oktober| S2  | Seminar 2: Gjennomgang case 1 og 2 | DG |  |
