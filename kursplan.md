@@ -17,7 +17,7 @@ DG Daniel Groth
 |16. august|F1   | Innledning og kursplan                        | DC/CA       | [Ressursside](/ressurssider/F1.md){:target='_blank_'} | 
 |21. august|F2  | RStudio intro  | CA | [Ressursside](/ressurssider/F2.md){:target='_blank_'} |
 |22. august|F3   | tidyverse, ggplot2  |CA     | [Ressursside](/ressurssider/F3.md){:target='_blank_'}  |
-|29. august|F4    | reproduserbarhet, git og quarto | CA| [Ressursside](/ressurssider/F4.md){:target='_blank_'} |
+|29. august|F4    | reproduserbarhet, git og quarto | DC| [Ressursside](/ressurssider/F4.md){:target='_blank_'} |
 |31. august|**Frist**| Arbreidskrav 1 - iKomp|  | Leveres i [Canvas](https://uit.instructure.com/courses/31410/assignments){:target='_blank_'} innen kl 16.00|
 |1. september|V1   | Skriveverksted 1: Innføring   | DC       | [Notater](/forelesninger/skriveverk_lysbilder.pdf){:target='_blank_'} <br> [Praktisk oppgave](/oppgaver/praktisk_øvelse.pdf){:target='_blank_'} |
 |11. september|F5   | Bruttonasjonalprodukt (BNP)    | DC       | [Ressursside](ressurssider/F5.md){:target='_blank_'}  |
