@@ -1,0 +1,244 @@
+## Instruksjoner
+
+Denne oppgaven er laget av Even S. Hvinden og oppdatert av Derek J. Clark. Sistnevnte er ansvarlig for eventuelle feil og mangler.
+
+Oppgaven skal løses interaktivt i RStudio ved å legge inn egen kode og kommentarer. Det ferdige dokumentet lagres med kandidatnummeret som navn `[kandidatnummer]_SOK1004_C3_H23.qmd` og lastes opp på deres GitHub-side. Hvis du har kandidatnummer 43, så vil filen hete `43_SOK1004_C3_H23.qmd`. Påse at koden kjører og at dere kan eksportere besvarelsen til pdf. Lever så lenken til GitHub-repositoriumet i Canvas.
+
+## Bakgrunn
+
+Hvor mye har økte kraftpriser bidratt til prisveksten i år? I denne oppgaven skal vi benytte prisdata fra SSB til å besvare dette spørsmålet. Jeg anbefaler dere å lese [Konsumprisindeksen - en levekostnadsindeks](https://www.ssb.no/priser-og-prisindekser/artikler-og-publikasjoner/_attachment/203142?_ts=1495b28c170) av Randi Johannesen, Økonomiske analyser 5/2014.
+
+## Oppgave I: Tolk vekstbidraget
+
+For å forstå øvelsen skal vi først se nærmere på hvordan en prisindeks bygges opp. La $P_{t}$ være verdien til konsumprisindeksen i tid $t$, gitt av et vektet gjennomsnitt av $n\geq1$ priser eller prisindekser
+
+$$
+P_{t}=\sum_{i=1}^{n}v_{i,t}p_{i,t} \hspace{1cm} (1)
+$$
+
+hvor vektene summerer til én i hver periode $t$, $\sum_{i=1}^{n}v_{i,t}=1$. Vi vil se på månedlig KPI på undergruppenivå, hvor $n=93$ og $t$ løper fra januar 1979 til juni 2023.
+
+Vi betegner endringen over tolv måneder i KPI ved $P_{t}-P_{t-12} := \Delta P_{t}$, eller
+
+$$
+\Delta P_{t}=\sum_{i=1}^{n} v_{i,t} p_{i,t}-\sum_{i=1}^{n} v_{i,t-12} p_{i,t-12}=\sum_{i=1}^{n} \Delta (v_{i,t} p_{i,t}).\hspace{1cm}(2)
+$$
+
+Merk at både vektene og prisene kan endre seg fra $t-12$ til $t$. I praksis vil vektene endre seg lite. For å forenkle fremstillingen vil vi anta at $v_{i,t}=v_{i,t-12}$. I tillegg så deler vi uttrykket på $P_{t-12}$, og ganger med $100$. Da har vi
+
+$$
+100\times\frac{\Delta P_{t}}{P_{t}}=100\times\frac{\sum_{i=1}^{n} v_{i,t-12}\Delta p_{i,t}}{P_{t-12}}. \hspace{1cm} (3)
+$$
+
+På venstre side av likhetstegnet har vi prosentvis tolvmåneders endring i konsumprisindeksen, eller inflasjon. På høyre side har vi en sum med $n$ argumenter. Vi fokuserer nå på et vilkårlig element $i$,
+
+$$
+100 \times \frac{v_{i,t-12} \times \Delta p_{i,t}}{P_{t-12}}. \hspace{1cm} (4)
+$$
+
+Tolk ligning $(4)$. Gi en konkret forklaring på hva tallet representerer.
+
+*\[Besvar Oppgave I her\]*
+
+# Oppgave II: Rydd i data
+
+Vi begynner med å rydde og laste inn pakker.
+
+```{r}
+rm(list=ls()) 
+library(tidyverse)
+library(lubridate)
+library(rjstat)
+library(janitor)
+library(gdata)
+library(httr) 
+```
+
+Vi bruker dataene fra [Tabell 0313: Konsumprisindeksen fra SSB](https://www.ssb.no/priser-og-prisindekser/konsumpriser/statistikk/konsumprisindeksen). Jeg laster ned ved hjelp av API. Se [brukerveiledningen](https://www.ssb.no/api/pxwebapi/_/attachment/inline/019c05e0-35ad-4757-87a0-ba7fbf4a68e2:46a164479bc10a67eee4b472cd891f001ca19da5/Api_brukerveiledning.pdf) her.
+
+```{r}
+url <- "https://data.ssb.no/api/v0/no/table/03013/"
+
+query <- '{
+  "query": [
+    {
+      "code": "Konsumgrp",
+      "selection": {
+        "filter": "vs:CoiCop2016niva4",
+        "values": [
+          "01.1.1",
+          "01.1.2",
+          "01.1.3",
+          "01.1.4",
+          "01.1.5",
+          "01.1.6",
+          "01.1.7",
+          "01.1.8",
+          "01.1.9",
+          "01.2.1",
+          "01.2.2",
+          "02.1.1",
+          "02.1.2",
+          "02.1.3",
+          "02.2.0",
+          "03.1.1",
+          "03.1.2",
+          "03.1.3",
+          "03.1.4",
+          "03.2.1",
+          "03.2.2",
+          "04.1.1",
+          "04.1.2",
+          "04.2.1",
+          "04.2.2",
+          "04.3.1",
+          "04.3.2",
+          "04.4.0",
+          "04.5.1",
+          "04.5.3",
+          "04.5.4",
+          "04.5.5",
+          "05.1.1",
+          "05.1.2",
+          "05.2.0",
+          "05.3.1",
+          "05.3.2",
+          "05.3.3",
+          "05.4.0",
+          "05.5.1",
+          "05.5.2",
+          "05.6.1",
+          "05.6.2",
+          "06.1.1",
+          "06.1.2",
+          "06.1.3",
+          "06.2.1",
+          "06.2.2",
+          "06.2.3",
+          "07.1.1",
+          "07.1.2",
+          "07.1.3",
+          "07.2.1",
+          "07.2.2",
+          "07.2.3",
+          "07.2.4",
+          "07.3.1",
+          "07.3.2",
+          "07.3.3",
+          "07.3.4",
+          "08.1.0",
+          "08.2.0",
+          "08.3.0",
+          "09.1.1",
+          "09.1.2",
+          "09.1.3",
+          "09.1.4",
+          "09.1.5",
+          "09.2.1",
+          "09.2.2",
+          "09.3.1",
+          "09.3.2",
+          "09.3.3",
+          "09.3.4",
+          "09.4.1",
+          "09.4.2",
+          "09.5.1",
+          "09.5.2",
+          "09.5.4",
+          "09.6.0",
+          "11.1.1",
+          "11.1.2",
+          "11.2.0",
+          "12.1.1",
+          "12.1.2",
+          "12.1.3",
+          "12.3.1",
+          "12.3.2",
+          "12.4.0",
+          "12.5.2",
+          "12.5.4",
+          "12.6.2",
+          "12.7.0"
+        ]
+      }
+    },
+    {
+      "code": "ContentsCode",
+      "selection": {
+        "filter": "item",
+        "values": [
+          "KpiIndMnd",
+          "KpiVektMnd"
+        ]
+      }
+    }
+  ],
+  "response": {
+    "format": "json-stat2"
+  }
+}'
+
+hent_indeks.tmp <- url %>%
+  POST(body = query, encode = "json")
+
+df <-  hent_indeks.tmp %>%
+  content("text") %>%
+  fromJSONstat() %>%
+  as_tibble()
+```
+
+Følgende kode benytter kommandoen `ymd` fra `lubridate` til å lage en anstendig tidsserie.
+
+```{r}
+df <- df %>%
+separate(måned, 
+         into=c("year", "month"), 
+         sep="M") %>% 
+mutate(dato = ymd(paste(year, month, "1")))
+```
+
+Nå er det deres tur til å rydde. Slett variablene `year` og `month`. Gi variablene formålstjenlige navn. Påse at variablene har riktig format. Fjern data fra før år 2011, slik at vi kan beregne vekst tolvmåneders endring fra 2012. Løs oppgaven slik at du ekstraherer navnene på variablene og verdiene ved hjelp av kode.
+
+**Hint.** Bruk `as.Date()` for å filtrere på datoer.
+
+```{r}
+# løs oppgave II her
+```
+
+# Oppgave III: Beregn et vektet gjennomsnitt
+
+Vi skal nå beregne KPI som et vektet gjennomsnitt av konsumgruppene og sammenlign med totalindeksen.
+
+## Oppgave IIIa: Endre verdi på vektene
+
+Del vektene i `df` på 1000, og sjekk at de summerer seg til om lag `1` for hver måned. Hvor store avvik får du?
+
+```{r}
+# besvar oppgave IIIa her
+```
+
+## Oppgave IIIb: Beregn prisindeksen fra gruppene med vekter
+
+Beregn en totalindeks hvor dere bruker vektene og verdiene på prisindeks i formel $(1)$ fra oppgave I. Hvordan kan du vite om beregningen er riktig?
+
+```{r}
+# besvar oppgave IIIb her
+```
+
+*\[Besvar oppgave IIIb her\]*
+
+# Oppgave IV: Beregn kraftprisens bidrag til vekst
+
+Lag en figur som illustrerer vekstbidraget til konsumgruppen "Elektrisitet, inkludert nettleie." Gi figuren en anstendig tolkning.
+
+```{r}
+# Besvar oppgave IV her
+```
+
+*\[Besvar oppgave IV her.\]*
+
+# Oppgave V
+
+I oppgave IV beregnet vi den direkte effekten av kraftpriser på konsumprisindeksen, gjennom husholdningenes eget forbruk. Diskuter hvorvidt høye kraftpriser indirekte kan bidra til konsumprisvekst.
+
+*\[Besvar oppgave V her.\]*
