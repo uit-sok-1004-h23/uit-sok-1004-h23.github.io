@@ -1,4 +1,4 @@
- <style>
+  <style>
   a {
    color: #{{ site.linkfarge }};
   }
@@ -26,12 +26,17 @@
   }
   
   #top-box{
-    margin-left: -10px;
-    margin-right: -10px;
+    position: absolute;
+    top: 0;        /* Position at the top of the viewport */
+    left: 0;       /* Start positioning from the very left */
+    width: 100vw;  /* 100% of the viewport width */
+    height: 150px;
+    background: black;
+    
     padding-bottom: 10px;
-    padding-top:70px;
-    background-image: url("{{ site.bilde }}");
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.7) 100%), url("{{ site.bilde }}");
+    padding-top:10px;
+    background-image: url("{{ site.image }}");
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.7) 100%), url("{{ site.image }}");
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover; 
@@ -53,6 +58,7 @@
     margin-left: 20px;
     margin-right: auto;
     padding-bottom: 0px;
+    float: right;
     background-color:rgba(0,0,0,0);
     display:block;
     margin-top:100px
@@ -71,7 +77,7 @@
   font-size:32px;
   font-weight:700;
   color:white;
-  padding-top:130px;
+  padding-top:10px;
  }
  
  #fagundertittel{
@@ -107,51 +113,33 @@ h6{
   
 
 .sidenav {
+  transform: translateX(calc(-100% - 70px));
   height: 100%;
-  width: 0%;
+  width: 20%;
   position: fixed;
   z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
+  background-color: transparent;
   overflow-x: hidden;
   padding-top: 60px;
 
-  font-family: "Lato", sans-serif;
+
 }
 
 .sidenav a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
-  font-size: 25px;
-  color: #818181;
+  font-size: 16px;
+  color: #20468b;
   display: block;
+  text-align: right;
 
 }
 
 .sidenav a:hover {
-  color: #f1f1f1;
+  color: #20253a;
 }
 
-.sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
 
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-.sidenav_button {
- font-size:60px;
- cursor:pointer;
- left: 30px; 
- top: 30px;
- position: fixed;
-}
 .dot {
   left:18px;
   top: 37px;
@@ -169,11 +157,6 @@ h6{
 
  
 
-.sidenav_button{
-   display: none;
-}
-
- 
 
 
 }
