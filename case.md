@@ -1,4 +1,7 @@
+{% include_relative navbar.html %}
+
 # Last ned caseoppgaver her
+
 
 [Case 1: BNP](/rkode/SOK1004_C1_H23.qmd)
 

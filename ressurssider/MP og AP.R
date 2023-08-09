@@ -1,3 +1,4 @@
+{% include_relative navbar.html %}
 # Se på en enkel produktfunksjon med 1 faktor y=Zx^a
 
 # Beregn grenseproduktivitet vha mosaic og mosaicCalc
