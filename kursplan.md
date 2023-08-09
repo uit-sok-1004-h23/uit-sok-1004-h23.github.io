@@ -1,4 +1,4 @@
-{% include_relative navbar.html %}
+{% include navbar.html %}
 #  Kursplan SOK-1004 Høst 2023
 
 F = forelesning      

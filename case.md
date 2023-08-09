@@ -1,4 +1,4 @@
-{% include_relative navbar.html %}
+{% include navbar.html %}
 
 # Last ned caseoppgaver her
 

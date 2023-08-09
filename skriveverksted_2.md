@@ -1,4 +1,4 @@
-{% include_relative navbar.html %}
+{% include navbar.html %}
 ## Skriveverksted 2 - Quarto
 
 [Hoveddokument](bruk_quarto.qmd)          

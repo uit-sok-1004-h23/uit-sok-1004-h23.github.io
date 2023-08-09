@@ -1,4 +1,4 @@
-{% include_relative navbar.html %}
+{% include navbar.html %}
 # Vi skal bruke ggplot til å tegne funksjoner som viser tek fremgang
 
 #slett minne

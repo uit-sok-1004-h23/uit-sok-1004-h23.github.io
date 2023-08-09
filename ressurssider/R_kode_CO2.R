@@ -1,4 +1,4 @@
-{% include_relative navbar.html %}
+{% include navbar.html %}
 # dette er en kommentar
 # husk cheatsheets på rstudio.com
 
