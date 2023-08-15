@@ -57,7 +57,7 @@ Kurset har mappeevaluering. Alle oppgaver er obligatorisk; 6 er _arbeidskrav_ (u
 - Arbeidskrav 5 - Case 4
 - Arbeidskrav 6 - Case 5
 - Skriftlig mappeoppgave
-- Prosketoppgaven
+- Prosjektoppgaven
 
 **Gruppearbeid:** Alle arbeidskrav skrives individuelt. Mappeoppgaven og prosjektoppgaven kan skrives individuelt eller i grupper på maksimalt 3 studenter.
 
