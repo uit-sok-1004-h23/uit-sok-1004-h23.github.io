@@ -18,7 +18,7 @@ rm(list=ls())
 
 suppressMessages(library(tidyverse))
 
-url <- "https://raw.githubusercontent.com/uit-sok-1004-h22/uit-sok-1004-h22.github.io/main/data/skatt_troms_2015.RDS"
+url <- "https://raw.githubusercontent.com/uit-sok-1004-h23/uit-sok-1004-h23.github.io/main/data/skatt_troms_2015.RDS"
 
 skatt_troms_2015 <- url %>%
   url() %>%
