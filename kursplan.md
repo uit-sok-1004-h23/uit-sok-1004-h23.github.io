@@ -38,7 +38,7 @@ DG Daniel Groth
 |25. oktober|C3  | Case 3: Kraftpriser og prisvekst |CA| [lenke til case](case.md)  |
 |31. oktober| S3 (oppgave 2 og 3)  | Seminar 3: Begreper, vekst, produktivitet | DC |[Oppgaver](/seminar/s3.md){:target='_blank_'}  |
 |1. november|**Frist**|Arbeidskrav 4 - Case 3|  |Leveres i [Canvas](https://uit.instructure.com/courses/31410/assignments){:target='_blank_'} innen kl 16.00|
-|3. november|C4   | Case 4: FoU i norske bedrifter          | CA | [lenke til case](case.md) |
+|3. november|C4   | Case 4: FoU i norske bedrifter          | DC | [lenke til case](case.md) |
 |9. november| S4  | Seminar 4: Gjennomgang case 3 og 4 | DG |  |
 |10. november|F9 | Lønn vs. Fritid  | DC | [Ressursside](/ressurssider/F9.md){:target='_blank_'}   | 
 |10. november |*utdeling*  | Utdeling av prosjektoppgaven      |        | [Prosjektoppgave kommer her]() |
