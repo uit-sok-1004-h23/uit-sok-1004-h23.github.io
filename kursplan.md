@@ -29,10 +29,10 @@ DG Daniel Groth
 |27. september <br> kl 12.15-14|V2   | Skriveverksted 2: Quarto  |DC | [Filer](skriveverksted_2.md) |
 |29. september|C2   | Case 2: BNP og CO2-utslipp  |CA |  [lenke til case](case.md) |
 |3. oktober|S1| Seminar 1: BNP, vekst, og økonomiske systemer | DC |[Oppgaver](/seminar/s1.md){:target='_blank_'} |
-|4. oktober| S2  | Seminar 2: Gjennomgang case 1 og 2 | DG |  |
+|4. oktober|F7    | Grunnleggende begreper i samfunnsøkonomi           | DC | [Ressursside](/ressurssider/F7.md){:target='_blank_'}   |
 |6. oktober|**Frist**|Arbeidskrav 3 - Case 2|  |Leveres i [Canvas](https://uit.instructure.com/courses/31410/assignments){:target='_blank_'} innen kl 16.00|
-|9. oktober|F7    | Grunnleggende begreper i samfunnsøkonomi           | DC | [Ressursside](/ressurssider/F7.md){:target='_blank_'}   |
-|11. oktober|F8   | Økonomisk vekst, befolkningsvekst og produktivitet | DC | [Ressursside](/ressurssider/F8.md){:target='_blank_'}   |
+|9. oktober|F8   | Økonomisk vekst, befolkningsvekst og produktivitet | DC | [Ressursside](/ressurssider/F8.md){:target='_blank_'}   |
+|11. oktober| S2  | Seminar 2: Gjennomgang case 1 og 2 | DG |  |
 |13. oktober|**Frist**    | Innlevering mappeoppgave        | | Leveres i [Wiseflow](https://europe.wiseflow.net/login){:target='_blank_'} innen kl 13.00  |
 |23. oktober| S3  | Seminar 3: Begreper, vekst, produktivitet | DC |[Oppgaver](/seminar/s3.md){:target='_blank_'}   |
 |25. oktober|C3  | Case 3: Kraftpriser og prisvekst |CA| [lenke til case](case.md)  |
