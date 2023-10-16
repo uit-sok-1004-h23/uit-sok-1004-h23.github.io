@@ -3,9 +3,9 @@
 # Last ned caseoppgaver her
 
 
-[Case 1: BNP](/rkode/SOK1004_C1_H23.qmd), [løsningsforslag)(/rkode/SOK1004_C1_H23_løsningsforslag.qmd)
+[Case 1: BNP](/rkode/SOK1004_C1_H23.qmd), [løsningsforslag](/rkode/SOK1004_C1_H23_løsningsforslag.qmd)
 
-[Case 2: BNP og CO2](/rkode/SOK1004_C2_H23.qmd), [løsningsforslag)(/rkode/SOK1004_C2_H23_løsningsforslag.qmd)
+[Case 2: BNP og CO2](/rkode/SOK1004_C2_H23.qmd), [løsningsforslag](/rkode/SOK1004_C2_H23_løsningsforslag.qmd)
 
 [Case 3: Kraftpriser og KPI](/rkode/SOK1004_C3_H23.qmd) 
 
