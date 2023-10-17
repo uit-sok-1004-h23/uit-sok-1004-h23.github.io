@@ -28,7 +28,7 @@ DG Daniel Groth
 |27. september <br> kl 10.15-12 | Gjesteforedrag | Hvordan skrive en avisartikkel |   Rune Ytreberg, iTromsø| |
 |27. september <br> kl 12.15-14|V2   | Skriveverksted 2: Quarto  |DC | [Filer](skriveverksted_2.md) |
 |29. september|C2   | Case 2: BNP og CO2-utslipp  |CA |  [lenke til case](case.md) |
-|3. oktober|S1| Seminar 1: BNP, vekst, og økonomiske systemer | DC |[Oppgaver](/seminar/s1.md){:target='_blank_'} |
+|3. oktober|S1| Seminar 1: BNP, vekst, og økonomiske systemer | DC |[Oppgaver](/seminar/s1.md){:target='_blank_'}<br> [Notater](/seminar/SOK_1004_h23_Seminar_1_ ekstra.pdf){:target='_blank_'} |
 |4. oktober|F7    | Grunnleggende begreper i samfunnsøkonomi           | DC | [Ressursside](/ressurssider/F7.md){:target='_blank_'}   |
 |6. oktober|**Frist**|Arbeidskrav 3 - Case 2|  |Leveres i [Canvas](https://uit.instructure.com/courses/31410/assignments){:target='_blank_'} innen kl 16.00|
 |9. oktober|F8   | Økonomisk vekst, befolkningsvekst og produktivitet | DC | [Ressursside](/ressurssider/F8.md){:target='_blank_'}   |
