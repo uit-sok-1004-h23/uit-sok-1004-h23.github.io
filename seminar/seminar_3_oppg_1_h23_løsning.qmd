@@ -1,0 +1,260 @@
+---
+title: "SOK-1004 H23 Seminar 3"
+format:
+  pdf:
+    keep_tex: true
+editor: visual
+
+language: norsk.yml
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE)
+
+
+
+```
+
+## Oppgave 1
+
+La oss prøve å løse ved hjelp av R.
+
+```{r}
+rm(list=ls()) 
+suppressPackageStartupMessages(library(tidyverse))
+```
+
+### a)
+
+Teknologi B og C representeres ved ett punkt, mens A er en linje. Vi tegner dette
+
+```{r}
+
+
+#lag aksen for tegningen
+
+axes_1 <- ggplot()+
+  labs(x="L", y="K")+
+  theme(axis.title = element_text(size = 15),
+        plot.title = element_text(size = 15),
+        panel.background = element_blank(), # hvit bakgrunn
+        axis.line = element_line(colour = "black"), # sett inn akselinjer
+        axis.title.x = element_text(hjust = 1),
+        axis.title.y = element_text(angle = 0, vjust = 1, hjust=1))+ # juster labels på aksene  
+  coord_fixed(ratio = 1)+ # lik skala for x og y aksen
+  scale_x_continuous(limits = c(0, 6.5), expand = c(0, 0))+
+  scale_y_continuous(limits = c(0, 6), expand = c(0, 0)) # begrense aksene
+# og sikre at akselinjene møttes i (0,0).
+
+```
+
+```{r}
+figur_a <- axes_1 +
+  labs(title="Teknologimuligheter") +
+  
+  geom_segment(aes(x=0, y=1, xend=6, yend=1)) +
+  annotate("text",x=5.5,y=0.75, label="A") +
+  
+  geom_point(aes(x=2, y=3)) +
+  annotate("text",x=2,y=3.3, label="B") +
+  geom_segment(aes(x=2, y=0, xend=2, yend=3), linetype="dashed") +
+  geom_segment(aes(x=0, y=3, xend=2, yend=3), linetype="dashed") +
+  
+  geom_point(aes(x=5, y=2)) +
+  annotate("text",x=5,y=2.5, label="C") +
+  geom_segment(aes(x=5, y=0, xend=5, yend=2), linetype="dashed") +
+  geom_segment(aes(x=0, y=2, xend=5, yend=2), linetype="dashed") 
+  
+  figur_a
+  
+  
+  
+```
+
+### b)
+
+A dominerer C for $5\geq X$. B og C er dominert av A for $X\leq 2$. For $X>5$ er ingen teknologi dominant.
+
+### c)
+
+La $Z$ være produksjonskostnad som gis ved
+
+\
+$$Z = wL + rK$$ {#eq-prod_kost}
+
+### d)
+
+Fra @eq-prod_kost kan vi skrive
+
+$$
+\begin{aligned}
+rK &= Z-wL \\ 
+\Rightarrow \frac{rK}{r} &= \frac{Z}{r}-\frac{w}{r}L\\ 
+\Rightarrow K &= \frac{Z}{r}-\frac{w}{r}L
+\end{aligned}
+$$ {#eq-isocost}
+
+som er er rett linje med helning $-\frac{w}{r}$ (den relative prisen på arbeidskraft), og som treffer K-aksen i punkt $\frac{Z}{r}$. Med $w=4, r=8$ koster teknologi B 32, og teknologi C 36. Dette kan vi bruke for å tegne isokostnadslinjen gjennom B og C.
+
+```{r}
+iso_B <- function(L) 32/8 -(4/8)*L
+iso_C <- function(L) 36/8 -(4/8)*L
+
+figur_d <- figur_a + 
+  stat_function(
+        fun=iso_B,
+        mapping = aes(color = "Z = 32")
+        ) +
+  stat_function(
+        fun=iso_C,
+        mapping = aes(color = "Z = 36")
+        ) +
+  scale_color_manual(values = c("Z = 32" = "blue", "Z = 36" = "red")) +
+  guides(color = guide_legend(title = "Kostnad"))  # legend
+
+figur_d
+```
+
+Til disse faktorprisene vil bedriften minimere kostnaden ved å bruke teknologi B.
+
+### e)
+
+```{r}
+#| warning: false
+
+
+iso_B_ny <- function(L) 28/8 - (2/8)*L
+iso_C_ny <- function(L) 26/8 - (2/8)*L
+
+# ChatGPT.......
+
+figur_e <- figur_d +
+  stat_function(fun = iso_B_ny, 
+                aes(color = "Z (w=2) = 28", linetype = "Z (w=2) = 28")) +
+  stat_function(fun = iso_C_ny, 
+                aes(color = "Z (w=2) = 26", linetype = "Z (w=2) = 26")) +
+  scale_color_manual(
+    name = "Kostnad",
+    values = c("Z = 32" = "blue", 
+               "Z = 36" = "red", 
+               "Z (w=2) = 28" = "blue", 
+               "Z (w=2) = 26" = "red")
+  ) +
+  scale_linetype_manual(
+    name = "Kostnad",
+    values = c("Z = 32" = "solid", 
+               "Z = 36" = "solid", 
+               "Z (w=2) = 28" = "dashed", 
+               "Z (w=2) = 26" = "dashed")
+  ) +
+  guides(
+    color = guide_legend(override.aes = list(linetype = c("dashed", "dashed", "solid", "solid"))),
+    linetype = "none"  # This ensures that a separate legend for linetype doesn't get created
+  )
+
+# Display the plot
+figur_e
+
+
+
+```
+
+Nå er teknologi C billigere. Denne teknologi gjør intensiv bruk av faktoren som er blitt relativt billigere.
+
+### f)
+
+Legg merke til at den relative prisen i d) var $\frac{w}{r}=\frac{1}{2}$ (B valgt), og i e) er $\frac{w}{r}=\frac{1}{4}$ (C foretrukket).
+
+### g)
+
+For at bedriften skal velge C over B må det være at $Z_B > Z_C$, dvs
+
+$$
+\begin{aligned}
+Z_B = 2w+3r &> 5w+2r = Z_C \\ 
+\Rightarrow 3r-2r &> 5w-2w \\ 
+\Rightarrow r &> 3w\\ 
+\Rightarrow \frac{1}{3} &> \frac{w}{r}
+\end{aligned}
+$$
+
+For $\frac{1}{3}>\frac{w}{r}>0$ velger bedriften C over B, og for $\frac{w}{r}>\frac{1}{3}$ foretrekkes B over C. For $\frac{w}{r}=\frac{1}{3}$ er bedriften indifferent ettersom teknologiene koster like mye.
+
+### h)
+
+Med $\frac{w}{r}=\frac{1}{4}$ vet vi at C velges over B (deloppgave e). C velges over A dersom
+
+$$
+\begin{aligned}
+Z_A=Xw+r&>5w+2r=Z_C \\ 
+\Rightarrow Xw&>5w+r\\ 
+\Rightarrow \frac{Xw}{w}&>\frac{5w}{w}+\frac{r}{w}\\ 
+\Rightarrow X&>5+\frac{r}{w}\\ 
+\Rightarrow X&>5+4=9
+\end{aligned}
+$$
+
+I siste linje har vi brukt $\frac{w}{r}=\frac{1}{4}\Rightarrow \frac{r}{w}=4$. Dersom C velges fremfor A må det være tilfelle at $X>9$.
+
+### i)
+
+Fra g) vet vi at $\frac{w}{r}<\frac{1}{3}$ gjør at teknologi C velges over B. C velges over A dersom
+
+$$
+\begin{aligned}
+Z_A=Xw+r&>5w+2r=Z_C \\ 
+\Rightarrow Xw-5w&>2r-r\\ 
+\Rightarrow w(X-5)&>r
+\end{aligned}
+$$ {#eq-ulikhet}
+
+Dette kan aldri oppfylles dersom $X\leq5$, slik at A foretrekkes fremfor C uansett verdi på $w,r$ dersom $X\leq5$. (Dette bør ikke være overraskende ettersom vi vet fra b) at A dominerer C i dette tilfellet. Dersom $X>5$ kan @eq-ulikhet skrives som
+
+$$
+\frac{w}{r}>\frac{1}{X-5}
+$$
+
+La oss tegne en figur.
+
+```{r}
+
+
+#lag tegningen
+
+axes_i <- ggplot()+
+  labs(x="X", y=expression(frac(w,r)))+
+  theme(axis.title = element_text(size = 15),
+        plot.title = element_text(size = 15),
+        panel.background = element_blank(), # hvit bakgrunn
+        axis.line = element_line(colour = "black"), # sett inn akselinjer
+        axis.title.x = element_text(hjust = 1),
+        axis.title.y = element_text(angle = 0, vjust = 1, hjust=1))+ # juster labels på aksene  
+  
+  scale_x_continuous(limits = c(0, 12), expand = c(0, 0))+
+  scale_y_continuous(limits = c(0, 1), expand = c(0, 0)) # begrense aksene
+# og sikre at akselinjene møttes i (0,0).
+
+fn_0 <- function(X) 1/(X-5)
+
+figur_i <- axes_i +
+  
+  geom_segment(aes(x=5, y=0, xend=5, yend=1)) +
+  geom_segment(aes(x=0, y=1/3, xend=12, yend=1/3)) +
+   stat_function(
+        fun=fn_0,
+        mapping = aes()
+        ) +
+  
+  annotate("text",x=2,y=0.25, label="A") +
+  annotate("text",x=7,y=0.25, label="A") +
+  annotate("text",x=11,y=0.25, label="C")+
+  geom_segment(aes(x=1.5, y=.5, xend=1.5, yend=.35),
+               arrow = arrow(length = unit(0.25, "cm")))+
+  annotate("text",x=1.5,y=0.6, label=expression(frac(w,r) == frac(1,3)))+
+  geom_segment(aes(x=9, y=.7, xend=7, yend=.65),
+               arrow = arrow(length = unit(0.25, "cm")))+
+  annotate("text",x=10,y=0.7, label=expression(frac(w,r) == frac(1, X-5)))
+
+figur_i
+  
+```
