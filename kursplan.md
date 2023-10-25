@@ -43,8 +43,8 @@ DG Daniel Groth
 |10. november |F10  | Arbeidsinnsats og inntekt  | DC         | [Ressursside](/ressurssider/F10.md){:target='_blank_'}   |
 |10. november |*utdeling*  | Utdeling av prosjektoppgaven      |        | [Prosjektoppgave kommer her]() |
 |13. november|**Frist**|Arbeidskrav 5 - Case 4|  |Leveres i [Canvas](https://uit.instructure.com/courses/31410/assignments){:target='_blank_'} innen kl 16.00|
-|15. november| S4  | Seminar 4: Gjennomgang case 3 og 4 | DG |  |
 |16. november |C5    | Case 5: Produktivitet |CA | [lenke til case](case.md) |
+|17. november| S4  | Seminar 4: Gjennomgang case 3 og 4 | DG |  |
 |20. november| S5  | Seminar 5: Lønn, fritid, og arbeidsinnsats | DC |[Oppgaver](/seminar/s5.md){:target='_blank_'} |
 |23. november|**Frist**|Arbeidskrav 6 - Case 5|  |Leveres i [Canvas](https://uit.instructure.com/courses/31410/assignments){:target='_blank_'} innen kl 16.00|
 |24. november| S6  | Seminar 6: Gjennomgang case 5 | DG |  |
