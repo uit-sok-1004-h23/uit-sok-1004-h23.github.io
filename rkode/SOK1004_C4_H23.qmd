@@ -1,3 +1,11 @@
+---
+title: "Case 4"
+author: "Even S. Hvinden"
+format: html
+editor: visual
+---
+
+
 # Instruksjoner
 
 Denne oppgaven er laget av Even S. Hvinden og oppdatert av Derek J. Clark. Sistnevnte er ansvarlig for eventuelle feil og mangler.
