@@ -1,7 +1,9 @@
 ---
-title: "Case 2"
+title: "SOK-1004 H23 - Case 2 - løsningsforslag"
 author: "Even S. Hvinden"
 format: pdf
+echo: true
+output: true
 editor: visual
 ---
 
