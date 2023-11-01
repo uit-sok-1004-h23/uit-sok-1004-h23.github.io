@@ -9,6 +9,6 @@
 
 [Case 3: Kraftpriser og KPI](/rkode/SOK1004_C3_H23.qmd) 
 
-[Case 4: Fordeling over FoU-kostnader](/rkode/SOK1004_C4_H23.qmd)
+[Case 4: Fordeling over FoU-kostnader](https://raw.githubusercontent.com/uit-sok-1004-h23/uit-sok-1004-h23.github.io/main/rkode/SOK1004_C4_H23.qmd)
 
 [Case 5: Produktivitetsvekst](/rkode/SOK1004_C5_H23.qmd)
