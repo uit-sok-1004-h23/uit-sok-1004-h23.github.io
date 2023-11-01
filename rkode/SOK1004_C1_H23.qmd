@@ -1,3 +1,12 @@
+---
+title: "SOK-1004 H23 - Case 1"
+author: "Even S. Hvinden"
+format: html
+editor: visual
+---
+
+
+
 Denne oppgaven er laget av Even S. Hvinden og oppdatert av Derek J. Clark. Sistnevnte er ansvarlig for eventuelle feil og mangler.
 
 ## Instruksjoner
