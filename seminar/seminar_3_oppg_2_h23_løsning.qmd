@@ -1,0 +1,231 @@
+---
+title: "SOK-1004 H23 Seminar 3 Oppgave 2"
+format:
+  pdf:
+    keep_tex: true
+editor: visual
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE)
+
+
+
+```
+
+## Oppgave 1
+
+La oss prøve å løse ved hjelp av ggplot.
+
+```{r}
+rm(list=ls()) 
+suppressPackageStartupMessages(library(tidyverse))
+```
+
+### a)
+
+Vi lager en akse:
+
+```{r}
+
+
+
+#lag aksen for tegningen
+
+axes_1 <- ggplot() +
+  labs(title="Produsentens tilpasning", 
+       x="Arbeidskraft (L)",
+       y="Kapital (K)")+
+  theme(axis.title = element_text(size = 15),
+        plot.title = element_text(size = 20),
+        panel.background = element_blank(),  # få hvit bakgrunn
+        axis.line = element_line(colour = "black"), # tegne linjer for aksene
+        axis.title.x = element_text(hjust = 1),
+        axis.title.y = element_text(angle = 0, vjust = 1, hjust=1))+ # juster labels på aksene  
+  coord_fixed(ratio = 1)+ # sikre at x og y har samme skala
+  scale_x_continuous(limits = c(0, 22), expand = c(0, 0))+
+  scale_y_continuous(limits = c(0, 22), expand = c(0, 0)) # begrense aksene
+# samt sikre at akselinjene begynner i (0,0)
+
+axes_1
+
+```
+
+Anta at produsenten har Cobb-Douglas teknologi
+
+$$
+Y=5L^\frac{1}{2}K^\frac{1}{2}
+$$
+
+Løs for K slik at vi får
+
+$$
+K=\frac{Y^2}{25L}
+$$
+
+Dette er likningen som beskriver en isokvant (kombinasjoner av L og K som gir lik kvantum). La oss tegne disse for $Y=20,40,60$.
+
+```{r}
+Y_20 <- function(L) (20^2)/(25*L)
+Y_40 <- function(L) (40^2)/(25*L)
+Y_60 <- function(L) (60^2)/(25*L)
+
+figur_1 <- axes_1 + 
+  stat_function(fun=Y_20,
+                mapping = aes()
+  ) +
+  stat_function(fun=Y_40,
+                mapping = aes()
+  ) +
+  stat_function(fun=Y_60,
+                mapping = aes()
+  )+
+  annotate("text",x=20,y=2, label=expression(Y[20]))+
+  annotate("text",x=20,y=4.5, label=expression(Y[40]))+
+  annotate("text",x=20,y=8.5, label=expression(Y[60]))
+
+figur_1
+
+  
+```
+
+### b)
+
+La $Z$ være produksjonskostnad som gis ved
+
+\
+$$Z = wL + rK=2L+K$$ {#eq-prod_kost}
+
+Fra @eq-prod_kost kan vi skrive
+
+$$
+K = Z-2L
+$$ {#eq-isocost}
+
+Dette kan vi bruke for å tegne isokostnadslinjer.
+
+```{r}
+isok_20 <- function(L) 20 -2*L
+isok_15 <- function(L) 15 -2*L
+
+figur_2 <- axes_1 + 
+  stat_function(fun=isok_20,
+                mapping = aes(color="Z=20")
+  ) +
+  stat_function(fun=isok_15,
+                mapping = aes(color="Z=15")
+  ) +
+  scale_color_manual(values = c("Z=15" = "blue", "Z=20"="red")) +
+  guides(color = guide_legend(title = "Kostnad"))  # legend
+  
+
+figur_2
+```
+
+### c)
+
+```{r}
+
+# definer isokostnad i teksten
+
+isok_198 <- function(L) 19.8 -2*L
+isok_226 <- function(L) 22.6 -2*L
+isok_252 <- function(L) 25.2 -2*L
+
+
+figur_c <- axes_1 + 
+  
+  stat_function(fun=Y_40,
+                mapping = aes()
+  ) +
+  stat_function(fun=isok_198,
+                mapping = aes(color="Z=19.8")
+  ) +
+  stat_function(fun=isok_226,
+                mapping = aes(color="Z=22.6")
+  ) +
+  stat_function(fun=isok_252,
+                mapping = aes(color="Z=25.2")
+  ) +
+  scale_color_manual(values = c("Z=19.8" = "blue", "Z=22.6"="red", "Z=25.2"="green")) +
+  guides(color = guide_legend(title = "Kostnad"))+  # legend
+  
+  annotate("text",x=20,y=4.5, label=expression(Y[40]))
+
+figur_c
+
+
+```
+
+Det er ikke mulig å produsere 40 enheter med en kostnad på 19.8 (blå linje). Det er mulig å produsere 40 enheter ved å bruke 25.2 kr. Disse punktene er slik at `isok_252 = Y_40` . La oss bruke mosaic for å finne disse punktene.
+
+```{r}
+library(mosaic)
+
+løs_L <- findZeros(isok_252(L)-Y_40(L)~L, interval=c(0,20))
+
+# dette gir oss 3 løsninger for L, men den første er ikke en løsning
+# kommer fra numerisk beregning sannsynligvis
+
+# vi utelukker det første elementet
+
+# drop=FALSE bevarer strukturen i data for løsningen (ser ut som data frame med 1 kolonne)
+
+løs_L <- løs_L[-1, , drop=FALSE]
+
+# bergener K-verdiene fra isok_252 eller Y_40
+
+verdier_isok_252 <- sapply(løs_L[,1], isok_252)
+
+# lag data frame av verdiene
+plot_data <- data.frame(L = løs_L[, 1], K = verdier_isok_252)
+
+
+figur_c2 <- figur_c + 
+  geom_point(data = plot_data, aes(x = L, y = K), color = 'black')  
+
+
+figur_c2
+
+
+
+
+```
+
+Punktet som minimerer kostnaden er den som er på $Y_{40}$ og den røde isokostnadslinjen. Vi kan beregne dette punktet til $L=5.66, K=11.32$ (hvordan dette gjøres kommer vi tilbake til i SOK-1006 - det er anvendelse av Lagrange metoden).
+
+```{r}
+figur_c3 <- figur_c2 +
+  geom_point(aes(x=5.66, y=11.32), shape = 4)
+
+# shape = 4 er et kryss x
+
+figur_c3
+```
+
+### d)
+
+Dersom r økes blir kapital relativt dyrere, da vil det være naturlig å bytte bort noe av det mot faktor L som er blitt relativt billigere. Nå er den relative prisen på arbeidskraft $\frac{w}{r}=\frac{2}{3}$. Illustrasjon:
+
+```{r}
+isok_ny <- function(L) 39.085/3 -(2/3)*L
+
+figur_d <- axes_1 + 
+  
+  stat_function(fun=Y_40,
+                mapping = aes()
+  ) +
+  stat_function(fun=isok_ny,
+                mapping = aes(color="w=2, r=3")
+  ) +
+  stat_function(fun=isok_226,
+                mapping = aes(color="w=2, r=1")
+  ) +
+  scale_color_manual(values = c("w=2, r=3" = "blue", "w=2, r=1"="red")) +
+  guides(color = guide_legend(title = ""))+  # legend
+  geom_curve(aes(x=5.66, y=11.32, xend=9.72, yend=6.515),
+             arrow = arrow(length = unit(0.25, "cm"))) +
+  annotate("text",x=20,y=4.5, label=expression(Y[40]))
+
+figur_d
+```
