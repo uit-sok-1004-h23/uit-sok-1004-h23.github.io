@@ -1,5 +1,5 @@
 ---
-title: "Case 1"
+title: "SOK-1004 H23 - Case 1 - løsningsforslag"
 author: "Even S. Hvinden"
 format: pdf
 echo: true
