@@ -41,7 +41,7 @@ DG Daniel Groth
 |3. november|C4   | Case 4: FoU i norske bedrifter          | DC | [lenke til case](case.md) |
 |9. november|F9 | Lønn vs. Fritid  | DC | [Ressursside](/ressurssider/F9.md){:target='_blank_'}   | 
 |10. november |F10  | Arbeidsinnsats og inntekt  | DC         | [Ressursside](/ressurssider/F10.md){:target='_blank_'}   |
-|10. november |*utdeling*  | Utdeling av prosjektoppgaven      |        | [Prosjektoppgave kommer her]() |
+|10. november |*utdeling*  | Utdeling av prosjektoppgaven      |        | [Prosjektoppgave](/eksamen/prosjektoppgave.md){:target='_blank_'} |
 |13. november|**Frist**|Arbeidskrav 5 - Case 4|  |Leveres i [Canvas](https://uit.instructure.com/courses/31410/assignments){:target='_blank_'} innen kl 16.00|
 |16. november |C5    | Case 5: Produktivitet |CA | [lenke til case](case.md) |
 |17. november| S4  | Seminar 4: Gjennomgang case 3 og 4 | DG |  |
