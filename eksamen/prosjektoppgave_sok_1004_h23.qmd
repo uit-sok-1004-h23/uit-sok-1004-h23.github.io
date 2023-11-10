@@ -1,0 +1,311 @@
+---
+title: "SOK-1004 Prosjektoppgave H23"
+format:
+  html:
+    code-fold: true
+    self-contained: true
+editor: visual
+---
+
+# 1. Bakgrunn
+
+Denne prosjektoppgaven er et resultat av et samarbeid med Mediahuset iTromsø AS som vi takker for dataene! Vi skal bruke det samme datasettet som for mappeoppgaven. Husk å lese gjennom [beskrivelsen](https://github.com/uit-sok-1004-h23/uit-sok-1004-h23.github.io/blob/main/eksamen/Datasettet%20fra%20i%20Troms%C3%B8.pdf) som følgte med datasettet.
+
+Tromsø kommune har engasjert oss for å skrive en rapport om hvordan inntektsulikheten har utviklet seg i perioden 2016-2020, samt evaluere de økonomiske effektene av tre ulike tiltak som kommunen vurderer å innføre for å forbedre levestandarden til de som har minst.
+
+# 2. Instruksjoner og oppgaver
+
+Prosjektoppgaven kan besvares individuelt eller i grupper på inntil 3. Grupper anbefales å undertegne en [samarbeidsavtale](https://github.com/uit-sok-1004-h23/uit-sok-1004-h22.github.io/blob/main/eksamen/Samarbeidsavtale%20for%20gruppearbeid%20SOK1004.pdf). Det er tillatt å bruke kunstig intelligens som for eksempel ChatGPT til å skrive kode, og til å finpusse din tekst. Det er ikke tillatt å be KI-verktøyet om å skrive din besvarelse. (Besvarelser blir lest inn i en KI sjekker). Dersom du bruker et KI verktøy [**må**]{.underline} du lage et appendiks til din besvarelse som dokumenterer hvor i besvarelsen og hvordan du har brukt det. Her finner du noen tips om hvordan man kan [sitere KI](https://apastyle.apa.org/blog/how-to-cite-chatgpt).
+
+Bruk [Quarto](https://quarto.org/) i RStudio som plattform.
+
+I Wiseflow skal dere levere
+
+1.  en Quarto (qmd) fil som viser din besvarelse inkludert kode, og
+
+2.  en pdf fil som inneholder din besvarelse med tekst og figurer (ikke kode). Bruk følgende YAML kode øverst i Quarto dokumentet
+
+\-\--
+
+title: "SOK-1004, høst 2023, Prosjektoppgave"
+
+author: "\[ditt kandidatnummer\]"
+
+format: pdf
+
+echo: false
+
+output: true
+
+editor: visual
+
+\-\--
+
+*Dere skal skrive en rapport som kan leses av medlemmer i kommunestyret. Disse er folk som er vant til å lese saksdokumenter, og kan følge logiske argumenter, men de fleste er ikke fagøkonomer. Da må faglige begrep, analyse og figurer forklares på en måte som gjør de lett forståelig.*
+
+Rapporten som skal skrives deles inn i følgende kapitler:
+
+## Kapittel 1 - Innledning
+
+Fortell leseren hva du kommer til å se på i rapporten. Sett scenen, fortell litt om hovedkonklusjonen, og fortell om videre struktur i rapporten. (Innledningen skrives gjerne til slutt!).
+
+## Kapittel 2 - Effekter av inntektsulikhet
+
+I dette kapitlet definerer du inntektsulikhet, og forteller leseren hvorfor vi er opptatt av dette. Hva er konsekvensene av inntektsulikhet i et land, og spesielt i en kommune/by?
+
+Mulige kilder (finn gjerne dine egne kilder):
+
+-   [FN-bærekraftsmål 10. Mindre ulikhet](https://www.fn.no/om-fn/fns-baerekraftsmaal/mindre-ulikhet)
+
+-   [Verden og oss, Næringslivets perspektivmelding 2018](https://www.nho.no/siteassets/publikasjoner/naringslivets-perspektivmelding/pdf-er/nho_perspektivmeldingen_hele_web_lowres.pdf), NHO, Kapittel 6 Økende ulikhet
+
+## Kapittel 3 - Utvikling i inntektsulikhet i Tromsø kommune 2016-2020
+
+Her skal du gjennomføre en samfunnsøkonomisk analyse av hvordan inntektsulikhet har utviklet seg i Tromsø kommune i perioden 2016-2020.
+
+Forklar hvilke indikatorer du bruker for å måle inntektsulikhet, og tegn fine figurer som illustrerer utviklingen. Hvordan forklarer du utviklingen som du skisserer? Er det noen forskjeller i ulikhetsmålene mellom forskjellige aldersgrupper, eller ulike geografiske områder? Forklar dine figurer nøye.
+
+Inspirasjon for analysen kan du finne i Kapittel 6 "Fordeling og ulikhet" i [Meld. St. 1 (2023-2024) Nasjonalbudsjettet 2024](https://www.regjeringen.no/contentassets/3aef7f0d3bca43b387fd97b6b5cc6905/no/pdfs/stm202320240001000dddpdfs.pdf). Boks 6.2 gir blant annet en oversikt over vanlige indikatorer som samfunnsøkonomer bruker for å måle ulikhet, og ellers tegnes det flere illustrative figurer.
+
+## Kapittel 4 - Evaluering av tiltak for å hjelpe lavinntektshusholdninger
+
+I dette kapitlet skal vi bruke samfunnsøkonomisk teori for å belyse noen aktuelle problemstillinger knyttet til lavinntekt.
+
+1.  I [Romssa-erklæringen](https://github.com/uit-sok-1004-h23/uit-sok-1004-h23.github.io/blob/main/eksamen/romssa_erklaringen.pdf) for Tromsø kommune 2023-2027 står følgende:
+
+"I Tromsø er det rundt 1.300 barn og over 700 familier som lever i fattigdom. Samarbeidspartienes fokus nummer en er å redusere dette tallet kraftig i neste fireårsperiode. Dyrtiden har rammet de som har minst fra før, matkøene øker og andelen som sliter med å betale regningene sine er sterkt bekymringsfullt."
+
+Kommunen vil vite hvordan kommunale tjenester bidrar til å redusere inntektsulikhet i Tromsø kommune. Her kan du hente inspirasjon fra notatene til [Forelesning 5](https://uit-sok-1004-h23.github.io/forelesninger/SOK-1004%20Forelesning%205%20h23.pdf), samt Kapittel 6 i [Økonomisk ulikhet i Norge i det 21. århundre](https://ssb.brage.unit.no/ssb-xmlui/bitstream/handle/11250/3039587/RAPP2021-33.pdf?sequence=1&isAllowed=y), R. Aaberge, M. Mogstad, O.L. Vestad og A. Vestre, SSB 2021.
+
+2.  Ifølge [Dyrtid under oppseiling](https://oda.oslomet.no/oda-xmlui/bitstream/handle/11250/3011642/SIFO-Rapport%205-2022%20Dyrtid%20under%20oppseiling.pdf?sequence=1&isAllowed=y), C. Poppe og E. Kempson (SIFO Rapport 5-2022) har 78% av husholdninger merket at økte matpriser har gitt dårligere privatøkonomi.
+
+Tromsø kommune ønsker å innføre tiltak for å hjelpe familier med lave inntekter til å takle de økte matprisene. Følgende tiltak vurderes
+
+i.  Økt sosialhjelpsutbetaling (som skissert i Romssa-erklæringen). Dette er en økning i stønaden som husholdningen får og kan disponeres som mottakeren selv vil.
+
+ii. Støtte til matinnkjøp i form av matkuponger. Her gis husholdningen kuponger som kan veksles inn i matvarer i butikken. Kupongene er personlige og kan ikke selges videre.
+
+iii. Støtte til matinnkjøp i form av en rabatt på innkjøpt mat. Husholdningen får et rabattkort som reduserer utgifter til matvarer med en viss prosentsats (inntil et maksimalt beløp). Rabattkortet er ikke omsettelig.
+
+Kommunen ber om en analyse av disse tiltakene. I hvert tilfelle forklar hvordan tiltaket påvirker husholdningens muligheter og deres beslutninger. Her får du bruk for det som dere har lært om konsumentens tilpasning. Her er [en artikkel](https://www.nber.org/system/files/working_papers/w7092/w7092.pdf) som har noen nyttige figurer som kan hjelpe deg med analysen. Hvilke av tiltakene vil føre til størst forbedring for husholdningen? (Pass på at hvert tiltak koster kommunen like mye, slik at du får en rettferdig sammenlikning). Forklar intuisjonen her for evt medlemmer i kommunestyret som ikke liker å tolke figurer på egen hånd.
+
+Jeg har laget en del kode som kan brukes som grunnlag for dine figurer (se avsnitt 5 nedenfor). Tilpass tallene og koden til din egen analyse.
+
+## Kapittel 5 - Konklusjon
+
+Her kan du oppsummere dine funn. Husk at en del lesere kun får med seg innledningen og konklusjonen. Da bør du passe på at konklusjonen oppsummerer stoffet på en god måte.
+
+# 3. Bedømmelse
+
+Denne prosjektoppgaven teller 60% av karakteren for dette kurset.
+
+Formålet med oppgaven er å gi dere trening i å
+
+-   skrive godt og tydelig i form av en rapport
+
+-   anvende data og lage figurer for å kunne beskrive og forklare et fenomen
+
+-   nytte grunnleggende samfunnsøkonomiske begrep og teori
+
+-   analysere en samfunnsøkonomisk problemstilling fra et teoretisk perspektiv.
+
+En god besvarelse svarer konkret på oppgavene, gir tydelige definisjoner av faglige begrep, og forklarer utfyllende innholdet i figurene som dere lager. R-koden bør være godt dokumentert og oversiktlig.
+
+# 4. Tilbakemelding underveis
+
+**Innleveringsfristen i Wiseflow: 08. desember kl 13.00**
+
+Dere vil få anledning til å levere oppgaven til Derek én gang og få tilbakemelding. Utkast sendes per e-post ([derek.clark\@uit.no](mailto:derek.clark@uit.no)) innen torsdag 30. november klokken 09.00. Besvarelser som sendes etter fristen blir ikke kommentert. **NB. Derek er på reise fra og med den 05.12.23**
+
+Lykke til!
+
+# 5. Appendiks
+
+Her har jeg brukt tall som er hentet fra fattigdomskalkulatoren til Kirkens Bymisjon. [Tallene for gjennomsnittlig inntekt under lavinntektsgrensen etter hushodningstype er beregnet av Oslo Economics](https://kirkensbymisjon.no/kalkulatorutregning/). Fra Tabell 1 i dette dokumentet ser man at en gjennomsnittlig månedsinntekt for en enslig person i denne kategorien er kr 14 312, og at ca 38% av dette brukes på utgifter til bolig, lys og brensel (Tabell 2). Da har denne type husholdning kr 8873 å fordele mellom mat og andre goder. Jeg har rundet dette ned til kr 8500. En enslig person i en husholdning bruker i gjennomsnitt kr 1760 på matvarer og alkoholfrie drikkevarer (Tabell 2). I modellen i nedenfor har jeg valgt en nyttefunksjon med parameter ($\alpha,\beta$) som gir dette resultatet for konsum av mat i utgangspunktet.
+
+## Konsumentteori
+
+Analyseenheten er en husholdning med en månedsinntekt på kr 8500 som kan brukes på mat og andre goder; i det videre setter jeg opp generiske goder$(x_1,x_2)$, men tenk på $x_1$ som "mat". Preferansene til husholdningen er gitt ved en nyttefunksjon av Cobb-Douglas type\
+$$U(x_1,x_2)=x_1^\alpha x_2^\beta$$
+
+hvor $\alpha,\beta >0$.
+
+Gitt priser $p_1, p_2>0$ for gode 1 og 2 vil utgiften til innkjøp av gode $i=1,2$ være $p_ix_i$. Summen av utgiftene kan ikke overstige husholdningens inntekt ($y$):
+
+$$ y\geq p_1x_1 + p_2x_2    $$
+
+Vi ser på konsum i én periode, og da har ikke husholdningen noen motiv for å spare, og bruker derfor hele sitt budsjett slik at budsjettbetingelsen blir
+
+$$ y=p_1x_1 + p_2x_2 $$
+
+Husholdningen maksimerer nytten gitt budsjettbetingelsen. Hvordan dette gjøres kommer vi tilbake til i SOK-1006 til våren. Løsningen er et optimalt konsum på\
+$$x_1^*=\frac{\alpha}{p_1(\alpha+\beta)}y, x_2^*=\frac{\beta}{p_2(\alpha+\beta)}y $$
+
+Vi skal anta at begge godene har en pris på kr 1 per enhet i utgangspunktet (dvs $p_1=p_2=1$. Videre antar vi at husholdningens preferanser er slik at $\alpha=0.2, \beta=0.8$. Husk at $y=8500$, slik at vi kan beregne $x_1^*=1700, x_2^*=6800$.
+
+Følgende kode tegner en figur som gir husholdningens optimale tilpasning. For å finne indifferenskurven i figuren bruker vi nyttenivået som husholdningen oppnår i tilpasningen ($1700^.2 6800^.8=5153.44$).
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE)
+```
+
+```{r}
+
+rm(list = ls())
+
+suppressPackageStartupMessages(library(tidyverse))
+
+
+#lag aksen for tegningen
+
+axes_1 <- ggplot()+
+  labs(x=expression(x[1](mat)), y=expression(x[2]))+
+  theme(axis.title = element_text(size = 15),
+        plot.title = element_text(size = 15),
+        panel.background = element_blank(), # hvit bakgrunn
+        axis.line = element_line(colour = "black"), # sett inn akselinjer
+        axis.title.x = element_text(hjust = 1),
+        axis.title.y = element_text(angle = 0, vjust = 1, hjust=1))+ # juster labels på aksene  
+  coord_fixed(ratio = 1)+ # lik skala for x og y aksen
+  scale_x_continuous(limits = c(0, 9000), expand = c(0, 0))+
+  scale_y_continuous(limits = c(0, 9000), expand = c(0, 0)) # begrense aksene
+# og sikre at akselinjene møttes i (0,0).
+
+
+# nyttefunkjsonen som brukes U=x1^.2x2^.8 (Cobb-Douglas)
+
+# vi angir noen indifferenskurver
+
+I_0 <- function(x_1) (5153.44^1.25)/(x_1^.25) # nyttenivå 5153.44
+
+# budsjettet med inntekt 8500
+
+buds_0 <- function(x_1) 8500-x_1
+
+
+
+figur_1 <- axes_1 + labs(title="Utgangspunktet: Optimal tilpasning i A")+
+  stat_function(
+        fun=I_0,
+        mapping = aes()
+        ) +
+  stat_function(
+                fun=buds_0,
+                mapping = aes()
+  )+
+  annotate("text",x=7500,y=4500, label=expression(u[0]))+
+  
+  geom_segment(aes(x=1700, y=0, xend=1700, yend=6800), linetype="dashed")+
+  geom_segment(aes(x=0, y=6800, xend=1700, yend=6800), linetype="dashed")+
+  annotate("text",x=1500,y=6600, label="A")
+  
+
+figur_1
+```
+
+## Endring i budsjett ved tiltakene
+
+Tiltakene som skal analyseres for Tromsø kommune påvirker husholdningens budsjettet på ulike vis.
+
+Budsjettlinjen kan skrives
+
+$$ x_2 = \frac{y}{p_2}-\frac{p_1}{p_2}x_1 $$
+
+Helningen til budsjettlinjen er $-\frac{p_1}{p_2}$ som er den relative prisen på gode 1. Dette viser hvor mange enheter av gode 2 konsumenten må gi opp for å kjøpe en ekstra enhet av gode 1.
+
+Følgende tiltak vurderes
+
+i.  Økt sosialhjelpsutbetaling (som skissert i Romssa-erklæringen).
+
+ii. Støtte til matinnkjøp i form av matkuponger
+
+iii. Støtte til matinnkjøp i form av en rabatt på innkjøpt mat.
+
+Tiltak (i) endrer ikke priser, men øker inntekten, så modelleres ved å øke $y$, og beregne den nye tilpasningen.
+
+Anta at kommunen gir kr 500 til husholdningen som en inntektsøkning. Her er budsjettlinjene:
+
+```{r}
+# p1=1 p2=1, y=8500
+
+# økt inntekt med 500 kr
+
+buds_1 <- function(x_1) 9000-x_1
+
+
+
+
+figur_2 <- axes_1 +
+  labs(title = "Endring i budsjett - tiltak (i)") +
+  stat_function(
+    fun = buds_0,
+    mapping = aes(color = "Opprinnelige budsjett")  # farge for "Opprinnelige budsjett"
+  ) +
+  stat_function(
+    fun = buds_1,
+    mapping = aes(color = "Inntektsøkning med 500kr")  # farge for "Inntektsøkning med 500kr"
+  ) +
+  scale_color_manual(values = c("Opprinnelige budsjett" = "blue", "Inntektsøkning med 500kr" = "red")) +
+  guides(color = guide_legend(title = "Budsjett"))  # legend
+
+figur_2
+
+
+```
+
+Tiltak (ii) endrer heller ikke priser. Dette gir en *øremerket* inntektsøkning til husholdningen. Anta at kommunen gir kr 500 til husholdningen i form av matkuponger (som må brukes på mat og ikke kan videreselges).
+
+```{r}
+buds_2 <- function(x_1) {
+  ifelse(x_1 >= 0 & x_1 <= 500, 8500, 9000 - x_1)}
+
+figur_3 <- axes_1 +
+  labs(title = "Endring i budsjett - tiltak (ii)") +
+  stat_function(
+    fun = buds_0,
+    mapping = aes(color = "Opprinnelige budsjett")  # farge for "Opprinnelige budsjett"
+  ) +
+  stat_function(
+    fun = buds_2,
+    mapping = aes(color = "500kr med matkuponger")  # farge for "500kr med matkuponger"
+  ) +
+  scale_color_manual(values = c("Opprinnelige budsjett" = "blue", "500kr med matkuponger" = "green")) +
+  guides(color = guide_legend(title = "Budsjett"))  # legend
+
+figur_3
+```
+
+Tiltak (iii) endrer prisen på mat. Dersom rabatten er r% vil den effektive prisen på mat bli $(1-\frac{r}{100})p_1$. Med en rabatt på 30% vil budsjettlinjen se slik ut:
+
+```{r}
+buds_3 <- function(x_1) 8500-0.7*x_1
+buds_4 <- function(x_1) 9400-x_1
+
+figur_4 <- axes_1 +
+  labs(title = "Endring i budsjett - tiltak (iii)") +
+  stat_function(
+    fun = buds_0,
+    mapping = aes(color = "Opprinnelige budsjett")  # farge for "Opprinnelige budsjett"
+  ) +
+  stat_function(
+    fun = buds_3,
+    mapping = aes(color = "30% reduksjon i matpris")  # farge for "30% reduksjon i matpris"
+    )+ stat_function(
+    fun = buds_4,
+    mapping = aes(color = "Like utgift for kommunen")  # farge for "Like utgift for kommunen"
+  ) +
+  scale_color_manual(values = c("Opprinnelige budsjett" = "blue", "30% reduksjon i matpris" = "brown", "Like utgift for kommunen" = "red")) +
+  guides(color = guide_legend(title = "Budsjett")
+         ) + # legend 
+  geom_point(x=3000, y=6400)+
+  annotate("text",x=3250,y=6500, label="B")
+
+
+figur_4
+```
+
+For å sammenlikne en prosentvis rabatt på mat med en økning i inntekt kan man for eksempel se på punkt B hvor $x=3000, y=6400$. Kommunen betaler $0.3*3000 = 900 kr$ til husholdningen. Den røde budsjettlinjen er den som husholdningen får med en inntektsøkning på kr 900. Hvilket tiltak som øker velferden til husholdningen mest er avhengig av om den nye tilpasningen blir på den røde linjen nordvest for B, eller på den brune linjen sørøst for B. (Forklar!)
+
+## Tilpasning av figurene
+
+I din analyse kan det være hensiktsmessig å tilpasse figurene slik at det er større rom mellom budsjettlinjene - dette kan gjøres for eksempel ved å endre på hvilken del av aksene dere fokuserer på (ved å starte på (0,0) blir endringene små. Du kan også velge om du vil bruke $x_1,x_2$, eller om du vil gjøre endringer slik at leseren er bedre i stand til å følge analysen.
